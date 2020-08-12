@@ -2,6 +2,7 @@ package edu.neu.csye6200;
 
 import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.manager.DatabaseManager;
+import edu.neu.csye6200.manager.GUIManager;
 import org.apache.commons.cli.*;
 
 import java.nio.file.Paths;
@@ -39,6 +40,8 @@ public class Application {
 			}
 			Log.verbose = cmd.hasOption("verbose");
 			DatabaseManager.getInstance().use(cmd.hasOption("db") ? cmd.getOptionValue("db") : Paths.get("","prod.db").toAbsolutePath().toString());
+
+			GUIManager.getInstance().show();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
