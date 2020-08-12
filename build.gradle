@@ -1,12 +1,20 @@
 plugins {
     id 'java'
     id 'application'
+    id "edu.sc.seis.macAppBundle" version "2.3.0"
+    id 'edu.sc.seis.launch4j' version '2.4.6'
 }
 
 group 'edu.neu.csye6200'
-version '1.0-SNAPSHOT'
+version '0.0.1'
 
 application {
+    mainClassName = "edu.neu.csye6200.Application"
+}
+launch4j {
+    mainClassName = "edu.neu.csye6200.Application"
+}
+macAppBundle {
     mainClassName = "edu.neu.csye6200.Application"
 }
 
@@ -18,19 +26,22 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
     // UI
-    implementation group: 'com.formdev', name: 'flatlaf', version: '0.40'
-    implementation group: 'com.formdev', name: 'flatlaf-swingx', version: '0.40'
-    implementation group: 'org.swinglabs.swingx', name: 'swingx-all', version: '1.6.5-1'
-    implementation group: 'org.jdesktop', name: 'appframework', version: '1.0.3'
+    compile group: 'com.formdev', name: 'flatlaf', version: '0.40'
+    compile group: 'com.formdev', name: 'flatlaf-swingx', version: '0.40'
+    compile group: 'org.swinglabs.swingx', name: 'swingx-all', version: '1.6.5-1'
+    compile group: 'org.jdesktop', name: 'appframework', version: '1.0.3'
 
     // Database
-    implementation 'org.xerial:sqlite-jdbc:3.32.3.2'
+    compile 'org.xerial:sqlite-jdbc:3.32.3.2'
 
     // CLI
     compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
 
     // Logging
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.13.3'
+
 
 }
