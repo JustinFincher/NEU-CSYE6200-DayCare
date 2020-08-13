@@ -24,7 +24,3 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Generat Win Executable
-      run: ./gradlew createExe
-    - name: Generat Mac Executable
-      run: ./gradlew createApp
