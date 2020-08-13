@@ -3,6 +3,7 @@
 > GitHub repo for NEU CSYE6200 'DayCare' group assignment 
 
 ![Java CI with Gradle](https://github.com/JustinFincher/NEU-CSYE6200-DayCare/workflows/Java%20CI%20with%20Gradle/badge.svg)
+![Native Executables](https://github.com/JustinFincher/NEU-CSYE6200-DayCare/workflows/Native%20Executables/badge.svg)
 ![[DayCare on Notion](https://www.notion.so/haotianzheng/Day-Care-Project-2dd785efa2bd46fb86c105c362ae5d76)](https://img.shields.io/badge/DayCare-on%20Notion-brightgreen)
 
 ## TOC
@@ -19,6 +20,7 @@
 ## Requirements
 - NetBeans 12.0 (or IDEA 2020.2)
 - JDK 8 with `JAVA_HOME` pointing to it
+- A database viewer like [SQLite Browser](https://sqlitebrowser.org/dl/) (optional)
 
 ## Editing Guide
 

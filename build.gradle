@@ -43,5 +43,7 @@ dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
     compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.13.3'
 
+    // Code Analysis
+    compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
 
 }
