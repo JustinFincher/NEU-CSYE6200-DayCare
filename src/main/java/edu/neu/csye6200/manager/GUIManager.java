@@ -1,6 +1,7 @@
 package edu.neu.csye6200.manager;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import edu.neu.csye6200.controller.ApplicationFormController;
 import edu.neu.csye6200.view.ApplicationForm;
 import javax.swing.*;
 
@@ -16,8 +17,8 @@ public enum GUIManager {
 		FlatIntelliJLaf.install();
 	}
 
-	public void show()
+	public void start()
 	{
-		new ApplicationForm().setVisible(true);
+		new ApplicationFormController();
 	}
 }

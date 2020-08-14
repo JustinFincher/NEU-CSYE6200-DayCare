@@ -39,8 +39,8 @@ public class Application {
 				return;
 			}
 			Log.verbose = cmd.hasOption("verbose");
-			DatabaseManager.getInstance().use(cmd.hasOption("db") ? cmd.getOptionValue("db") : Paths.get("","prod.db").toAbsolutePath().toString());
-			GUIManager.getInstance().show();
+			DatabaseManager.getInstance().use(cmd.hasOption("db") ? cmd.getOptionValue("db") : Paths.get("","prod.sqlite3").toAbsolutePath().toString());
+			GUIManager.getInstance().start();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

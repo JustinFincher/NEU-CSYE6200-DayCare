@@ -5,9 +5,12 @@
  */
 package edu.neu.csye6200.view;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.Box;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -15,20 +18,21 @@ import javax.swing.Action;
  */
 public class ApplicationForm extends javax.swing.JFrame {
 
+    public TaskAction dashboardAction = new TaskAction("Glance", new ImageIcon(getClass().getResource("/icons/report-24.png")));
+    public TaskAction manageTeacherAction = new TaskAction("Teachers", new ImageIcon(getClass().getResource("/icons/teacher-24.png")));
+    public TaskAction manageStudentAction = new TaskAction("Students", new ImageIcon(getClass().getResource("/icons/baby-24.png")));
+    public TaskAction manageParentAction = new TaskAction("Parents", new ImageIcon(getClass().getResource("/icons/parent-24.png")));
     /**
      * Creates new form ApplicationForm
      */
     public ApplicationForm() {
         initComponents();
-        systemAdminTaskPane.add(new AbstractAction() {
-            {
-                putValue(Action.NAME,"Add Admin");
-            }
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
+        dashboardTaskPane.add(dashboardAction);
+        staffManageTaskPane.add(manageTeacherAction);
+        staffManageTaskPane.add(manageStudentAction);
+        staffManageTaskPane.add(manageParentAction);
+        
+        menuBar.add(Box.createHorizontalGlue(), menuBar.getComponents().length - 1);
     }
 
     /**
@@ -40,12 +44,16 @@ public class ApplicationForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jXTaskPaneContainer1 = new org.jdesktop.swingx.JXTaskPaneContainer();
+        splitPanel = new javax.swing.JSplitPane();
+        splitViewMenuScrollPanel = new javax.swing.JScrollPane();
+        splitViewMenuTaskPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
+        dashboardTaskPane = new org.jdesktop.swingx.JXTaskPane();
         systemAdminTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        jXTaskPane2 = new org.jdesktop.swingx.JXTaskPane();
-        jPanel1 = new javax.swing.JPanel();
+        staffManageTaskPane = new org.jdesktop.swingx.JXTaskPane();
+        facilityManageTaskPane = new org.jdesktop.swingx.JXTaskPane();
+        splitViewContentPanel = new javax.swing.JPanel();
+        placeholderLabel = new javax.swing.JLabel();
+        toolBar = new javax.swing.JToolBar();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -60,35 +68,51 @@ public class ApplicationForm extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         contentsMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
+        loginMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jSplitPane1.setDividerLocation(200);
-        jSplitPane1.setDividerSize(10);
-        jSplitPane1.setName(""); // NOI18N
+        splitPanel.setDividerLocation(230);
+        splitPanel.setDividerSize(10);
+        splitPanel.setName(""); // NOI18N
 
-        jXTaskPaneContainer1.setToolTipText("");
+        splitViewMenuTaskPaneContainer.setToolTipText("");
+        org.jdesktop.swingx.VerticalLayout verticalLayout1 = new org.jdesktop.swingx.VerticalLayout();
+        verticalLayout1.setGap(14);
+        splitViewMenuTaskPaneContainer.setLayout(verticalLayout1);
 
+        dashboardTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/chart-24.png"))); // NOI18N
+        dashboardTaskPane.setTitle("Dashboard");
+        splitViewMenuTaskPaneContainer.add(dashboardTaskPane);
+
+        systemAdminTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/identity-24.png"))); // NOI18N
         systemAdminTaskPane.setTitle("System Admin");
-        jXTaskPaneContainer1.add(systemAdminTaskPane);
-        jXTaskPaneContainer1.add(jXTaskPane2);
+        splitViewMenuTaskPaneContainer.add(systemAdminTaskPane);
 
-        jScrollPane1.setViewportView(jXTaskPaneContainer1);
+        staffManageTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/group-24.png"))); // NOI18N
+        staffManageTaskPane.setTitle("Staff Management");
+        splitViewMenuTaskPaneContainer.add(staffManageTaskPane);
 
-        jSplitPane1.setLeftComponent(jScrollPane1);
+        facilityManageTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/location-24.png"))); // NOI18N
+        facilityManageTaskPane.setTitle("Facility Management");
+        splitViewMenuTaskPaneContainer.add(facilityManageTaskPane);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
-        );
+        splitViewMenuScrollPanel.setViewportView(splitViewMenuTaskPaneContainer);
 
-        jSplitPane1.setRightComponent(jPanel1);
+        splitPanel.setLeftComponent(splitViewMenuScrollPanel);
+
+        splitViewContentPanel.setLayout(new java.awt.BorderLayout());
+
+        placeholderLabel.setForeground(new java.awt.Color(102, 102, 102));
+        placeholderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        placeholderLabel.setText("Select a panel from the left");
+        placeholderLabel.setAlignmentX(0.5F);
+        splitViewContentPanel.add(placeholderLabel, java.awt.BorderLayout.CENTER);
+
+        splitPanel.setRightComponent(splitViewContentPanel);
+
+        toolBar.setFloatable(false);
+        toolBar.setRollover(true);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -151,17 +175,26 @@ public class ApplicationForm extends javax.swing.JFrame {
 
         menuBar.add(helpMenu);
 
+        loginMenu.setMnemonic('h');
+        loginMenu.setText("Current Login");
+        loginMenu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        menuBar.add(loginMenu);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(splitPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+            .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(splitPanel)
+                .addGap(1, 1, 1)
+                .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -211,22 +244,27 @@ public class ApplicationForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
+    public org.jdesktop.swingx.JXTaskPane dashboardTaskPane;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
+    private org.jdesktop.swingx.JXTaskPane facilityManageTaskPane;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSplitPane jSplitPane1;
-    private org.jdesktop.swingx.JXTaskPane jXTaskPane2;
-    private org.jdesktop.swingx.JXTaskPaneContainer jXTaskPaneContainer1;
+    private javax.swing.JMenu loginMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JLabel placeholderLabel;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JSplitPane splitPanel;
+    public javax.swing.JPanel splitViewContentPanel;
+    public javax.swing.JScrollPane splitViewMenuScrollPanel;
+    private org.jdesktop.swingx.JXTaskPaneContainer splitViewMenuTaskPaneContainer;
+    private org.jdesktop.swingx.JXTaskPane staffManageTaskPane;
     public org.jdesktop.swingx.JXTaskPane systemAdminTaskPane;
+    private javax.swing.JToolBar toolBar;
     // End of variables declaration//GEN-END:variables
 
 }

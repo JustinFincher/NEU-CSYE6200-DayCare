@@ -32,7 +32,13 @@ dependencies {
     compile group: 'org.jdesktop', name: 'appframework', version: '1.0.3'
 
     // Database
+    compile group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.14.1'
+    compile group: 'org.jdbi', name: 'jdbi3-core', version: '3.14.1'
+    compile group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.14.1'
     compile 'org.xerial:sqlite-jdbc:3.32.3.2'
+
+    // Helper
+    compile("com.google.guava:guava:29.0-jre")
 
     // CLI
     compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
