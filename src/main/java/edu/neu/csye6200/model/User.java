@@ -13,9 +13,14 @@ public class User extends Person
     public Integer getUserLevel() {
         return userLevel;
     }
-
     public void setUserLevel(Integer userLevel) {
         this.userLevel = userLevel;
     }
     private Integer userLevel;
+
+    public String getEmailAddress() { return emailAddress; }
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+    private String emailAddress;
 }

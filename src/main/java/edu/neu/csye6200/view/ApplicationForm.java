@@ -53,7 +53,8 @@ public class ApplicationForm extends javax.swing.JFrame {
         facilityManageTaskPane = new org.jdesktop.swingx.JXTaskPane();
         splitViewContentPanel = new javax.swing.JPanel();
         placeholderLabel = new javax.swing.JLabel();
-        toolBar = new javax.swing.JToolBar();
+        jXStatusBar1 = new org.jdesktop.swingx.JXStatusBar();
+        jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -71,10 +72,13 @@ public class ApplicationForm extends javax.swing.JFrame {
         loginMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
 
         splitPanel.setDividerLocation(230);
         splitPanel.setDividerSize(10);
         splitPanel.setName(""); // NOI18N
+
+        splitViewMenuScrollPanel.setMinimumSize(new java.awt.Dimension(200, 23));
 
         splitViewMenuTaskPaneContainer.setToolTipText("");
         org.jdesktop.swingx.VerticalLayout verticalLayout1 = new org.jdesktop.swingx.VerticalLayout();
@@ -111,8 +115,8 @@ public class ApplicationForm extends javax.swing.JFrame {
 
         splitPanel.setRightComponent(splitViewContentPanel);
 
-        toolBar.setFloatable(false);
-        toolBar.setRollover(true);
+        jLabel1.setText("Status");
+        jXStatusBar1.add(jLabel1);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -186,15 +190,19 @@ public class ApplicationForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
-            .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(splitPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jXStatusBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(splitPanel)
-                .addGap(1, 1, 1)
-                .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(splitPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addGap(2, 2, 2)
+                .addComponent(jXStatusBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -251,6 +259,8 @@ public class ApplicationForm extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXTaskPane facilityManageTaskPane;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JLabel jLabel1;
+    private org.jdesktop.swingx.JXStatusBar jXStatusBar1;
     private javax.swing.JMenu loginMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
@@ -264,7 +274,6 @@ public class ApplicationForm extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXTaskPaneContainer splitViewMenuTaskPaneContainer;
     private org.jdesktop.swingx.JXTaskPane staffManageTaskPane;
     public org.jdesktop.swingx.JXTaskPane systemAdminTaskPane;
-    private javax.swing.JToolBar toolBar;
     // End of variables declaration//GEN-END:variables
 
 }

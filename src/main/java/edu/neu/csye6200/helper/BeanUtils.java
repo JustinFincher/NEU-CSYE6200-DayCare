@@ -1,15 +1,17 @@
 package edu.neu.csye6200.helper;
 
-import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
+import java.beans.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BeanUtils
 {
+    public static List<String> getBeanPropertyNames(Class<?> cls)
+    {
+        return getBeanProperties(cls).stream().map(FeatureDescriptor::getName).collect(Collectors.toList());
+    }
+
     public static List<PropertyDescriptor> getBeanProperties(Class<?> cls)
     {
         BeanInfo info = null;

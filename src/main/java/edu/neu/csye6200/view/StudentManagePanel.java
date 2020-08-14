@@ -5,17 +5,104 @@
  */
 package edu.neu.csye6200.view;
 
+import edu.neu.csye6200.helper.BeanUtils;
+import edu.neu.csye6200.helper.Log;
+import edu.neu.csye6200.helper.SQLUtils;
+import edu.neu.csye6200.manager.DatabaseManager;
+import edu.neu.csye6200.model.Student;
+import edu.neu.csye6200.model.StudentDao;
+
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author fincher
  */
 public class StudentManagePanel extends javax.swing.JPanel {
 
+    private DefaultTableModel tableModel;
     /**
      * Creates new form StudentManagePanel
      */
     public StudentManagePanel() {
         initComponents();
+        table.setAutoCreateColumnsFromModel(true);
+        refreshTable();
+    }
+
+
+    private List<Student> studentList = new ArrayList<>();
+    private List<PropertyDescriptor> columns = new ArrayList<>();
+    public void refreshTable()
+    {
+        try
+        {
+            tableModel = new DefaultTableModel() {
+                {
+                    columns = BeanUtils.getBeanProperties(Student.class);
+                    studentList = DatabaseManager.getDB().onDemand(StudentDao.class).list(SQLUtils.getTableName(Student.class));
+                }
+
+                @Override
+                public int getRowCount() {
+                    return studentList.size();
+                }
+
+                @Override
+                public int getColumnCount() {
+                    return columns.size();
+                }
+
+                @Override
+                public String getColumnName(int columnIndex) {
+                    return columns.get(columnIndex).getName();
+                }
+
+                @Override
+                public Class<?> getColumnClass(int columnIndex) {
+                    return columns.get(columnIndex).getPropertyType();
+                }
+
+                @Override
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return false;
+                }
+
+                @Override
+                public Object getValueAt(int rowIndex, int columnIndex) {
+                    try {
+                        return columns.get(columnIndex).getReadMethod().invoke(studentList.get(rowIndex));
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }
+
+                @Override
+                public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+
+                }
+
+                @Override
+                public void addTableModelListener(TableModelListener l) {
+
+                }
+
+                @Override
+                public void removeTableModelListener(TableModelListener l) {
+
+                }
+            };
+            table.setModel(tableModel);
+        } catch (Exception throwable) {
+            Log.e(throwable.getMessage());
+            throwable.printStackTrace();
+        }
     }
 
     /**
@@ -27,10 +114,66 @@ public class StudentManagePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jXSearchPanel1 = new org.jdesktop.swingx.JXSearchPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jXTable1 = new org.jdesktop.swingx.JXTable();
+        table = new org.jdesktop.swingx.JXTable();
+        jLabel1 = new javax.swing.JLabel();
 
-        jXTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel1.setPreferredSize(new java.awt.Dimension(100, 38));
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEADING);
+        flowLayout1.setAlignOnBaseline(true);
+        jPanel1.setLayout(flowLayout1);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh-24.png"))); // NOI18N
+        jButton4.setText("Refresh");
+        jButton4.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-24.png"))); // NOI18N
+        jButton2.setText("Add");
+        jButton2.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/import-24.png"))); // NOI18N
+        jButton1.setText("Import");
+        jButton1.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/down-24.png"))); // NOI18N
+        jButton3.setText("Export");
+        jButton3.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3);
+
+        jXSearchPanel1.setMinimumSize(new java.awt.Dimension(485, 37));
+        jXSearchPanel1.setName(""); // NOI18N
+        jPanel1.add(jXSearchPanel1);
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -41,23 +184,62 @@ public class StudentManagePanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jXTable1);
+        jScrollPane1.setViewportView(table);
+
+        jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+13));
+        jLabel1.setText("Student");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private org.jdesktop.swingx.JXTable jXTable1;
+    private org.jdesktop.swingx.JXSearchPanel jXSearchPanel1;
+    public org.jdesktop.swingx.JXTable table;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,3 +32,10 @@ For NetBeans users:
     - In `Tools/Palette/Swing AWT Components`, choose "Add from JAR..."
     - Select the `swing.jar` you just downloaded, and select all beans to import.
     - Now swingx components are visible on your GUI Designer palette.
+
+## CI
+
+```
+// Mac users only
+sudo xattr -rd com.apple.quarantine DayCare.app
+```

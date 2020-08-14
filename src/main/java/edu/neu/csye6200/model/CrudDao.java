@@ -21,7 +21,7 @@ public interface CrudDao<T>
     @SqlQuery("SELECT * FROM <tableName> where id = ?")
     Optional<T> findById(@Define("tableName") String tableName, Integer id);
 
-    @SqlScript("SELECT * FROM <tableName>")
+    @SqlQuery("SELECT * FROM <tableName>")
     List<T> list(@Define("tableName") String tableName);
 
     @SqlScript("UPDATE <tableName> SET <keyValuePairs> where id = <id>")

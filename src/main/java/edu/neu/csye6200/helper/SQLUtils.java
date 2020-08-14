@@ -7,6 +7,7 @@ import org.sqlite.core.DB;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
+import java.util.List;
 
 public class SQLUtils
 {

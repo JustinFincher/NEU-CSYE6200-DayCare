@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'edu.neu.csye6200'
-version '0.0.1'
+version '0.0.2'
 
 application {
     mainClassName = "edu.neu.csye6200.Application"
@@ -29,7 +29,7 @@ dependencies {
     compile group: 'com.formdev', name: 'flatlaf', version: '0.40'
     compile group: 'com.formdev', name: 'flatlaf-swingx', version: '0.40'
     compile group: 'org.swinglabs.swingx', name: 'swingx-all', version: '1.6.5-1'
-    compile group: 'org.jdesktop', name: 'appframework', version: '1.0.3'
+
 
     // Database
     compile group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.14.1'
