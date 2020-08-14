@@ -1,11 +1,14 @@
 package edu.neu.csye6200.model;
 
-import edu.neu.csye6200.helper.annotation.DatabaseField;
-import edu.neu.csye6200.helper.annotation.DatabaseTable;
-
-@DatabaseTable(tableName = "Person")
-public class Person
+public class Person extends DBObject
 {
-    @DatabaseField(fieldName = "id", fieldType = DatabaseFieldType.INTEGER)
-    public int id;
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    private String realName;
 }
