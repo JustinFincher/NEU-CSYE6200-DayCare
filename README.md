@@ -22,6 +22,10 @@
 - JDK 8 with `JAVA_HOME` pointing to it
 - A database viewer like [SQLite Browser](https://sqlitebrowser.org/dl/) (optional)
 
+## Conventions
+- Git message: [conventional commits](https://www.conventionalcommits.org/zh-hans/v1.0.0-beta.4/)
+- Working branches: `dev/<your name>`
+
 ## Editing Guide
 
 For NetBeans users:

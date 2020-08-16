@@ -5,19 +5,13 @@
  */
 package edu.neu.csye6200.view;
 
-import edu.neu.csye6200.helper.BeanUtils;
-import edu.neu.csye6200.helper.Log;
-import edu.neu.csye6200.helper.SQLUtils;
-import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.model.Student;
 import edu.neu.csye6200.model.StudentDao;
 
-import javax.swing.event.TableModelListener;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
 import java.beans.PropertyDescriptor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 /**
  *
@@ -25,84 +19,28 @@ import java.util.List;
  */
 public class StudentManagePanel extends javax.swing.JPanel {
 
-    private DefaultTableModel tableModel;
+    private final DatabaseTableModel<Student, StudentDao> tableModel = new DatabaseTableModel<>(Student.class, StudentDao.class);
+    private final JPopupMenu tableRightClickMenu = new JPopupMenu();
     /**
      * Creates new form StudentManagePanel
      */
     public StudentManagePanel() {
         initComponents();
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setAutoCreateColumnsFromModel(true);
+        JMenuItem deleteItem = new JMenuItem("Delete");
+        deleteItem.addActionListener(e -> {
+
+        });
+        tableRightClickMenu.add(deleteItem);
+        table.setComponentPopupMenu(tableRightClickMenu);
         refreshTable();
     }
 
-
-    private List<Student> studentList = new ArrayList<>();
-    private List<PropertyDescriptor> columns = new ArrayList<>();
     public void refreshTable()
     {
-        try
-        {
-            tableModel = new DefaultTableModel() {
-                {
-                    columns = BeanUtils.getBeanProperties(Student.class);
-                    studentList = DatabaseManager.getDB().onDemand(StudentDao.class).list(SQLUtils.getTableName(Student.class));
-                }
-
-                @Override
-                public int getRowCount() {
-                    return studentList.size();
-                }
-
-                @Override
-                public int getColumnCount() {
-                    return columns.size();
-                }
-
-                @Override
-                public String getColumnName(int columnIndex) {
-                    return columns.get(columnIndex).getName();
-                }
-
-                @Override
-                public Class<?> getColumnClass(int columnIndex) {
-                    return columns.get(columnIndex).getPropertyType();
-                }
-
-                @Override
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return false;
-                }
-
-                @Override
-                public Object getValueAt(int rowIndex, int columnIndex) {
-                    try {
-                        return columns.get(columnIndex).getReadMethod().invoke(studentList.get(rowIndex));
-                    } catch (IllegalAccessException | InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                    return null;
-                }
-
-                @Override
-                public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-
-                }
-
-                @Override
-                public void addTableModelListener(TableModelListener l) {
-
-                }
-
-                @Override
-                public void removeTableModelListener(TableModelListener l) {
-
-                }
-            };
-            table.setModel(tableModel);
-        } catch (Exception throwable) {
-            Log.e(throwable.getMessage());
-            throwable.printStackTrace();
-        }
+        tableModel.refresh();
+        table.setModel(tableModel);
     }
 
     /**
@@ -115,10 +53,10 @@ public class StudentManagePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        refreshTableButton = new javax.swing.JButton();
+        addStudentButton = new javax.swing.JButton();
+        importTableButton = new javax.swing.JButton();
+        exportTableButton = new javax.swing.JButton();
         jXSearchPanel1 = new org.jdesktop.swingx.JXSearchPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new org.jdesktop.swingx.JXTable();
@@ -129,45 +67,45 @@ public class StudentManagePanel extends javax.swing.JPanel {
         flowLayout1.setAlignOnBaseline(true);
         jPanel1.setLayout(flowLayout1);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh-24.png"))); // NOI18N
-        jButton4.setText("Refresh");
-        jButton4.setMargin(new java.awt.Insets(0, 2, 0, 8));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        refreshTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh-24.png"))); // NOI18N
+        refreshTableButton.setText("Refresh");
+        refreshTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        refreshTableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                refreshTableButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4);
+        jPanel1.add(refreshTableButton);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-24.png"))); // NOI18N
-        jButton2.setText("Add");
-        jButton2.setMargin(new java.awt.Insets(0, 2, 0, 8));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        addStudentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-24.png"))); // NOI18N
+        addStudentButton.setText("Add");
+        addStudentButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        addStudentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                addStudentButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
+        jPanel1.add(addStudentButton);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/import-24.png"))); // NOI18N
-        jButton1.setText("Import");
-        jButton1.setMargin(new java.awt.Insets(0, 2, 0, 8));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        importTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/import-24.png"))); // NOI18N
+        importTableButton.setText("Import");
+        importTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        importTableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                importTableButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        jPanel1.add(importTableButton);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/down-24.png"))); // NOI18N
-        jButton3.setText("Export");
-        jButton3.setMargin(new java.awt.Insets(0, 2, 0, 8));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        exportTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/down-24.png"))); // NOI18N
+        exportTableButton.setText("Export");
+        exportTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        exportTableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                exportTableButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3);
+        jPanel1.add(exportTableButton);
 
         jXSearchPanel1.setMinimumSize(new java.awt.Dimension(485, 37));
         jXSearchPanel1.setName(""); // NOI18N
@@ -214,32 +152,32 @@ public class StudentManagePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void importTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importTableButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_importTableButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void addStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudentButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_addStudentButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void exportTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTableButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_exportTableButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void refreshTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTableButtonActionPerformed
+        refreshTable();
+    }//GEN-LAST:event_refreshTableButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton addStudentButton;
+    private javax.swing.JButton exportTableButton;
+    private javax.swing.JButton importTableButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXSearchPanel jXSearchPanel1;
+    private javax.swing.JButton refreshTableButton;
     public org.jdesktop.swingx.JXTable table;
     // End of variables declaration//GEN-END:variables
 }
