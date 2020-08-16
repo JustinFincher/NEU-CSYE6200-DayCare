@@ -7,6 +7,10 @@ import org.jdbi.v3.sqlobject.statement.SqlScript;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * CRUD DAO, a base class for all
+ * @param <T>
+ */
 public interface CrudDao<T>
 {
     @SqlScript("CREATE TABLE IF NOT EXISTS <tableName> (<sql>)")

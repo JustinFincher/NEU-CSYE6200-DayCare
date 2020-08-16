@@ -19,7 +19,11 @@ macAppBundle {
     mainClassName = "edu.neu.csye6200.Application"
     icon = "${projectDir}/src/main/resources/icons/app-icon.icns"
 }
-
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+    destinationDir = new File("${projectDir}/docs")
+}
 repositories {
     mavenCentral()
     flatDir {

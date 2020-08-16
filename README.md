@@ -10,11 +10,11 @@
 
 
 ## Team members
-- Haotian Zheng (@JustinFincher)
+- Haotian Zheng ([@JustinFincher](https://github.com/JustinFincher))
 - Jingru Xiang
-- Rongqi Sun
-- Dawei Gu (@dwg31)
-- Cheng Qian (@Aiden-Qian)
+- Rongqi Sun ([@Svelar](https://github.com/Svelar))
+- Dawei Gu ([@dwg31](https://github.com/dwg31))
+- Cheng Qian ([@Aiden-Qian](https://github.com/Aiden-Qian))
 - Lan Gao
 
 ## Requirements
