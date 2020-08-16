@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'edu.neu.csye6200'
-version '0.0.3'
+version '0.0.4'
 
 application {
     mainClassName = "edu.neu.csye6200.Application"
