@@ -36,7 +36,6 @@ public class ApplicationFormController
             form.splitViewContentPanel.repaint();
         });
 
-//        List<Teacher> teachers = DatabaseManager.getDB().withExtension(TeacherDao.class, TeacherDao::listTeachers);
         DatabaseManager.getDB()
                 .onDemand(StudentDao.class)
                 .createTable(SQLUtils.getTableName(Student.class), SQLUtils.getProperties(Student.class));

@@ -6,6 +6,7 @@ import org.sqlite.core.DB;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,6 +33,38 @@ public class SQLUtils
         return sb.toString();
     }
 
+    public static <T extends DBObject> String getKeysAndValues(T obj, boolean includeId)
+    {
+        StringBuilder keys = new StringBuilder();
+        StringBuilder values = new StringBuilder();
+        Iterator<PropertyDescriptor> iterator = BeanUtils.getBeanProperties(obj.getClass()).iterator();
+        keys.append("(");
+        values.append("VALUES(");
+        while (iterator.hasNext()) {
+            PropertyDescriptor propertyDescriptor = iterator.next();
+            String name = propertyDescriptor.getName();
+            String dbKey = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
+            Object o = null;
+            try {
+                o = propertyDescriptor.getReadMethod().invoke(obj);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+            if (!dbKey.equals("id") || includeId)
+            {
+                keys.append(dbKey);
+                values.append(o);
+                if (iterator.hasNext()) {
+                    keys.append(", ");
+                    values.append(", ");
+                }
+            }
+        }
+        keys.append(")");
+        values.append(")");
+        return keys.append(" ").append(values).toString();
+    }
+
     public static <T extends DBObject> String getKeyValuePairs(T obj, boolean includeId)
     {
         StringBuilder sb = new StringBuilder();
@@ -56,6 +89,17 @@ public class SQLUtils
                 }
             }
         }
+        return sb.toString();
+    }
+
+    public static String getKeyValuePair(PropertyDescriptor propertyDescriptor, Object newValue)
+    {
+        StringBuilder sb = new StringBuilder();
+        String name = propertyDescriptor.getName();
+        String dbKey = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
+        sb.append(dbKey);
+        sb.append(" = ");
+        sb.append('\'').append(newValue).append('\'');
         return sb.toString();
     }
 

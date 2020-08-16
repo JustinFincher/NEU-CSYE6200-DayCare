@@ -5,6 +5,7 @@ import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.manager.GUIManager;
 import org.apache.commons.cli.*;
 
+import javax.swing.*;
 import java.nio.file.Paths;
 
 public class Application {
@@ -24,10 +25,6 @@ public class Application {
 	 */
 	public static void main(String[] args)
 	{
-		System.setProperty("apple.laf.useScreenMenuBar", "true");
-		System.setProperty("apple.awt.textantialiasing", "true");
-		System.setProperty("com.apple.mrj.application.apple.menu.about.name", name);
-
 		Options options = new Options();
 		options.addOption(Option.builder("db").argName( "pathFile" ).hasArg().desc("The alternative path of the db file").build());
 		options.addOption(Option.builder("verbose").desc("Enable extensive logging").build());

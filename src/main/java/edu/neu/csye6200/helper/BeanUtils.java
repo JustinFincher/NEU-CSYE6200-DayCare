@@ -3,13 +3,14 @@ package edu.neu.csye6200.helper;
 import java.beans.*;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 import java.util.stream.Collectors;
 
 public class BeanUtils
 {
     public static List<String> getBeanPropertyNames(Class<?> cls)
     {
-        return getBeanProperties(cls).stream().map(FeatureDescriptor::getName).collect(Collectors.toList());
+        return getBeanProperties(cls).stream().map(FeatureDescriptor::getName).collect(Collectors.toCollection(Vector::new));
     }
 
     public static List<PropertyDescriptor> getBeanProperties(Class<?> cls)
@@ -19,11 +20,12 @@ public class BeanUtils
         try {
             info = Introspector.getBeanInfo(cls);
             pds = info.getPropertyDescriptors();
+            return Arrays.stream(pds).filter(d -> !d.getName().equals("class")).collect(Collectors.toCollection(Vector::new));
         } catch (IntrospectionException e) {
             Log.e(e.toString());
             e.printStackTrace();
         }
-        return Arrays.stream(pds).filter(d -> !d.getName().equals("class")).collect(Collectors.toList());
+        return new Vector<>();
     }
 
     public static void printBeanProperties(Class<?> cls)
