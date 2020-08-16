@@ -19,6 +19,7 @@ public enum GUIManager {
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
 			System.setProperty("apple.awt.textantialiasing", "true");
 		}
+
 		FlatIntelliJLaf.install();
 	}
 

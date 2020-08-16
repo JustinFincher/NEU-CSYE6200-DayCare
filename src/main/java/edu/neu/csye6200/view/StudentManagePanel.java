@@ -5,13 +5,18 @@
  */
 package edu.neu.csye6200.view;
 
+import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.model.Student;
 import edu.neu.csye6200.model.StudentDao;
 
 import javax.swing.*;
-import java.beans.PropertyDescriptor;
-import java.util.List;
-import java.util.Vector;
+import javax.swing.event.PopupMenuEvent;
+import javax.swing.event.PopupMenuListener;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Arrays;
+import java.util.function.Consumer;
 
 /**
  *
@@ -30,16 +35,42 @@ public class StudentManagePanel extends javax.swing.JPanel {
         table.setAutoCreateColumnsFromModel(true);
         JMenuItem deleteItem = new JMenuItem("Delete");
         deleteItem.addActionListener(e -> {
-
+            tableModel.delete(table.getSelectedRows());
+            tableModel.refresh();
         });
-        tableRightClickMenu.add(deleteItem);
-        table.setComponentPopupMenu(tableRightClickMenu);
-        table.setModel(tableModel);
-        refreshTable();
-    }
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                maybeShowPopup(e);
+            }
 
-    public void refreshTable()
-    {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+                maybeShowPopup(e);
+            }
+
+            private void maybeShowPopup(MouseEvent e) {
+                if (e.isPopupTrigger() && table == e.getSource()) {
+                    int row = table.rowAtPoint( e.getPoint() );
+                    int column = table.columnAtPoint( e.getPoint() );
+                    tableRightClickMenu.removeAll();
+                    if (row >= 0 && row < table.getRowCount())
+                    {
+                        tableRightClickMenu.add(deleteItem);
+                        if (!table.isRowSelected(row))
+                        {
+                            table.changeSelection(row, column, false, false);
+                        }
+                    }else {
+                        table.clearSelection();
+                    }
+                    tableRightClickMenu.show(e.getComponent(), e.getX(), e.getY());
+                }
+            }
+        });
+        table.setModel(tableModel);
         tableModel.refresh();
     }
 
@@ -157,7 +188,7 @@ public class StudentManagePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_importTableButtonActionPerformed
 
     private void addStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudentButtonActionPerformed
-        // TODO add your handling code here:
+        tableModel.addEmpty();
     }//GEN-LAST:event_addStudentButtonActionPerformed
 
     private void exportTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTableButtonActionPerformed
@@ -165,7 +196,7 @@ public class StudentManagePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_exportTableButtonActionPerformed
 
     private void refreshTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTableButtonActionPerformed
-        refreshTable();
+        tableModel.refresh();
     }//GEN-LAST:event_refreshTableButtonActionPerformed
 
 

@@ -9,7 +9,9 @@ import edu.neu.csye6200.model.DBObject;
 import javax.swing.table.DefaultTableModel;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
 
 public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODEL>> extends DefaultTableModel
@@ -30,6 +32,29 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
         columns = BeanUtils.getBeanProperties(modelClass);
         objectList = DatabaseManager.getDB().onDemand(daoClass).list(SQLUtils.getTableName(modelClass));
         fireTableStructureChanged();
+    }
+
+    public void addEmpty()
+    {
+        try {
+            MODEL model = modelClass.newInstance();
+            DatabaseManager.getDB().onDemand(daoClass).insert(SQLUtils.getTableName(modelClass), SQLUtils.getKeysAndValues(model, false));
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        refresh();
+    }
+
+    public void delete(int... rows)
+    {
+        Arrays.stream(rows).mapToObj(i -> objectList.get(i)).filter(Objects::nonNull).map(DBObject::getId).forEach(integer -> {
+            DatabaseManager.getDB().onDemand(daoClass).deleteById(SQLUtils.getTableName(modelClass), integer);
+        });
+    }
+
+    public MODEL getRowAt(int row)
+    {
+        return objectList.get(row);
     }
 
     @Override
@@ -54,7 +79,7 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return false;
+        return columns != null && !columns.get(columnIndex).getName().equals("id"); // cannot change id easily
     }
 
     @Override
@@ -72,6 +97,9 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-
+        MODEL model = objectList.get(rowIndex);
+        PropertyDescriptor propertyDescriptor = columns.get(columnIndex);
+        DatabaseManager.getDB().onDemand(daoClass).update(SQLUtils.getTableName(modelClass), SQLUtils.getKeyValuePair(propertyDescriptor, aValue), model.getId());
+        refresh();
     }
 }
