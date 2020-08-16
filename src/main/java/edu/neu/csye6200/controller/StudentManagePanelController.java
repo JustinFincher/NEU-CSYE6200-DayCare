@@ -28,9 +28,7 @@ public class StudentManagePanelController
         panel = new StudentManagePanel();
         JMenuItem deleteItem = new JMenuItem("Delete");
         deleteItem.addActionListener(e -> {
-            tableModel.delete(
-                    Arrays.stream(panel.table.getSelectedRows()).map(i -> panel.table.convertRowIndexToModel(i)).toArray()
-            );
+            tableModel.delete(panel.table, panel.table.getSelectedRows());
         });
         panel.table.addMouseListener(new MouseAdapter() {
             @Override

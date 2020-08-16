@@ -12,7 +12,7 @@ import java.util.Optional;
  * CRUD DAO, a generic DAO class for all {@link DBObject DBObject} subclass <br>
  * How to use:<br>
  * <pre>
- * {@code
+ * {@literal
  * // Let's say you have a subclass of CrudDao called PeopleDao:
  * (remember to add @RegisterBeanMapper(People.class) annotation on your Dao)
  * public interface PeopleDao extends CrudDao<People>

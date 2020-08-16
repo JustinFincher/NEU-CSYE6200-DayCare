@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'edu.neu.csye6200'
-version '0.0.6'
+version '0.0.7'
 
 application {
     mainClassName = "edu.neu.csye6200.Application"
@@ -25,6 +25,8 @@ javadoc {
     destinationDir = new File("${projectDir}/docs")
     options.author(true)
     options.version(true)
+    options.linkSource(true)
+    options.addStringOption('XDignore.symbol.file', '-private')
 }
 repositories {
     mavenCentral()

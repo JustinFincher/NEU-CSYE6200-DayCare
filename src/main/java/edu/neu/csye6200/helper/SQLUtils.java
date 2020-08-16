@@ -122,6 +122,8 @@ public class SQLUtils
         switch (cls.getSimpleName())
         {
             case "Integer":
+            case "LocalDate":
+            case "LocalDateTime":
                 append = "INTEGER"; break;
             case "String":
                 append = "TEXT"; break;
