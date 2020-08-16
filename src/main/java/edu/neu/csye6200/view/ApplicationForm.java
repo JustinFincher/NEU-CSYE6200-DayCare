@@ -27,6 +27,13 @@ public class ApplicationForm extends javax.swing.JFrame {
      */
     public ApplicationForm() {
         initComponents();
+//        Image image = new ImageIcon(getClass().getResource("/icons/app-icon.png")).getImage();
+//        if (System.getProperty("os.name", "").startsWith("Mac OS")) {
+//            com.apple.eawt.Application.getApplication().setDockIconImage(image);
+//        }
+//        else {
+//            setIconImage(image);
+//        }
         dashboardTaskPane.add(dashboardAction);
         staffManageTaskPane.add(manageTeacherAction);
         staffManageTaskPane.add(manageStudentAction);

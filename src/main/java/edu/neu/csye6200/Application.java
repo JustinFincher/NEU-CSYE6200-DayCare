@@ -16,7 +16,7 @@ public class Application {
 	 * Entry Point
 	 *
 	 * Arguments include:
-	 * -db <filePath> : specify an existing db file
+	 * -db filePath : specify an existing db file
 	 * -verbose : enable verbose logging
 	 * -help : print help manual
 	 *
