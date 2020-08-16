@@ -22,4 +22,15 @@ public class Student extends User implements CsvSerializable
     public void loadCsv() {
 
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "userName='" + getUserName() + '\'' +
+                ", userLevel=" + getUserLevel() +
+                ", emailAddress='" + getEmailAddress() + '\'' +
+                ", realName='" + getRealName() + '\'' +
+                ", id=" + getId() +
+                '}';
+    }
 }

@@ -53,6 +53,7 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
         Arrays.stream(rows).mapToObj(i -> objectList.get(i)).filter(Objects::nonNull).map(DBObject::getId).forEach(integer -> {
             DatabaseManager.getDB().onDemand(daoClass).deleteById(SQLUtils.getTableName(modelClass), integer);
         });
+        refresh();
     }
 
     public MODEL getRowAt(int row)
