@@ -5,18 +5,13 @@
  */
 package edu.neu.csye6200.view;
 
-import edu.neu.csye6200.helper.Log;
+import edu.neu.csye6200.model.DatabaseTableModel;
 import edu.neu.csye6200.model.Student;
 import edu.neu.csye6200.model.StudentDao;
 
 import javax.swing.*;
-import javax.swing.event.PopupMenuEvent;
-import javax.swing.event.PopupMenuListener;
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Arrays;
-import java.util.function.Consumer;
 
 /**
  *

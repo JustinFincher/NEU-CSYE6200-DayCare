@@ -1,10 +1,8 @@
-package edu.neu.csye6200.view;
+package edu.neu.csye6200.model;
 
 import edu.neu.csye6200.helper.BeanUtils;
 import edu.neu.csye6200.helper.SQLUtils;
 import edu.neu.csye6200.manager.DatabaseManager;
-import edu.neu.csye6200.model.CrudDao;
-import edu.neu.csye6200.model.DBObject;
 
 import javax.swing.table.DefaultTableModel;
 import java.beans.PropertyDescriptor;
@@ -14,6 +12,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Vector;
 
+/**
+ *
+ * @param <MODEL>
+ * @param <DAO>
+ */
 public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODEL>> extends DefaultTableModel
 {
     private final Class<MODEL> modelClass;
