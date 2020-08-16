@@ -6,23 +6,29 @@ plugins {
 }
 
 group 'edu.neu.csye6200'
-version '0.0.2'
+version '0.0.3'
 
 application {
     mainClassName = "edu.neu.csye6200.Application"
 }
 launch4j {
     mainClassName = "edu.neu.csye6200.Application"
+    icon = "${projectDir}/src/main/resources/icons/app-icon.ico" // from https://www.iconfinder.com/iconsets/book_mac, license 'Free for non commercial use'
 }
 macAppBundle {
     mainClassName = "edu.neu.csye6200.Application"
+    icon = "${projectDir}/src/main/resources/icons/app-icon.icns"
 }
 
 repositories {
     mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
+    // Test
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
     // UI

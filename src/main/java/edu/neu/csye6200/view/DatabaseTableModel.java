@@ -1,13 +1,11 @@
 package edu.neu.csye6200.view;
 
 import edu.neu.csye6200.helper.BeanUtils;
-import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.helper.SQLUtils;
 import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.model.CrudDao;
 import edu.neu.csye6200.model.DBObject;
 
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
@@ -31,6 +29,7 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
     {
         columns = BeanUtils.getBeanProperties(modelClass);
         objectList = DatabaseManager.getDB().onDemand(daoClass).list(SQLUtils.getTableName(modelClass));
+        fireTableStructureChanged();
     }
 
     @Override
@@ -73,16 +72,6 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-
-    }
-
-    @Override
-    public void addTableModelListener(TableModelListener l) {
-
-    }
-
-    @Override
-    public void removeTableModelListener(TableModelListener l) {
 
     }
 }

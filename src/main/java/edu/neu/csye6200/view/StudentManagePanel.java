@@ -34,13 +34,13 @@ public class StudentManagePanel extends javax.swing.JPanel {
         });
         tableRightClickMenu.add(deleteItem);
         table.setComponentPopupMenu(tableRightClickMenu);
+        table.setModel(tableModel);
         refreshTable();
     }
 
     public void refreshTable()
     {
         tableModel.refresh();
-        table.setModel(tableModel);
     }
 
     /**
