@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../edu/neu/csye6200/model/ClassroomGroup.html" title="class in edu.neu.csye6200.model"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" title="interface in edu.neu.csye6200.model"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -103,11 +103,11 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Subinterfaces:</dt>
-<dd><a href="../../../../edu/neu/csye6200/model/ParentDao.html" title="interface in edu.neu.csye6200.model">ParentDao</a>, <a href="../../../../edu/neu/csye6200/model/StudentDao.html" title="interface in edu.neu.csye6200.model">StudentDao</a></dd>
+<dd><a href="../../../../edu/neu/csye6200/model/ParentDao.html" title="interface in edu.neu.csye6200.model">ParentDao</a>, <a href="../../../../edu/neu/csye6200/model/RatioRuleDao.html" title="interface in edu.neu.csye6200.model">RatioRuleDao</a>, <a href="../../../../edu/neu/csye6200/model/StudentDao.html" title="interface in edu.neu.csye6200.model">StudentDao</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public interface <a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.36">CrudDao</a>&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;</pre>
+<pre>public interface <a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.40">CrudDao</a>&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;</pre>
 <div class="block">CRUD DAO, a generic DAO class for all <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model"><code>DBObject</code></a> subclass <br>
  How to use:<br>
  <pre>
@@ -169,7 +169,7 @@ var activeTableTab = "activeTableTab";
         java.lang.Integer&nbsp;id)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#insert-java.lang.String-java.lang.String-">insert</a></span>(java.lang.String&nbsp;tableName,
       java.lang.String&nbsp;keysAndValues)</code>
 <div class="block">Insert an entry into the database</div>
@@ -206,7 +206,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>createTable</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.44">createTable</a>(java.lang.String&nbsp;tableName,
+<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.48">createTable</a>(java.lang.String&nbsp;tableName,
                  java.lang.String&nbsp;sql)</pre>
 <div class="block">Create a table in database if it does not exist</div>
 <dl>
@@ -222,8 +222,8 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>insert</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.52">insert</a>(java.lang.String&nbsp;tableName,
-            java.lang.String&nbsp;keysAndValues)</pre>
+<pre>int&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.57">insert</a>(java.lang.String&nbsp;tableName,
+           java.lang.String&nbsp;keysAndValues)</pre>
 <div class="block">Insert an entry into the database</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -238,7 +238,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>findById</h4>
-<pre>java.util.Optional&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.55">findById</a>(java.lang.String&nbsp;tableName,
+<pre>java.util.Optional&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.60">findById</a>(java.lang.String&nbsp;tableName,
                                java.lang.Integer&nbsp;id)</pre>
 </li>
 </ul>
@@ -248,7 +248,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>list</h4>
-<pre>java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.58">list</a>(java.lang.String&nbsp;tableName)</pre>
+<pre>java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.63">list</a>(java.lang.String&nbsp;tableName)</pre>
 </li>
 </ul>
 <a name="update-java.lang.String-java.lang.String-java.lang.Integer-">
@@ -257,7 +257,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>update</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.61">update</a>(java.lang.String&nbsp;tableName,
+<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.66">update</a>(java.lang.String&nbsp;tableName,
             java.lang.String&nbsp;keyValuePairs,
             java.lang.Integer&nbsp;id)</pre>
 </li>
@@ -268,7 +268,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>deleteById</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.64">deleteById</a>(java.lang.String&nbsp;tableName,
+<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.69">deleteById</a>(java.lang.String&nbsp;tableName,
                 java.lang.Integer&nbsp;id)</pre>
 </li>
 </ul>
@@ -299,7 +299,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../edu/neu/csye6200/model/ClassroomGroup.html" title="class in edu.neu.csye6200.model"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" title="interface in edu.neu.csye6200.model"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
