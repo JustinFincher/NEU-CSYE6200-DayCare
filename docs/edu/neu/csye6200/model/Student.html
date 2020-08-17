@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../edu/neu/csye6200/model/Person.html" title="class in edu.neu.csye6200.model"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../edu/neu/csye6200/model/RatioRuleDao.html" title="interface in edu.neu.csye6200.model"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../edu/neu/csye6200/model/StudentDao.html" title="interface in edu.neu.csye6200.model"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -126,7 +126,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public class <a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.13">Student</a>
+<pre>public class <a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.15">Student</a>
 extends <a href="../../../../edu/neu/csye6200/model/User.html" title="class in edu.neu.csye6200.model">User</a>
 implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" title="interface in edu.neu.csye6200.model">CsvSerializable</a></pre>
 <div class="block">Student Data Model
@@ -146,6 +146,29 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>private java.lang.Integer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#grade">grade</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>private java.time.LocalDateTime</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#walkInTime">walkInTime</a></span></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -176,14 +199,30 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#loadCsv--">loadCsv</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#getGrade--">getGrade</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.time.LocalDateTime</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#getWalkInTime--">getWalkInTime</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#loadCsv-java.lang.String-">loadCsv</a></span>(java.lang.String&nbsp;csvStr)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#saveCsv--">saveCsv</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#setGrade-java.lang.Integer-">setGrade</a></span>(java.lang.Integer&nbsp;grade)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#setWalkInTime-java.time.LocalDateTime-">setWalkInTime</a></span>(java.time.LocalDateTime&nbsp;walkInTime)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Student.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -193,14 +232,14 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;edu.neu.csye6200.model.<a href="../../../../edu/neu/csye6200/model/User.html" title="class in edu.neu.csye6200.model">User</a></h3>
-<code><a href="../../../../edu/neu/csye6200/model/User.html#getBirthDay--">getBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/User.html#getEmailAddress--">getEmailAddress</a>, <a href="../../../../edu/neu/csye6200/model/User.html#getUserLevel--">getUserLevel</a>, <a href="../../../../edu/neu/csye6200/model/User.html#getUserName--">getUserName</a>, <a href="../../../../edu/neu/csye6200/model/User.html#setBirthDay-java.time.LocalDate-">setBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/User.html#setEmailAddress-java.lang.String-">setEmailAddress</a>, <a href="../../../../edu/neu/csye6200/model/User.html#setUserLevel-java.lang.Integer-">setUserLevel</a>, <a href="../../../../edu/neu/csye6200/model/User.html#setUserName-java.lang.String-">setUserName</a></code></li>
+<code><a href="../../../../edu/neu/csye6200/model/User.html#getEmailAddress--">getEmailAddress</a>, <a href="../../../../edu/neu/csye6200/model/User.html#getHashedPassword--">getHashedPassword</a>, <a href="../../../../edu/neu/csye6200/model/User.html#getUserLevel--">getUserLevel</a>, <a href="../../../../edu/neu/csye6200/model/User.html#getUserName--">getUserName</a>, <a href="../../../../edu/neu/csye6200/model/User.html#setEmailAddress-java.lang.String-">setEmailAddress</a>, <a href="../../../../edu/neu/csye6200/model/User.html#setHashedPassword-java.lang.String-">setHashedPassword</a>, <a href="../../../../edu/neu/csye6200/model/User.html#setPassword-java.lang.String-">setPassword</a>, <a href="../../../../edu/neu/csye6200/model/User.html#setUserLevel-java.lang.Integer-">setUserLevel</a>, <a href="../../../../edu/neu/csye6200/model/User.html#setUserName-java.lang.String-">setUserName</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.edu.neu.csye6200.model.Person">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;edu.neu.csye6200.model.<a href="../../../../edu/neu/csye6200/model/Person.html" title="class in edu.neu.csye6200.model">Person</a></h3>
-<code><a href="../../../../edu/neu/csye6200/model/Person.html#getRealName--">getRealName</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setRealName-java.lang.String-">setRealName</a></code></li>
+<code><a href="../../../../edu/neu/csye6200/model/Person.html#getAge--">getAge</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#getBirthDay--">getBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#getRealName--">getRealName</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setBirthDay-java.time.LocalDate-">setBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setRealName-java.lang.String-">setRealName</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.edu.neu.csye6200.model.DBObject">
@@ -224,6 +263,32 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="walkInTime">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>walkInTime</h4>
+<pre>private&nbsp;java.time.LocalDateTime <a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.19">walkInTime</a></pre>
+</li>
+</ul>
+<a name="grade">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>grade</h4>
+<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.23">grade</a></pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -236,7 +301,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Student</h4>
-<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.13">Student</a>()</pre>
+<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.15">Student</a>()</pre>
 </li>
 </ul>
 </li>
@@ -247,29 +312,65 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getWalkInTime--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getWalkInTime</h4>
+<pre>public&nbsp;java.time.LocalDateTime&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.17">getWalkInTime</a>()</pre>
+</li>
+</ul>
+<a name="setWalkInTime-java.time.LocalDateTime-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setWalkInTime</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.18">setWalkInTime</a>(java.time.LocalDateTime&nbsp;walkInTime)</pre>
+</li>
+</ul>
+<a name="getGrade--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getGrade</h4>
+<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.21">getGrade</a>()</pre>
+</li>
+</ul>
+<a name="setGrade-java.lang.Integer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setGrade</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.22">setGrade</a>(java.lang.Integer&nbsp;grade)</pre>
+</li>
+</ul>
 <a name="saveCsv--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>saveCsv</h4>
-<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.16">saveCsv</a>()</pre>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.26">saveCsv</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html#saveCsv--">saveCsv</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" title="interface in edu.neu.csye6200.model">CsvSerializable</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="loadCsv--">
+<a name="loadCsv-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>loadCsv</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.21">loadCsv</a>()</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.31">loadCsv</a>(java.lang.String&nbsp;csvStr)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html#loadCsv--">loadCsv</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" title="interface in edu.neu.csye6200.model">CsvSerializable</a></code></dd>
+<dd><code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html#loadCsv-java.lang.String-">loadCsv</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" title="interface in edu.neu.csye6200.model">CsvSerializable</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -279,7 +380,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="blockListLast">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.26">toString</a>()</pre>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Student.html#line.36">toString</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
@@ -313,7 +414,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../edu/neu/csye6200/model/Person.html" title="class in edu.neu.csye6200.model"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../edu/neu/csye6200/model/RatioRuleDao.html" title="interface in edu.neu.csye6200.model"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../edu/neu/csye6200/model/StudentDao.html" title="interface in edu.neu.csye6200.model"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -339,13 +440,13 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

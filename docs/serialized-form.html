@@ -108,6 +108,11 @@
 <li class="blockList">
 <h2 title="Package">Package&nbsp;edu.neu.csye6200.view</h2>
 <ul class="blockList">
+<li class="blockList"><a name="edu.neu.csye6200.view.AgeRatioRuleManagePanel">
+<!--   -->
+</a>
+<h3>Class <a href="edu/neu/csye6200/view/AgeRatioRuleManagePanel.html" title="class in edu.neu.csye6200.view">edu.neu.csye6200.view.AgeRatioRuleManagePanel</a> extends javax.swing.JPanel implements Serializable</h3>
+</li>
 <li class="blockList"><a name="edu.neu.csye6200.view.ApplicationForm">
 <!--   -->
 </a>
@@ -133,6 +138,18 @@
 <pre><a href="edu/neu/csye6200/view/TaskAction.html" title="class in edu.neu.csye6200.view">TaskAction</a> manageParentAction</pre>
 </li>
 <li class="blockList">
+<h4>manageImmunizationAction</h4>
+<pre><a href="edu/neu/csye6200/view/TaskAction.html" title="class in edu.neu.csye6200.view">TaskAction</a> manageImmunizationAction</pre>
+</li>
+<li class="blockList">
+<h4>manageClassroomAction</h4>
+<pre><a href="edu/neu/csye6200/view/TaskAction.html" title="class in edu.neu.csye6200.view">TaskAction</a> manageClassroomAction</pre>
+</li>
+<li class="blockList">
+<h4>manageAgeRatioRuleAction</h4>
+<pre><a href="edu/neu/csye6200/view/TaskAction.html" title="class in edu.neu.csye6200.view">TaskAction</a> manageAgeRatioRuleAction</pre>
+</li>
+<li class="blockList">
 <h4>contentsMenuItem</h4>
 <pre>javax.swing.JMenuItem contentsMenuItem</pre>
 </li>
@@ -149,12 +166,20 @@
 <pre>org.jdesktop.swingx.JXTaskPane dashboardTaskPane</pre>
 </li>
 <li class="blockList">
-<h4>debugMenuItem</h4>
-<pre>javax.swing.JMenuItem debugMenuItem</pre>
+<h4>debugMenu</h4>
+<pre>javax.swing.JMenu debugMenu</pre>
 </li>
 <li class="blockList">
 <h4>deleteMenuItem</h4>
 <pre>javax.swing.JMenuItem deleteMenuItem</pre>
+</li>
+<li class="blockList">
+<h4>destroyDatabaseMenuItem</h4>
+<pre>javax.swing.JMenuItem destroyDatabaseMenuItem</pre>
+</li>
+<li class="blockList">
+<h4>documentationMenuItem</h4>
+<pre>javax.swing.JMenuItem documentationMenuItem</pre>
 </li>
 <li class="blockList">
 <h4>editMenu</h4>
@@ -185,6 +210,10 @@
 <pre>org.jdesktop.swingx.JXStatusBar jXStatusBar1</pre>
 </li>
 <li class="blockList">
+<h4>loadMockDataMenuItem</h4>
+<pre>javax.swing.JMenuItem loadMockDataMenuItem</pre>
+</li>
+<li class="blockList">
 <h4>loginMenu</h4>
 <pre>javax.swing.JMenu loginMenu</pre>
 </li>
@@ -211,6 +240,10 @@
 <li class="blockList">
 <h4>saveMenuItem</h4>
 <pre>javax.swing.JMenuItem saveMenuItem</pre>
+</li>
+<li class="blockList">
+<h4>showDatabaseMenuItem</h4>
+<pre>javax.swing.JMenuItem showDatabaseMenuItem</pre>
 </li>
 <li class="blockList">
 <h4>splitPanel</h4>
@@ -251,6 +284,171 @@
 <li class="blockListLast">
 <h4>jLabel1</h4>
 <pre>javax.swing.JLabel jLabel1</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="edu.neu.csye6200.view.DBObjectEditDialog">
+<!--   -->
+</a>
+<h3>Class <a href="edu/neu/csye6200/view/DBObjectEditDialog.html" title="class in edu.neu.csye6200.view">edu.neu.csye6200.view.DBObjectEditDialog</a> extends javax.swing.JDialog implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>jButton1</h4>
+<pre>javax.swing.JButton jButton1</pre>
+</li>
+<li class="blockList">
+<h4>jPanel1</h4>
+<pre>javax.swing.JPanel jPanel1</pre>
+</li>
+<li class="blockList">
+<h4>jPanel2</h4>
+<pre>javax.swing.JPanel jPanel2</pre>
+</li>
+<li class="blockList">
+<h4>jTabbedPane1</h4>
+<pre>javax.swing.JTabbedPane jTabbedPane1</pre>
+</li>
+<li class="blockListLast">
+<h4>titleLabel</h4>
+<pre>javax.swing.JLabel titleLabel</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="edu.neu.csye6200.view.ImmunizationRecord">
+<!--   -->
+</a>
+<h3>Class <a href="edu/neu/csye6200/view/ImmunizationRecord.html" title="class in edu.neu.csye6200.view">edu.neu.csye6200.view.ImmunizationRecord</a> extends javax.swing.JFrame implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>jList1</h4>
+<pre>javax.swing.JList&lt;E&gt; jList1</pre>
+</li>
+<li class="blockList">
+<h4>jScrollPane2</h4>
+<pre>javax.swing.JScrollPane jScrollPane2</pre>
+</li>
+<li class="blockList">
+<h4>jScrollPane3</h4>
+<pre>javax.swing.JScrollPane jScrollPane3</pre>
+</li>
+<li class="blockList">
+<h4>jXLabel1</h4>
+<pre>org.jdesktop.swingx.JXLabel jXLabel1</pre>
+</li>
+<li class="blockList">
+<h4>jXLabel2</h4>
+<pre>org.jdesktop.swingx.JXLabel jXLabel2</pre>
+</li>
+<li class="blockList">
+<h4>jXLabel3</h4>
+<pre>org.jdesktop.swingx.JXLabel jXLabel3</pre>
+</li>
+<li class="blockListLast">
+<h4>jXTable2</h4>
+<pre>org.jdesktop.swingx.JXTable jXTable2</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="edu.neu.csye6200.view.ParentAddPanel">
+<!--   -->
+</a>
+<h3>Class <a href="edu/neu/csye6200/view/ParentAddPanel.html" title="class in edu.neu.csye6200.view">edu.neu.csye6200.view.ParentAddPanel</a> extends javax.swing.JPanel implements Serializable</h3>
+</li>
+<li class="blockList"><a name="edu.neu.csye6200.view.ParentManagePanel">
+<!--   -->
+</a>
+<h3>Class <a href="edu/neu/csye6200/view/ParentManagePanel.html" title="class in edu.neu.csye6200.view">edu.neu.csye6200.view.ParentManagePanel</a> extends javax.swing.JPanel implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>addParentButton</h4>
+<pre>javax.swing.JButton addParentButton</pre>
+</li>
+<li class="blockList">
+<h4>exportTableButton</h4>
+<pre>javax.swing.JButton exportTableButton</pre>
+</li>
+<li class="blockList">
+<h4>importTableButton</h4>
+<pre>javax.swing.JButton importTableButton</pre>
+</li>
+<li class="blockList">
+<h4>jLabel1</h4>
+<pre>javax.swing.JLabel jLabel1</pre>
+</li>
+<li class="blockList">
+<h4>refreshTableButton</h4>
+<pre>javax.swing.JButton refreshTableButton</pre>
+</li>
+<li class="blockList">
+<h4>searchPanel</h4>
+<pre>org.jdesktop.swingx.JXSearchPanel searchPanel</pre>
+</li>
+<li class="blockList">
+<h4>table</h4>
+<pre>javax.swing.JTable table</pre>
+</li>
+<li class="blockListLast">
+<h4>tableScrollPane</h4>
+<pre>javax.swing.JScrollPane tableScrollPane</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="edu.neu.csye6200.view.RatioRuleManagePanel">
+<!--   -->
+</a>
+<h3>Class <a href="edu/neu/csye6200/view/RatioRuleManagePanel.html" title="class in edu.neu.csye6200.view">edu.neu.csye6200.view.RatioRuleManagePanel</a> extends javax.swing.JPanel implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>addRuleButton</h4>
+<pre>javax.swing.JButton addRuleButton</pre>
+</li>
+<li class="blockList">
+<h4>exportTableButton</h4>
+<pre>javax.swing.JButton exportTableButton</pre>
+</li>
+<li class="blockList">
+<h4>importTableButton</h4>
+<pre>javax.swing.JButton importTableButton</pre>
+</li>
+<li class="blockList">
+<h4>refreshTableButton</h4>
+<pre>javax.swing.JButton refreshTableButton</pre>
+</li>
+<li class="blockList">
+<h4>table</h4>
+<pre>javax.swing.JTable table</pre>
+</li>
+<li class="blockList">
+<h4>tableScrollPane</h4>
+<pre>javax.swing.JScrollPane tableScrollPane</pre>
+</li>
+<li class="blockList">
+<h4>titleLabel</h4>
+<pre>javax.swing.JLabel titleLabel</pre>
+</li>
+<li class="blockListLast">
+<h4>toolbarPanel</h4>
+<pre>javax.swing.JPanel toolbarPanel</pre>
 </li>
 </ul>
 </li>
@@ -299,6 +497,38 @@
 <li class="blockListLast">
 <h4>toolbarPanel</h4>
 <pre>javax.swing.JPanel toolbarPanel</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="edu.neu.csye6200.view.StudentViewDialog">
+<!--   -->
+</a>
+<h3>Class <a href="edu/neu/csye6200/view/StudentViewDialog.html" title="class in edu.neu.csye6200.view">edu.neu.csye6200.view.StudentViewDialog</a> extends javax.swing.JDialog implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>jButton1</h4>
+<pre>javax.swing.JButton jButton1</pre>
+</li>
+<li class="blockList">
+<h4>jPanel1</h4>
+<pre>javax.swing.JPanel jPanel1</pre>
+</li>
+<li class="blockList">
+<h4>jPanel2</h4>
+<pre>javax.swing.JPanel jPanel2</pre>
+</li>
+<li class="blockList">
+<h4>jTabbedPane1</h4>
+<pre>javax.swing.JTabbedPane jTabbedPane1</pre>
+</li>
+<li class="blockListLast">
+<h4>titleLabel</h4>
+<pre>javax.swing.JLabel titleLabel</pre>
 </li>
 </ul>
 </li>
