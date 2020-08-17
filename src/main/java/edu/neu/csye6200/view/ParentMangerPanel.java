@@ -28,37 +28,37 @@ public class ParentMangerPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        refreshButton = new javax.swing.JButton();
-        addButton = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jXSearchPanel1 = new org.jdesktop.swingx.JXSearchPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        table = new org.jdesktop.swingx.JXTable();
+        refreshTableButton = new javax.swing.JButton();
+        addParentButton = new javax.swing.JButton();
+        importTableButton = new javax.swing.JButton();
+        exportTableButton = new javax.swing.JButton();
+        searchPanel = new org.jdesktop.swingx.JXSearchPanel();
+        tableScrollPane = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(850, 477));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 26)); // NOI18N
         jLabel1.setText("Parent");
 
-        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh-24.png"))); // NOI18N
-        refreshButton.setText("Refresh");
-        refreshButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        refreshTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh-24.png"))); // NOI18N
+        refreshTableButton.setText("Refresh");
+        refreshTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
 
-        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-24.png"))); // NOI18N
-        addButton.setText("Add");
-        addButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        addParentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-24.png"))); // NOI18N
+        addParentButton.setText("Add");
+        addParentButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/import-24.png"))); // NOI18N
-        jButton3.setText("Import");
-        jButton3.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        importTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/import-24.png"))); // NOI18N
+        importTableButton.setText("Import");
+        importTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/down-24.png"))); // NOI18N
-        jButton4.setText("Export");
-        jButton4.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        exportTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/down-24.png"))); // NOI18N
+        exportTableButton.setText("Export");
+        exportTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
 
-        jXSearchPanel1.setMinimumSize(new java.awt.Dimension(485, 37));
-        jXSearchPanel1.setName(""); // NOI18N
+        searchPanel.setMinimumSize(new java.awt.Dimension(485, 37));
+        searchPanel.setName(""); // NOI18N
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,7 +71,7 @@ public class ParentMangerPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(table);
+        tableScrollPane.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -81,20 +81,21 @@ public class ParentMangerPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(tableScrollPane)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(refreshButton)
+                        .addComponent(refreshTableButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addButton)
+                        .addComponent(addParentButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(importTableButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addComponent(exportTableButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jXSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                        .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,25 +105,26 @@ public class ParentMangerPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(addButton)
-                        .addComponent(jButton3)
-                        .addComponent(jButton4))
-                    .addComponent(jXSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane1))
+                        .addComponent(refreshTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addParentButton)
+                        .addComponent(importTableButton)
+                        .addComponent(exportTableButton))
+                    .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton addButton;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JButton addParentButton;
+    public javax.swing.JButton exportTableButton;
+    public javax.swing.JButton importTableButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private org.jdesktop.swingx.JXSearchPanel jXSearchPanel1;
-    public javax.swing.JButton refreshButton;
-    public org.jdesktop.swingx.JXTable table;
+    public javax.swing.JButton refreshTableButton;
+    public org.jdesktop.swingx.JXSearchPanel searchPanel;
+    public javax.swing.JTable table;
+    public javax.swing.JScrollPane tableScrollPane;
     // End of variables declaration//GEN-END:variables
 }

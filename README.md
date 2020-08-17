@@ -12,16 +12,16 @@
 
 ## Team members
 - Haotian Zheng ([@JustinFincher](https://github.com/JustinFincher))
-- Jingru Xiang
+- Jingru Xiang ([@RubyXiang](https://github.com/RubyXiang))
 - Rongqi Sun ([@Svelar](https://github.com/Svelar))
 - Dawei Gu ([@dwg31](https://github.com/dwg31))
 - Cheng Qian ([@Aiden-Qian](https://github.com/Aiden-Qian))
-- Lan Gao
+- Lan Gao ([GL-gaolan](https://github.com/GL-gaolan))
 
 ## Requirements
 - NetBeans 12.0 (or IDEA 2020.2)
 - JDK 8 with `JAVA_HOME` pointing to it
-- A database viewer like [SQLite Browser](https://sqlitebrowser.org/dl/) (optional)
+- A database viewer like [SQLite Browser](https://sqlitebrowser.org/dl/) or [Database Panel](https://www.jetbrains.com/help/idea/database-tool-window.html) in IDEA Ultimate (optional)
 
 ## Conventions
 - Git message: [conventional commits](https://www.conventionalcommits.org/zh-hans/v1.0.0-beta.4/)

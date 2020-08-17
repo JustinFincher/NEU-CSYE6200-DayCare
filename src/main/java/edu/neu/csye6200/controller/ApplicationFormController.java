@@ -1,6 +1,5 @@
 package edu.neu.csye6200.controller;
 
-import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.view.ApplicationForm;
 import edu.neu.csye6200.view.DashboardPanel;
@@ -8,6 +7,8 @@ import edu.neu.csye6200.view.DashboardPanel;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class ApplicationFormController
 {
@@ -23,23 +24,13 @@ public class ApplicationFormController
         form.setLocationRelativeTo(null);
         form.setVisible(true);
         form.manageStudentAction.setListener(e -> {
-            form.splitViewContentPanel.removeAll();
-            form.splitViewContentPanel.add(new StudentManagePanelController().getPanel());
-            form.splitViewContentPanel.revalidate();
-            form.splitViewContentPanel.repaint();
-        });
-        form.dashboardAction.setListener(e -> {
-            form.splitViewContentPanel.removeAll();
-            form.splitViewContentPanel.add(new DashboardPanel());
-            form.splitViewContentPanel.revalidate();
-            form.splitViewContentPanel.repaint();
+            form.switchTo(new StudentManagePanelController().getPanel());
         });
         form.manageParentAction.setListener(e -> {
-            Log.i("About to switch to parent panel");
-            form.splitViewContentPanel.removeAll();
-            form.splitViewContentPanel.add(new ParentManagePanelController().getPanel());
-            form.splitViewContentPanel.revalidate();
-            form.splitViewContentPanel.repaint();
+            form.switchTo(new ParentManagePanelController().getPanel());
+        });
+        form.dashboardAction.setListener(e -> {
+            form.switchTo(new DashboardPanel());
         });
 
         form.showDatabaseMenuItem.addActionListener(e -> {
@@ -59,6 +50,13 @@ public class ApplicationFormController
         });
         form.loadMockDataMenuItem.addActionListener(e -> {
 
+        });
+        form.documentationMenuItem.addActionListener(e -> {
+            try {
+                Desktop.getDesktop().browse(new URI("https://justinfincher.github.io/NEU-CSYE6200-DayCare/"));
+            } catch (IOException | URISyntaxException ioException) {
+                ioException.printStackTrace();
+            }
         });
     }
 }

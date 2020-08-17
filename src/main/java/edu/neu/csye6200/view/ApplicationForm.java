@@ -5,6 +5,8 @@
  */
 package edu.neu.csye6200.view;
 
+import edu.neu.csye6200.controller.StudentManagePanelController;
+
 import javax.swing.*;
 
 /**
@@ -43,6 +45,14 @@ public class ApplicationForm extends javax.swing.JFrame {
         menuBar.add(Box.createHorizontalGlue(), menuBar.getComponents().length - 1);
     }
 
+    public void switchTo(JPanel panel)
+    {
+        splitViewContentPanel.removeAll();
+        splitViewContentPanel.add(panel);
+        splitViewContentPanel.revalidate();
+        splitViewContentPanel.repaint();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,6 +86,7 @@ public class ApplicationForm extends javax.swing.JFrame {
         deleteMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentsMenuItem = new javax.swing.JMenuItem();
+        documentationMenuItem = new javax.swing.JMenuItem();
         debugMenu = new javax.swing.JMenu();
         destroyDatabaseMenuItem = new javax.swing.JMenuItem();
         loadMockDataMenuItem = new javax.swing.JMenuItem();
@@ -184,6 +195,9 @@ public class ApplicationForm extends javax.swing.JFrame {
         contentsMenuItem.setText("Contents");
         helpMenu.add(contentsMenuItem);
 
+        documentationMenuItem.setText("Documentation");
+        helpMenu.add(documentationMenuItem);
+
         debugMenu.setMnemonic('h');
         debugMenu.setText("Debug");
 
@@ -279,6 +293,7 @@ public class ApplicationForm extends javax.swing.JFrame {
     private javax.swing.JMenu debugMenu;
     private javax.swing.JMenuItem deleteMenuItem;
     public javax.swing.JMenuItem destroyDatabaseMenuItem;
+    public javax.swing.JMenuItem documentationMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private org.jdesktop.swingx.JXTaskPane facilityManageTaskPane;
