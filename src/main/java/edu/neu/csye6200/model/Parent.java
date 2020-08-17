@@ -3,15 +3,7 @@ package edu.neu.csye6200.model;
 
 public class Parent extends Person implements CsvSerializable
 {
-   /* @Override
-    public String toString() {
-        return "Parent{" +
-               "realName='" + getRealName() + '\'' +
-                ", birthDay=" + getBirthDay() +
-                ", age=" + getAge() +
-                ", id=" + getId() +
-                '}';
-    }   */
+  
     public String getAddress() { return address; }
     public void setAddress(String address) { this.address = address; }
     private String address;
@@ -28,7 +20,7 @@ public class Parent extends Person implements CsvSerializable
     public String saveCsv() {
         return null;
     }
-
+    
     @Override
     public void loadCsv(String csvStr) {
 
