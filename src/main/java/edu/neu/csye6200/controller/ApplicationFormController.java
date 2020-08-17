@@ -32,6 +32,9 @@ public class ApplicationFormController
         form.dashboardAction.setListener(e -> {
             form.switchTo(new DashboardPanel());
         });
+        form.manageAgeRatioRuleAction.setListener(e -> {
+//            form.switchTo()
+        });
 
         form.showDatabaseMenuItem.addActionListener(e -> {
             File dbFile = DatabaseManager.getInstance().getFile();
