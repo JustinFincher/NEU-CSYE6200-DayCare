@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'edu.neu.csye6200'
-version '0.0.4'
+version '0.0.7'
 
 application {
     mainClassName = "edu.neu.csye6200.Application"
@@ -23,6 +23,10 @@ javadoc {
     source = sourceSets.main.allJava
     classpath = configurations.compile
     destinationDir = new File("${projectDir}/docs")
+    options.author(true)
+    options.version(true)
+    options.linkSource(true)
+    options.addStringOption('XDignore.symbol.file', '-private')
 }
 repositories {
     mavenCentral()
@@ -39,7 +43,6 @@ dependencies {
     compile group: 'com.formdev', name: 'flatlaf', version: '0.40'
     compile group: 'com.formdev', name: 'flatlaf-swingx', version: '0.40'
     compile group: 'org.swinglabs.swingx', name: 'swingx-all', version: '1.6.5-1'
-
 
     // Database
     compile group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.14.1'

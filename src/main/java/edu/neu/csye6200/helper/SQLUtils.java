@@ -2,13 +2,10 @@ package edu.neu.csye6200.helper;
 
 import com.google.common.base.CaseFormat;
 import edu.neu.csye6200.model.DBObject;
-import org.sqlite.core.DB;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Iterator;
-import java.util.List;
 
 public class SQLUtils
 {
@@ -108,6 +105,16 @@ public class SQLUtils
         return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, cls.getSimpleName());
     }
 
+    /**
+     * Get corresponding SQLite type from the Java type, with special prefix activated by the name<br>
+     * For example: <br>
+     * <pre>
+     * id INTEGER PRIMARY KEY AUTOINCREMENT
+     * </pre>
+     * @param name
+     * @param cls
+     * @return SQLite Type in UPPER CASE
+     */
     public static String getType(String name, Class<?> cls)
     {
         String res = name;
@@ -115,6 +122,8 @@ public class SQLUtils
         switch (cls.getSimpleName())
         {
             case "Integer":
+            case "LocalDate":
+            case "LocalDateTime":
                 append = "INTEGER"; break;
             case "String":
                 append = "TEXT"; break;

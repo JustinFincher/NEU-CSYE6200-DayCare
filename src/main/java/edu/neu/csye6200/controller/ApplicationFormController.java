@@ -25,7 +25,7 @@ public class ApplicationFormController
         form.setVisible(true);
         form.manageStudentAction.setListener(e -> {
             form.splitViewContentPanel.removeAll();
-            form.splitViewContentPanel.add(new StudentManagePanel());
+            form.splitViewContentPanel.add(new StudentManagePanelController().getPanel());
             form.splitViewContentPanel.revalidate();
             form.splitViewContentPanel.repaint();
         });

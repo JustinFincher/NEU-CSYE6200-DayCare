@@ -1,11 +1,10 @@
-package edu.neu.csye6200.view;
+package edu.neu.csye6200.model;
 
 import edu.neu.csye6200.helper.BeanUtils;
 import edu.neu.csye6200.helper.SQLUtils;
 import edu.neu.csye6200.manager.DatabaseManager;
-import edu.neu.csye6200.model.CrudDao;
-import edu.neu.csye6200.model.DBObject;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
@@ -14,6 +13,26 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Vector;
 
+/**
+ * A generic table model to use with {@link javax.swing.JTable JTable} or {@link org.jdesktop.swingx.JXTable JXTable} <br>
+ *
+ * How to use:<br>
+ * <pre>
+ * {@literal
+ *     JTable table;
+ *     DatabaseTableModel<Student, StudentDao> tableModel = new DatabaseTableModel<>(Student.class, StudentDao.class);
+ *     table.setModel(tableModel);
+ *     tableModel.refresh();
+ *     tableModel.addEmpty();
+ *     tableModel.delete(table, table.getSelectedRows());
+ * }
+ * </pre>
+ *
+ * @param <MODEL> Model Class which extends {@link DBObject DBObject}, e.g. {@link Student Student}
+ * @param <DAO> Dao Class which extends {@link CrudDao CrudDao}, e.g. {@link StudentDao StudentDao}
+ * @author Haotian Zheng
+ * @see edu.neu.csye6200.controller.StudentManagePanelController
+ */
 public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODEL>> extends DefaultTableModel
 {
     private final Class<MODEL> modelClass;
@@ -27,6 +46,9 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
         this.daoClass = daoClass;
     }
 
+    /**
+     * Call this to refresh data from SQLite and then fire update triggers of the table you plugged in
+     */
     public void refresh()
     {
         columns = BeanUtils.getBeanProperties(modelClass);
@@ -45,11 +67,12 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
         refresh();
     }
 
-    public void delete(int... rows)
+    public void delete(JTable table, int... rows)
     {
-        Arrays.stream(rows).mapToObj(i -> objectList.get(i)).filter(Objects::nonNull).map(DBObject::getId).forEach(integer -> {
+        Arrays.stream(rows).map(table::convertRowIndexToModel).mapToObj(i -> objectList.get(i)).filter(Objects::nonNull).map(DBObject::getId).forEach(integer -> {
             DatabaseManager.getDB().onDemand(daoClass).deleteById(SQLUtils.getTableName(modelClass), integer);
         });
+        refresh();
     }
 
     public MODEL getRowAt(int row)

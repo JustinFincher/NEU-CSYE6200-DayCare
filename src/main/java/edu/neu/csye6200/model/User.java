@@ -1,5 +1,8 @@
 package edu.neu.csye6200.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class User extends Person
 {
     public String getUserName() {
@@ -23,4 +26,8 @@ public class User extends Person
         this.emailAddress = emailAddress;
     }
     private String emailAddress;
+
+    public LocalDate getBirthDay() { return birthDay; }
+    public void setBirthDay(LocalDate birthDay) { this.birthDay = birthDay; }
+    private LocalDate birthDay;
 }

@@ -4,10 +4,11 @@
 
 ![Java CI with Gradle](https://github.com/JustinFincher/NEU-CSYE6200-DayCare/workflows/Java%20CI%20with%20Gradle/badge.svg)
 ![Native Executables](https://github.com/JustinFincher/NEU-CSYE6200-DayCare/workflows/Native%20Executables/badge.svg)
-![[DayCare on Notion](https://www.notion.so/haotianzheng/Day-Care-Project-2dd785efa2bd46fb86c105c362ae5d76)](https://img.shields.io/badge/DayCare-on%20Notion-brightgreen)
+![Java Docs](https://github.com/JustinFincher/NEU-CSYE6200-DayCare/workflows/Java%20Docs/badge.svg)
+[![](https://img.shields.io/badge/DayCare-on%20Notion-brightgreen)](https://www.notion.so/haotianzheng/Day-Care-Project-2dd785efa2bd46fb86c105c362ae5d76)
+[![](https://img.shields.io/badge/View-JavaDoc-blue)](https://justinfincher.github.io/NEU-CSYE6200-DayCare/)
 
 ## TOC
-
 
 ## Team members
 - Haotian Zheng ([@JustinFincher](https://github.com/JustinFincher))

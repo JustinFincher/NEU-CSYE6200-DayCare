@@ -75,7 +75,7 @@ public class ApplicationForm extends javax.swing.JFrame {
         deleteMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentsMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        debugMenuItem = new javax.swing.JMenuItem();
         loginMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -180,14 +180,14 @@ public class ApplicationForm extends javax.swing.JFrame {
         contentsMenuItem.setText("Contents");
         helpMenu.add(contentsMenuItem);
 
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
+        debugMenuItem.setMnemonic('a');
+        debugMenuItem.setText("Debug");
+        helpMenu.add(debugMenuItem);
 
         menuBar.add(helpMenu);
 
         loginMenu.setMnemonic('h');
-        loginMenu.setText("Current Login");
+        loginMenu.setText("Login");
         loginMenu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         menuBar.add(loginMenu);
 
@@ -255,11 +255,11 @@ public class ApplicationForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     public org.jdesktop.swingx.JXTaskPane dashboardTaskPane;
+    public javax.swing.JMenuItem debugMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
