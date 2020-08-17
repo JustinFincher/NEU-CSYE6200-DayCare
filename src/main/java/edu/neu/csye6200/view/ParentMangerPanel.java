@@ -28,8 +28,8 @@ public class ParentMangerPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        refreshButton = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jXSearchPanel1 = new org.jdesktop.swingx.JXSearchPanel();
@@ -41,44 +41,21 @@ public class ParentMangerPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 26)); // NOI18N
         jLabel1.setText("Parent");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh-24.png"))); // NOI18N
-        jButton1.setText("Refresh");
-        jButton1.setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        jButton1.setLocation(new java.awt.Point(0, 0));
-        jButton1.setMargin(new java.awt.Insets(0, 2, 0, 8));
-        jButton1.setMaximumSize(new java.awt.Dimension(91, 36));
-        jButton1.setMinimumSize(new java.awt.Dimension(91, 36));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh-24.png"))); // NOI18N
+        refreshButton.setText("Refresh");
+        refreshButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-24.png"))); // NOI18N
-        jButton2.setText("Add");
-        jButton2.setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        jButton2.setMargin(new java.awt.Insets(0, 2, 0, 8));
-        jButton2.setMaximumSize(new java.awt.Dimension(72, 36));
-        jButton2.setMinimumSize(new java.awt.Dimension(72, 36));
-        jButton2.setPreferredSize(new java.awt.Dimension(72, 36));
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-24.png"))); // NOI18N
+        addButton.setText("Add");
+        addButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/import-24.png"))); // NOI18N
         jButton3.setText("Import");
-        jButton3.setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        jButton3.setLocation(new java.awt.Point(0, 0));
         jButton3.setMargin(new java.awt.Insets(0, 2, 0, 8));
-        jButton3.setMaximumSize(new java.awt.Dimension(86, 36));
-        jButton3.setMinimumSize(new java.awt.Dimension(86, 36));
-        jButton3.setPreferredSize(new java.awt.Dimension(86, 36));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/down-24.png"))); // NOI18N
         jButton4.setText("Export");
-        jButton4.setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        jButton4.setLocation(new java.awt.Point(0, 0));
         jButton4.setMargin(new java.awt.Insets(0, 2, 0, 8));
-        jButton4.setMaximumSize(new java.awt.Dimension(86, 36));
-        jButton4.setMinimumSize(new java.awt.Dimension(86, 36));
-        jButton4.setPreferredSize(new java.awt.Dimension(86, 36));
 
         jXSearchPanel1.setMinimumSize(new java.awt.Dimension(485, 37));
         jXSearchPanel1.setName(""); // NOI18N
@@ -107,13 +84,13 @@ public class ParentMangerPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(refreshButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jXSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
@@ -127,29 +104,25 @@ public class ParentMangerPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addButton)
+                        .addComponent(jButton3)
+                        .addComponent(jButton4))
                     .addComponent(jXSearchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addComponent(jScrollPane1))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton addButton;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXSearchPanel jXSearchPanel1;
+    public javax.swing.JButton refreshButton;
     public org.jdesktop.swingx.JXTable table;
     // End of variables declaration//GEN-END:variables
 }

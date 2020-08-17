@@ -1,5 +1,6 @@
 package edu.neu.csye6200.controller;
 
+import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.view.ApplicationForm;
 import edu.neu.csye6200.view.DashboardPanel;
@@ -30,6 +31,13 @@ public class ApplicationFormController
         form.dashboardAction.setListener(e -> {
             form.splitViewContentPanel.removeAll();
             form.splitViewContentPanel.add(new DashboardPanel());
+            form.splitViewContentPanel.revalidate();
+            form.splitViewContentPanel.repaint();
+        });
+        form.manageParentAction.setListener(e -> {
+            Log.i("About to switch to parent panel");
+            form.splitViewContentPanel.removeAll();
+            form.splitViewContentPanel.add(new ParentManagePanelController().getPanel());
             form.splitViewContentPanel.revalidate();
             form.splitViewContentPanel.repaint();
         });
