@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>package edu.neu.csye6200.model;<a name="line.1"></a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span>import java.time.LocalDateTime;<a name="line.3"></a>
+<span class="sourceLineNo">004</span><a name="line.4"></a>
+<span class="sourceLineNo">005</span>/**<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * Student Data Model<a name="line.6"></a>
+<span class="sourceLineNo">007</span> * Should has these fields:<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  - grade<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *  - walk-in date<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *  - immunization record<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * @see &lt;a href="https://www.notion.so/haotianzheng/Student-256835304927473cb082a6feabdb5d8e"&gt;Student Data On Notion&lt;/a&gt;<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * @author Haotian Zheng<a name="line.13"></a>
+<span class="sourceLineNo">014</span> */<a name="line.14"></a>
+<span class="sourceLineNo">015</span>public class Student extends User implements CsvSerializable<a name="line.15"></a>
+<span class="sourceLineNo">016</span>{<a name="line.16"></a>
+<span class="sourceLineNo">017</span>    public LocalDateTime getWalkInTime() { return walkInTime; }<a name="line.17"></a>
+<span class="sourceLineNo">018</span>    public void setWalkInTime(LocalDateTime walkInTime) { this.walkInTime = walkInTime; }<a name="line.18"></a>
+<span class="sourceLineNo">019</span>    private LocalDateTime walkInTime;<a name="line.19"></a>
+<span class="sourceLineNo">020</span><a name="line.20"></a>
+<span class="sourceLineNo">021</span>    public Integer getGrade() { return grade; }<a name="line.21"></a>
+<span class="sourceLineNo">022</span>    public void setGrade(Integer grade) { this.grade = grade; }<a name="line.22"></a>
+<span class="sourceLineNo">023</span>    private Integer grade;<a name="line.23"></a>
+<span class="sourceLineNo">024</span><a name="line.24"></a>
+<span class="sourceLineNo">025</span>    @Override<a name="line.25"></a>
+<span class="sourceLineNo">026</span>    public String saveCsv() {<a name="line.26"></a>
+<span class="sourceLineNo">027</span>        return null;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>    }<a name="line.28"></a>
+<span class="sourceLineNo">029</span><a name="line.29"></a>
+<span class="sourceLineNo">030</span>    @Override<a name="line.30"></a>
+<span class="sourceLineNo">031</span>    public void loadCsv(String csvStr) {<a name="line.31"></a>
+<span class="sourceLineNo">032</span><a name="line.32"></a>
+<span class="sourceLineNo">033</span>    }<a name="line.33"></a>
+<span class="sourceLineNo">034</span><a name="line.34"></a>
+<span class="sourceLineNo">035</span>    @Override<a name="line.35"></a>
+<span class="sourceLineNo">036</span>    public String toString() {<a name="line.36"></a>
+<span class="sourceLineNo">037</span>        return "Student{" +<a name="line.37"></a>
+<span class="sourceLineNo">038</span>                "walkInTime=" + walkInTime +<a name="line.38"></a>
+<span class="sourceLineNo">039</span>                ", grade=" + grade +<a name="line.39"></a>
+<span class="sourceLineNo">040</span>                ", saveCsv='" + saveCsv() + '\'' +<a name="line.40"></a>
+<span class="sourceLineNo">041</span>                ", userName='" + getUserName() + '\'' +<a name="line.41"></a>
+<span class="sourceLineNo">042</span>                ", userLevel=" + getUserLevel() +<a name="line.42"></a>
+<span class="sourceLineNo">043</span>                ", emailAddress='" + getEmailAddress() + '\'' +<a name="line.43"></a>
+<span class="sourceLineNo">044</span>                ", hashedPassword='" + getHashedPassword() + '\'' +<a name="line.44"></a>
+<span class="sourceLineNo">045</span>                ", realName='" + getRealName() + '\'' +<a name="line.45"></a>
+<span class="sourceLineNo">046</span>                ", birthDay=" + getBirthDay() +<a name="line.46"></a>
+<span class="sourceLineNo">047</span>                ", age=" + getAge() +<a name="line.47"></a>
+<span class="sourceLineNo">048</span>                ", id=" + getId() +<a name="line.48"></a>
+<span class="sourceLineNo">049</span>                '}';<a name="line.49"></a>
+<span class="sourceLineNo">050</span>    }<a name="line.50"></a>
+<span class="sourceLineNo">051</span>}<a name="line.51"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

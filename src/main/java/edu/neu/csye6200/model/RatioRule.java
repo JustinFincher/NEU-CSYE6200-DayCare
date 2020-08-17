@@ -38,4 +38,6 @@ public class RatioRule extends DBObject
     private Integer maxStudentPerTeacher;
     private Integer minAge;
     private Integer maxAge;
+
+    
 }

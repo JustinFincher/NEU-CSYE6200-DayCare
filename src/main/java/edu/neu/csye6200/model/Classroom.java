@@ -1,5 +1,8 @@
 package edu.neu.csye6200.model;
 
+import edu.neu.csye6200.helper.SQLUtils;
+import edu.neu.csye6200.manager.DatabaseManager;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -12,7 +15,8 @@ public class Classroom extends DBObject
     Classroom()
     {
 
-        List<RatioRule> rules = new ArrayList<>();
+        List<RatioRule> rules;
+        rules = DatabaseManager.getDB().onDemand(RatioRuleDao.class).list(SQLUtils.getTableName(RatioRule.class));
 
 
 
