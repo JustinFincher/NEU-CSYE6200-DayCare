@@ -5,12 +5,7 @@
  */
 package edu.neu.csye6200.view;
 
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.Box;
-import javax.swing.ImageIcon;
+import javax.swing.*;
 
 /**
  *
@@ -22,6 +17,9 @@ public class ApplicationForm extends javax.swing.JFrame {
     public TaskAction manageTeacherAction = new TaskAction("Teachers", new ImageIcon(getClass().getResource("/icons/teacher-24.png")));
     public TaskAction manageStudentAction = new TaskAction("Students", new ImageIcon(getClass().getResource("/icons/baby-24.png")));
     public TaskAction manageParentAction = new TaskAction("Parents", new ImageIcon(getClass().getResource("/icons/parent-24.png")));
+    public TaskAction manageImmunizationAction = new TaskAction("Immunization", new ImageIcon(getClass().getResource("/icons/virus-24.png")));
+    public TaskAction manageClassroomAction = new TaskAction("Classroom", new ImageIcon(getClass().getResource("/icons/classroom-24.png")));
+    public TaskAction manageAgeRatioRuleAction = new TaskAction("Ratio Rule", new ImageIcon(getClass().getResource("/icons/structure-24.png")));
     /**
      * Creates new form ApplicationForm
      */
@@ -38,6 +36,9 @@ public class ApplicationForm extends javax.swing.JFrame {
         staffManageTaskPane.add(manageTeacherAction);
         staffManageTaskPane.add(manageStudentAction);
         staffManageTaskPane.add(manageParentAction);
+        facilityManageTaskPane.add(manageClassroomAction);
+        facilityManageTaskPane.add(manageImmunizationAction);
+        facilityManageTaskPane.add(manageAgeRatioRuleAction);
         
         menuBar.add(Box.createHorizontalGlue(), menuBar.getComponents().length - 1);
     }
