@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../edu/neu/csye6200/model/TeacherDao.html" title="interface in edu.neu.csye6200.model"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?edu/neu/csye6200/model/User.html" target="_top">Frames</a></li>
@@ -121,7 +121,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public class <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.6">User</a>
+<pre>public class <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.7">User</a>
 extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in edu.neu.csye6200.model">Person</a></pre>
 </li>
 </ul>
@@ -142,12 +142,12 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private java.time.LocalDate</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#birthDay">birthDay</a></span></code>&nbsp;</td>
+<td class="colFirst"><code>private java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#emailAddress">emailAddress</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>private java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#emailAddress">emailAddress</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#hashedPassword">hashedPassword</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>private java.lang.Integer</code></td>
@@ -190,12 +190,12 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.time.LocalDate</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#getBirthDay--">getBirthDay</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#getEmailAddress--">getEmailAddress</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#getEmailAddress--">getEmailAddress</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#getHashedPassword--">getHashedPassword</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
@@ -207,17 +207,21 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#setBirthDay-java.time.LocalDate-">setBirthDay</a></span>(java.time.LocalDate&nbsp;birthDay)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#setEmailAddress-java.lang.String-">setEmailAddress</a></span>(java.lang.String&nbsp;emailAddress)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#setEmailAddress-java.lang.String-">setEmailAddress</a></span>(java.lang.String&nbsp;emailAddress)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#setHashedPassword-java.lang.String-">setHashedPassword</a></span>(java.lang.String&nbsp;hashedPassword)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#setUserLevel-java.lang.Integer-">setUserLevel</a></span>(java.lang.Integer&nbsp;userLevel)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#setPassword-java.lang.String-">setPassword</a></span>(java.lang.String&nbsp;password)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#setUserLevel-java.lang.Integer-">setUserLevel</a></span>(java.lang.Integer&nbsp;userLevel)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/User.html#setUserName-java.lang.String-">setUserName</a></span>(java.lang.String&nbsp;userName)</code>&nbsp;</td>
 </tr>
@@ -227,7 +231,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;edu.neu.csye6200.model.<a href="../../../../edu/neu/csye6200/model/Person.html" title="class in edu.neu.csye6200.model">Person</a></h3>
-<code><a href="../../../../edu/neu/csye6200/model/Person.html#getRealName--">getRealName</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setRealName-java.lang.String-">setRealName</a></code></li>
+<code><a href="../../../../edu/neu/csye6200/model/Person.html#getAge--">getAge</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#getBirthDay--">getBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#getRealName--">getRealName</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setBirthDay-java.time.LocalDate-">setBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setRealName-java.lang.String-">setRealName</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.edu.neu.csye6200.model.DBObject">
@@ -263,7 +267,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockList">
 <li class="blockList">
 <h4>userName</h4>
-<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.14">userName</a></pre>
+<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.15">userName</a></pre>
 </li>
 </ul>
 <a name="userLevel">
@@ -272,7 +276,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockList">
 <li class="blockList">
 <h4>userLevel</h4>
-<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.22">userLevel</a></pre>
+<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.23">userLevel</a></pre>
 </li>
 </ul>
 <a name="emailAddress">
@@ -281,16 +285,16 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockList">
 <li class="blockList">
 <h4>emailAddress</h4>
-<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.28">emailAddress</a></pre>
+<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.29">emailAddress</a></pre>
 </li>
 </ul>
-<a name="birthDay">
+<a name="hashedPassword">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>birthDay</h4>
-<pre>private&nbsp;java.time.LocalDate <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.32">birthDay</a></pre>
+<h4>hashedPassword</h4>
+<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.36">hashedPassword</a></pre>
 </li>
 </ul>
 </li>
@@ -307,7 +311,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockListLast">
 <li class="blockList">
 <h4>User</h4>
-<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.6">User</a>()</pre>
+<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.7">User</a>()</pre>
 </li>
 </ul>
 </li>
@@ -324,7 +328,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockList">
 <li class="blockList">
 <h4>getUserName</h4>
-<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.8">getUserName</a>()</pre>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.9">getUserName</a>()</pre>
 </li>
 </ul>
 <a name="setUserName-java.lang.String-">
@@ -333,7 +337,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockList">
 <li class="blockList">
 <h4>setUserName</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.11">setUserName</a>(java.lang.String&nbsp;userName)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.12">setUserName</a>(java.lang.String&nbsp;userName)</pre>
 </li>
 </ul>
 <a name="getUserLevel--">
@@ -342,7 +346,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockList">
 <li class="blockList">
 <h4>getUserLevel</h4>
-<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.16">getUserLevel</a>()</pre>
+<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.17">getUserLevel</a>()</pre>
 </li>
 </ul>
 <a name="setUserLevel-java.lang.Integer-">
@@ -351,7 +355,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockList">
 <li class="blockList">
 <h4>setUserLevel</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.19">setUserLevel</a>(java.lang.Integer&nbsp;userLevel)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.20">setUserLevel</a>(java.lang.Integer&nbsp;userLevel)</pre>
 </li>
 </ul>
 <a name="getEmailAddress--">
@@ -360,7 +364,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockList">
 <li class="blockList">
 <h4>getEmailAddress</h4>
-<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.24">getEmailAddress</a>()</pre>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.25">getEmailAddress</a>()</pre>
 </li>
 </ul>
 <a name="setEmailAddress-java.lang.String-">
@@ -369,25 +373,34 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <ul class="blockList">
 <li class="blockList">
 <h4>setEmailAddress</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.25">setEmailAddress</a>(java.lang.String&nbsp;emailAddress)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.26">setEmailAddress</a>(java.lang.String&nbsp;emailAddress)</pre>
 </li>
 </ul>
-<a name="getBirthDay--">
+<a name="getHashedPassword--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getBirthDay</h4>
-<pre>public&nbsp;java.time.LocalDate&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.30">getBirthDay</a>()</pre>
+<h4>getHashedPassword</h4>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.31">getHashedPassword</a>()</pre>
 </li>
 </ul>
-<a name="setBirthDay-java.time.LocalDate-">
+<a name="setHashedPassword-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHashedPassword</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.32">setHashedPassword</a>(java.lang.String&nbsp;hashedPassword)</pre>
+</li>
+</ul>
+<a name="setPassword-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>setBirthDay</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.31">setBirthDay</a>(java.time.LocalDate&nbsp;birthDay)</pre>
+<h4>setPassword</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/User.html#line.33">setPassword</a>(java.lang.String&nbsp;password)</pre>
 </li>
 </ul>
 </li>
@@ -418,7 +431,7 @@ extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../edu/neu/csye6200/model/TeacherDao.html" title="interface in edu.neu.csye6200.model"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?edu/neu/csye6200/model/User.html" target="_top">Frames</a></li>
