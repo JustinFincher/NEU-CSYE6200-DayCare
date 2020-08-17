@@ -8,6 +8,7 @@ import org.jdbi.v3.core.mapper.reflect.ReflectionMappers;
 import org.jdbi.v3.sqlite3.SQLitePlugin;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -27,6 +28,9 @@ public enum DatabaseManager {
 	{
 	}
 
+	public File getFile() { return new File(DatabaseManager.getInstance().getPath()); }
+	public String getPath() { return path; }
+	private String path;
 	private Connection connection;
 	public boolean isConnectionWorking()
 	{
@@ -45,16 +49,15 @@ public enum DatabaseManager {
 
 	public void use(String path)
 	{
+		this.path = path;
 		Log.i("DatabaseManager.use(" + path + ")");
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlite:"+path);
 			jdbi = Jdbi.create(connection).installPlugin(new SqlObjectPlugin()).installPlugin(new SQLitePlugin());
 			jdbi.getConfig(ReflectionMappers.class).setStrictMatching(false);
-
 			jdbi.onDemand(TeacherDao.class).createTable();
 			jdbi.onDemand(StudentDao.class).createTable(SQLUtils.getTableName(Student.class), SQLUtils.getProperties(Student.class));
 			jdbi.onDemand(ParentDao.class).createTable(SQLUtils.getTableName(Parent.class), SQLUtils.getProperties(Parent.class));
-
 		} catch (SQLException throwable) {
 			Log.e(throwable.getMessage());
 			throwable.printStackTrace();

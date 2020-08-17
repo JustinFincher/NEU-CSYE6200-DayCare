@@ -1,5 +1,7 @@
 package edu.neu.csye6200.model;
 
+import java.time.LocalDateTime;
+
 /**
  * Student Data Model
  * Should has these fields:
@@ -12,23 +14,37 @@ package edu.neu.csye6200.model;
  */
 public class Student extends User implements CsvSerializable
 {
+    public LocalDateTime getWalkInTime() { return walkInTime; }
+    public void setWalkInTime(LocalDateTime walkInTime) { this.walkInTime = walkInTime; }
+    private LocalDateTime walkInTime;
+
+    public int getGrade() { return grade; }
+    public void setGrade(int grade) { this.grade = grade; }
+    private int grade;
+
     @Override
     public String saveCsv() {
         return null;
     }
 
     @Override
-    public void loadCsv() {
+    public void loadCsv(String csvStr) {
 
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "userName='" + getUserName() + '\'' +
+                "walkInTime=" + walkInTime +
+                ", grade=" + grade +
+                ", saveCsv='" + saveCsv() + '\'' +
+                ", userName='" + getUserName() + '\'' +
                 ", userLevel=" + getUserLevel() +
                 ", emailAddress='" + getEmailAddress() + '\'' +
+                ", hashedPassword='" + getHashedPassword() + '\'' +
                 ", realName='" + getRealName() + '\'' +
+                ", birthDay=" + getBirthDay() +
+                ", age=" + getAge() +
                 ", id=" + getId() +
                 '}';
     }

@@ -75,7 +75,10 @@ public class ApplicationForm extends javax.swing.JFrame {
         deleteMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentsMenuItem = new javax.swing.JMenuItem();
-        debugMenuItem = new javax.swing.JMenuItem();
+        debugMenu = new javax.swing.JMenu();
+        destroyDatabaseMenuItem = new javax.swing.JMenuItem();
+        loadMockDataMenuItem = new javax.swing.JMenuItem();
+        showDatabaseMenuItem = new javax.swing.JMenuItem();
         loginMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -180,9 +183,22 @@ public class ApplicationForm extends javax.swing.JFrame {
         contentsMenuItem.setText("Contents");
         helpMenu.add(contentsMenuItem);
 
-        debugMenuItem.setMnemonic('a');
-        debugMenuItem.setText("Debug");
-        helpMenu.add(debugMenuItem);
+        debugMenu.setMnemonic('h');
+        debugMenu.setText("Debug");
+
+        destroyDatabaseMenuItem.setMnemonic('a');
+        destroyDatabaseMenuItem.setText("Destroy Database");
+        debugMenu.add(destroyDatabaseMenuItem);
+
+        loadMockDataMenuItem.setMnemonic('a');
+        loadMockDataMenuItem.setText("Load Mock Data");
+        debugMenu.add(loadMockDataMenuItem);
+
+        showDatabaseMenuItem.setMnemonic('a');
+        showDatabaseMenuItem.setText("Show Database");
+        debugMenu.add(showDatabaseMenuItem);
+
+        helpMenu.add(debugMenu);
 
         menuBar.add(helpMenu);
 
@@ -259,8 +275,9 @@ public class ApplicationForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     public org.jdesktop.swingx.JXTaskPane dashboardTaskPane;
-    public javax.swing.JMenuItem debugMenuItem;
+    private javax.swing.JMenu debugMenu;
     private javax.swing.JMenuItem deleteMenuItem;
+    public javax.swing.JMenuItem destroyDatabaseMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private org.jdesktop.swingx.JXTaskPane facilityManageTaskPane;
@@ -268,6 +285,7 @@ public class ApplicationForm extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu;
     private javax.swing.JLabel jLabel1;
     private org.jdesktop.swingx.JXStatusBar jXStatusBar1;
+    public javax.swing.JMenuItem loadMockDataMenuItem;
     private javax.swing.JMenu loginMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
@@ -275,6 +293,7 @@ public class ApplicationForm extends javax.swing.JFrame {
     private javax.swing.JLabel placeholderLabel;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    public javax.swing.JMenuItem showDatabaseMenuItem;
     private javax.swing.JSplitPane splitPanel;
     public javax.swing.JPanel splitViewContentPanel;
     public javax.swing.JScrollPane splitViewMenuScrollPanel;

@@ -9,6 +9,10 @@ import edu.neu.csye6200.view.DashboardPanel;
 import edu.neu.csye6200.view.StudentManagePanel;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class ApplicationFormController
 {
@@ -36,8 +40,23 @@ public class ApplicationFormController
             form.splitViewContentPanel.repaint();
         });
 
-        DatabaseManager.getDB()
-                .onDemand(StudentDao.class)
-                .createTable(SQLUtils.getTableName(Student.class), SQLUtils.getProperties(Student.class));
+        form.showDatabaseMenuItem.addActionListener(e -> {
+            File dbFile = DatabaseManager.getInstance().getFile();
+            try {
+                if (dbFile.exists())
+                    Desktop.getDesktop().open(dbFile);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
+        form.destroyDatabaseMenuItem.addActionListener(e -> {
+            File dbFile = DatabaseManager.getInstance().getFile();
+            if (dbFile.exists())
+                dbFile.deleteOnExit();
+            System.exit(0);
+        });
+        form.loadMockDataMenuItem.addActionListener(e -> {
+
+        });
     }
 }
