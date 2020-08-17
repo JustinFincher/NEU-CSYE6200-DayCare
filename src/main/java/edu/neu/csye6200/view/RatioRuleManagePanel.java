@@ -32,7 +32,7 @@ public class RatioRuleManagePanel extends javax.swing.JPanel {
         titleLabel = new javax.swing.JLabel();
         toolbarPanel = new javax.swing.JPanel();
         refreshTableButton = new javax.swing.JButton();
-        addStudentButton = new javax.swing.JButton();
+        addRuleButton = new javax.swing.JButton();
         importTableButton = new javax.swing.JButton();
         exportTableButton = new javax.swing.JButton();
 
@@ -62,10 +62,10 @@ public class RatioRuleManagePanel extends javax.swing.JPanel {
         refreshTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
         toolbarPanel.add(refreshTableButton);
 
-        addStudentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-24.png"))); // NOI18N
-        addStudentButton.setText("Add");
-        addStudentButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
-        toolbarPanel.add(addStudentButton);
+        addRuleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-24.png"))); // NOI18N
+        addRuleButton.setText("Add");
+        addRuleButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
+        toolbarPanel.add(addRuleButton);
 
         importTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/import-24.png"))); // NOI18N
         importTableButton.setText("Import");
@@ -103,7 +103,7 @@ public class RatioRuleManagePanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton addStudentButton;
+    public javax.swing.JButton addRuleButton;
     public javax.swing.JButton exportTableButton;
     public javax.swing.JButton importTableButton;
     public javax.swing.JButton refreshTableButton;

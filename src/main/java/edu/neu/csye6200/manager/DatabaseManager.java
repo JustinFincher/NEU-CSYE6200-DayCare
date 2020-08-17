@@ -58,6 +58,7 @@ public enum DatabaseManager {
 			jdbi.onDemand(TeacherDao.class).createTable();
 			jdbi.onDemand(StudentDao.class).createTable(SQLUtils.getTableName(Student.class), SQLUtils.getProperties(Student.class));
 			jdbi.onDemand(ParentDao.class).createTable(SQLUtils.getTableName(Parent.class), SQLUtils.getProperties(Parent.class));
+			jdbi.onDemand(RatioRuleDao.class).createTable(SQLUtils.getTableName(RatioRule.class), SQLUtils.getProperties(RatioRule.class));
 		} catch (SQLException throwable) {
 			Log.e(throwable.getMessage());
 			throwable.printStackTrace();

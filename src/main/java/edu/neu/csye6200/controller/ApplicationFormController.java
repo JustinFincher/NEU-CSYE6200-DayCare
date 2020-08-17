@@ -33,9 +33,8 @@ public class ApplicationFormController
             form.switchTo(new DashboardPanel());
         });
         form.manageAgeRatioRuleAction.setListener(e -> {
-//            form.switchTo()
+            form.switchTo(new RatioRuleManagePanelController().getPanel());
         });
-
         form.showDatabaseMenuItem.addActionListener(e -> {
             File dbFile = DatabaseManager.getInstance().getFile();
             try {
