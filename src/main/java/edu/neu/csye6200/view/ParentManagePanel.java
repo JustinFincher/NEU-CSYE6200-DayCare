@@ -9,12 +9,12 @@ package edu.neu.csye6200.view;
  *
  * @author xiangjingru
  */
-public class ParentMangerPanel extends javax.swing.JPanel {
+public class ParentManagePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ParentMangerPanel
      */
-    public ParentMangerPanel() {
+    public ParentManagePanel() {
         initComponents();
     }
 

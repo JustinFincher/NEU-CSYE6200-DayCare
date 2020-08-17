@@ -4,7 +4,7 @@ import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.model.DatabaseTableModel;
 import edu.neu.csye6200.model.Parent;
 import edu.neu.csye6200.model.ParentDao;
-import edu.neu.csye6200.view.ParentMangerPanel;
+import edu.neu.csye6200.view.ParentManagePanel;
 import edu.neu.csye6200.view.StudentManagePanel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -33,13 +33,13 @@ public class ParentManagePanelController // CONTROLLER
     private TableRowSorter<DatabaseTableModel<Parent, ParentDao>> tableRowSorter = new TableRowSorter<>(tableModel);
     private final JPopupMenu tableRightClickMenu = new JPopupMenu();
 
-    public ParentMangerPanel getPanel() {
+    public ParentManagePanel getPanel() {
         return panel;
     }
-    private ParentMangerPanel panel; // VIEW
+    private ParentManagePanel panel; // VIEW
     
     public ParentManagePanelController() {
-        panel = new ParentMangerPanel();
+        panel = new ParentManagePanel();
         JMenuItem deleteItem = new JMenuItem("Delete");
         deleteItem.addActionListener(e -> {
             tableModel.delete(panel.table, panel.table.getSelectedRows());
