@@ -25,6 +25,7 @@ public class ClassroomGroup {
 
     public void addStudent(Student student)
     {
+
         students.add(student);
     }
 }

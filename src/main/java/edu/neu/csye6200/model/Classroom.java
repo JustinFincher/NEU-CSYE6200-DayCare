@@ -11,8 +11,10 @@ public class Classroom extends DBObject
 
     Classroom()
     {
-        // DB
+
         List<RatioRule> rules = new ArrayList<>();
+
+
 
         rules.forEach(ratioRule -> {
             Integer maxGroupsPerRoom = ratioRule.getMaxGroupsPerRoom();
@@ -24,12 +26,18 @@ public class Classroom extends DBObject
         });
     }
 
+    public boolean canAddTeacher(Teacher teacher)
+    {
+        return groups.get(groups.size()-1).getTeacher()==null;
+    }
+
     public void addTeacher(Teacher teacher)
     {
         groups.forEach(classroomGroup -> {
-            while (classroomGroup.getTeacher()==null){
+            if (classroomGroup.getTeacher()==null){
                 classroomGroup.setTeacher(teacher);
             }
+
         });
     }
 
