@@ -44,7 +44,7 @@ public class Student extends User implements CsvSerializable
                 ", hashedPassword='" + getHashedPassword() + '\'' +
                 ", realName='" + getRealName() + '\'' +
                 ", birthDay=" + getBirthDay() +
-                ", age=" + getAge() +
+                ", age=" + getAgeInYear() +
                 ", id=" + getId() +
                 '}';
     }

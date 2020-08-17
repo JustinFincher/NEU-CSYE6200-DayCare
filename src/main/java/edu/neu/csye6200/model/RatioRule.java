@@ -5,37 +5,30 @@ public class RatioRule extends DBObject
     public Integer getMaxGroupsPerRoom() {
         return maxGroupsPerRoom;
     }
-
     public void setMaxGroupsPerRoom(Integer maxGroupsPerRoom) {
         this.maxGroupsPerRoom = maxGroupsPerRoom;
     }
+    private Integer maxGroupsPerRoom;
 
     public Integer getMaxStudentPerTeacher() {
         return maxStudentPerTeacher;
     }
-
-    public void setMaxStudentPerTeacher(Integer maxStudentPerTeacher) {
-        this.maxStudentPerTeacher = maxStudentPerTeacher;
-    }
-
-    public Integer getMinAge() {
-        return minAge;
-    }
-
-    public void setMinAge(Integer minAge) {
-        this.minAge = minAge;
-    }
-
-    public Integer getMaxAge() {
-        return maxAge;
-    }
-
-    public void setMaxAge(Integer maxAge) {
-        this.maxAge = maxAge;
-    }
-
-    private Integer maxGroupsPerRoom;
+    public void setMaxStudentPerTeacher(Integer maxStudentPerTeacher) { this.maxStudentPerTeacher = maxStudentPerTeacher; }
     private Integer maxStudentPerTeacher;
-    private Integer minAge;
-    private Integer maxAge;
+
+    public Integer getMinAgeInMonth() {
+        return minAgeInMonth;
+    }
+    public void setMinAgeInMonth(Integer minAgeInMonth) {
+        this.minAgeInMonth = minAgeInMonth;
+    }
+    private Integer minAgeInMonth;
+
+    public Integer getMaxAgeInMonth() {
+        return maxAgeInMonth;
+    }
+    public void setMaxAgeInMonth(Integer maxAgeInMonth) {
+        this.maxAgeInMonth = maxAgeInMonth;
+    }
+    private Integer maxAgeInMonth;
 }
