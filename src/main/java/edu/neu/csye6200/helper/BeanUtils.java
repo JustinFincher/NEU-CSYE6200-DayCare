@@ -20,7 +20,10 @@ public class BeanUtils
         try {
             info = Introspector.getBeanInfo(cls);
             pds = info.getPropertyDescriptors();
-            return Arrays.stream(pds).filter(d -> !d.getName().equals("class")).collect(Collectors.toCollection(Vector::new));
+            return Arrays.stream(pds)
+                    .filter(d -> !d.getName().equals("class"))
+                    .filter(d -> d.getWriteMethod() != null && d.getReadMethod() != null)
+                    .collect(Collectors.toCollection(Vector::new));
         } catch (IntrospectionException e) {
             Log.e(e.toString());
             e.printStackTrace();

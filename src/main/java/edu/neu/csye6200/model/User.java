@@ -1,7 +1,8 @@
 package edu.neu.csye6200.model;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import com.google.common.hash.Hashing;
+
+import java.nio.charset.Charset;
 
 public class User extends Person
 {
@@ -27,7 +28,10 @@ public class User extends Person
     }
     private String emailAddress;
 
-    public LocalDate getBirthDay() { return birthDay; }
-    public void setBirthDay(LocalDate birthDay) { this.birthDay = birthDay; }
-    private LocalDate birthDay;
+    public String getHashedPassword() { return hashedPassword; }
+    public void setHashedPassword(String hashedPassword) { this.hashedPassword = hashedPassword; }
+    public void setPassword(String password) {
+        setHashedPassword(Hashing.sha256().hashString(password, Charset.defaultCharset()).toString());
+    }
+    private String hashedPassword;
 }
