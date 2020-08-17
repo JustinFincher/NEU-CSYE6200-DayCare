@@ -84,6 +84,14 @@
                 <Property name="text" type="java.lang.String" value="Contents"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="documentationMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Documentation"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </MenuItem>
             <Menu class="javax.swing.JMenu" name="debugMenu">
               <Properties>
                 <Property name="mnemonic" type="int" value="104"/>
