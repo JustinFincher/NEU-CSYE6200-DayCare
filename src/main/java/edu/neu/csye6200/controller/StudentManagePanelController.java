@@ -8,11 +8,9 @@ import edu.neu.csye6200.view.StudentManagePanel;
 import org.jdesktop.swingx.search.PatternMatcher;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableRowSorter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class StudentManagePanelController
@@ -95,8 +93,8 @@ public class StudentManagePanelController
         });
         tableRowSorter = new TableRowSorter<>(tableModel);
         panel.table.setRowSorter(tableRowSorter);
-        panel.table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
-
-        });
+//        panel.table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
+//
+//        });
     }
 }

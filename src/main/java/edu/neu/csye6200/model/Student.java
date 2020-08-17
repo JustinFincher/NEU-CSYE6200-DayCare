@@ -18,9 +18,9 @@ public class Student extends User implements CsvSerializable
     public void setWalkInTime(LocalDateTime walkInTime) { this.walkInTime = walkInTime; }
     private LocalDateTime walkInTime;
 
-    public int getGrade() { return grade; }
-    public void setGrade(int grade) { this.grade = grade; }
-    private int grade;
+    public Integer getGrade() { return grade; }
+    public void setGrade(Integer grade) { this.grade = grade; }
+    private Integer grade;
 
     @Override
     public String saveCsv() {
