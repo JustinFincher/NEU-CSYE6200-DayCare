@@ -8,6 +8,7 @@ public class Classroom extends DBObject
 {
     List<ClassroomGroup> groups;
 
+
     Classroom()
     {
         // DB
@@ -16,15 +17,23 @@ public class Classroom extends DBObject
         rules.forEach(ratioRule -> {
             Integer maxGroupsPerRoom = ratioRule.getMaxGroupsPerRoom();
             // groups.add()
+            for (int i = 0; i < maxGroupsPerRoom; i++) {
+                groups.add(new ClassroomGroup());
+            }
+
         });
     }
 
     public void addTeacher(Teacher teacher)
     {
-
+        groups.forEach(classroomGroup -> {
+            while (classroomGroup.getTeacher()==null){
+                classroomGroup.setTeacher(teacher);
+            }
+        });
     }
 
-    public void autoFill(List<Teacher> teachers, List<Student> students){
+/*    public void autoFill(List<Teacher> teachers, List<Student> students){
         int maxTeacherSize = groups.size();
         if (teachers.size() <= maxTeacherSize)
         {
@@ -36,6 +45,6 @@ public class Classroom extends DBObject
         students.forEach(s -> {
 
         });
-    }
+    }*/
 
 }

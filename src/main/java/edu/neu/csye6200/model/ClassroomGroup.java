@@ -8,6 +8,10 @@ public class ClassroomGroup {
         this.teacher = teacher;
     }
 
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
     private Teacher teacher;
     private List<Student> students;
     private RatioRule rule;
