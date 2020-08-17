@@ -1,5 +1,7 @@
 package edu.neu.csye6200.helper;
 
+import edu.neu.csye6200.helper.annotation.JavaBeansIgnore;
+
 import java.beans.*;
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +25,7 @@ public class BeanUtils
             return Arrays.stream(pds)
                     .filter(d -> !d.getName().equals("class"))
                     .filter(d -> d.getWriteMethod() != null && d.getReadMethod() != null)
+                    .filter(d -> !d.getReadMethod().isAnnotationPresent(JavaBeansIgnore.class) || !d.getWriteMethod().isAnnotationPresent(JavaBeansIgnore.class))
                     .collect(Collectors.toCollection(Vector::new));
         } catch (IntrospectionException e) {
             Log.e(e.toString());

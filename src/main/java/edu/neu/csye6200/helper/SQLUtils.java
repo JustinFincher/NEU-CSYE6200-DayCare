@@ -119,6 +119,7 @@ public class SQLUtils
     {
         String res = name;
         String append;
+//        Log.i(cls.getSimpleName());
         switch (cls.getSimpleName())
         {
             case "Integer":
@@ -126,6 +127,7 @@ public class SQLUtils
             case "LocalDateTime":
                 append = "INTEGER"; break;
             case "String":
+            case "List":
                 append = "TEXT"; break;
             default:
                 append = "BLOB"; break;

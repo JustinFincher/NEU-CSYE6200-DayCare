@@ -1,6 +1,7 @@
 package edu.neu.csye6200.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Student Data Model
@@ -21,6 +22,10 @@ public class Student extends User implements CsvSerializable
     public Integer getGrade() { return grade; }
     public void setGrade(Integer grade) { this.grade = grade; }
     private Integer grade;
+
+//    public List<Parent> getParents() {
+//        return
+//    }
 
     @Override
     public String saveCsv() {

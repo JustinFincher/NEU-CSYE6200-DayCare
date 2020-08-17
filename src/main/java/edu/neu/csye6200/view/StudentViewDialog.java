@@ -13,6 +13,8 @@ public class StudentViewDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form StudentViewDialog
+     * @param parent
+     * @param modal
      */
     public StudentViewDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

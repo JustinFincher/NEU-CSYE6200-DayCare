@@ -1,20 +1,47 @@
 package edu.neu.csye6200.model;
 
 
+import edu.neu.csye6200.helper.SQLUtils;
+import edu.neu.csye6200.helper.annotation.JavaBeansIgnore;
+import edu.neu.csye6200.manager.DatabaseManager;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 public class Parent extends Person implements CsvSerializable
 {
-  
     public String getAddress() { return address; }
     public void setAddress(String address) { this.address = address; }
     private String address;
 
-    public Integer getPhoneNumber() { return phoneNumber; }
-    public void setPhoneNumber(Integer phoneNumber) { this.phoneNumber = phoneNumber; }
-    private Integer phoneNumber;
-    
-    public String getChildName() { return childName; }
-    public void setChildName(String childName) { this.childName = childName; }
-    private String childName;
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    private String phoneNumber;
+
+    @JavaBeansIgnore
+    public List<Student> getChildren()
+    {
+        return Arrays.stream(childrenIds.split(","))
+            .map(Integer::parseInt)
+            .map(i -> DatabaseManager.getDB()
+                            .onDemand(StudentDao.class)
+                            .findById(SQLUtils.getTableName(Student.class),
+                                    i))
+            .map(Optional::get)
+            .filter(Objects::nonNull).collect(Collectors.toList());
+    }
+    @JavaBeansIgnore
+    public void setChildren(List<Student> children)
+    {
+        childrenIds = children.stream().map(DBObject::getId).map(Object::toString).collect(Collectors.joining(","));
+    }
+
+    public String getChildrenIds() { return childrenIds; }
+    public void setChildrenIds(String childrenIds) { this.childrenIds = childrenIds; }
+    private String childrenIds;
 
     @Override
     public String saveCsv() {
@@ -24,19 +51,5 @@ public class Parent extends Person implements CsvSerializable
     @Override
     public void loadCsv(String csvStr) {
 
-    }
-
-    @Override
-    public String toString() {
-        return "Parent{" +
-                "address=" + address +
-                ", phoneNumber=" + phoneNumber +
-                ", saveCsv='" + saveCsv() + '\'' +
-                ", realName='" + getRealName() + '\'' +
-                ", birthDay=" + getBirthDay() +
-                ", age=" + getAgeInYear() +
-                ", id=" + getId() +
-                ", childName=" + childName +
-                '}';
     }
 }

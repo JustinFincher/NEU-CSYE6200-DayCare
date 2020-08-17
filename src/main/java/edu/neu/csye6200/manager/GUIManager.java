@@ -21,6 +21,7 @@ public enum GUIManager {
 
 	public void start()
 	{
-		new ApplicationFormController();
+		new ApplicationFormController().getForm().setVisible(true);
+		//TODO: @QianCheng -> do a query for admin, and show login dialog if necessary
 	}
 }
