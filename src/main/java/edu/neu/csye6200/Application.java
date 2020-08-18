@@ -40,7 +40,7 @@ public class Application {
 			}
 			Log.verbose = cmd.hasOption("verbose");
 			DatabaseManager.getInstance().use(cmd.hasOption("db") ? cmd.getOptionValue("db") : Paths.get("","prod.sqlite3").toAbsolutePath().toString());
-			GUIManager.getInstance().start();
+			GUIManager.getInstance().show();
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

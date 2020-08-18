@@ -1,5 +1,6 @@
 package edu.neu.csye6200.controller;
 
+import edu.neu.csye6200.manager.AdminManager;
 import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.view.ApplicationForm;
 import edu.neu.csye6200.view.DashboardPanel;
@@ -63,5 +64,16 @@ public class ApplicationFormController
                 ioException.printStackTrace();
             }
         });
+    }
+
+    public void show()
+    {
+        if (!AdminManager.getInstance().isLoggedIn())
+        {
+            form.setVisible(false);
+            new LoginDialogController(this.form).show();
+        }else {
+            form.setVisible(true);
+        }
     }
 }

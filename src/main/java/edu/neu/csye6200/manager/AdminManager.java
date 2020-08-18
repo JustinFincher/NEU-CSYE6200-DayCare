@@ -1,9 +1,20 @@
 package edu.neu.csye6200.manager;
 
-public class AdminManager
+public enum AdminManager
 {
-	public boolean isLoggedIn()
+	INSTANCE;
+	public static AdminManager getInstance()
 	{
-		return false;
+		return INSTANCE;
 	}
+
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
+	}
+
+	private boolean loggedIn;
 }

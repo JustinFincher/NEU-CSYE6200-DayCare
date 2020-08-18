@@ -11,7 +11,7 @@ public interface TeacherDao extends CrudDao<Teacher> {
     default Optional<Teacher> findByUserName(String name)
     {
         String tableName = SQLUtils.getTableName(Teacher.class);
-        return getHandle().createQuery("SELECT * FROM <tableName> where user_name = :id")
+        return getHandle().createQuery("SELECT * FROM <tableName> where user_name = :user_name")
                 .define("tableName", tableName)
                 .bind("user_name", name)
                 .mapTo(Teacher.class)
