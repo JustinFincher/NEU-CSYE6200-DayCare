@@ -15,11 +15,11 @@ import java.util.List;
  */
 public class Student extends User implements CsvSerializable
 {
-    public LocalDateTime getWalkInTime() { return walkInTime; }
+    public LocalDateTime getWalkInTime() { return walkInTime == null ? LocalDateTime.now() : walkInTime; }
     public void setWalkInTime(LocalDateTime walkInTime) { this.walkInTime = walkInTime; }
     private LocalDateTime walkInTime;
 
-    public Integer getGrade() { return grade; }
+    public Integer getGrade() { return grade == null ? 100 : grade; }
     public void setGrade(Integer grade) { this.grade = grade; }
     private Integer grade;
 

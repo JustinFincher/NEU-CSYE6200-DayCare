@@ -13,11 +13,11 @@ import java.util.stream.Collectors;
 
 public class Parent extends Person implements CsvSerializable
 {
-    public String getAddress() { return address; }
+    public String getAddress() { return address == null ? "" : address; }
     public void setAddress(String address) { this.address = address; }
     private String address;
 
-    public String getPhoneNumber() { return phoneNumber; }
+    public String getPhoneNumber() { return phoneNumber == null ? "" : phoneNumber; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
     private String phoneNumber;
 
