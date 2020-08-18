@@ -1,5 +1,6 @@
 package edu.neu.csye6200.model;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,4 +17,5 @@ public class DBObject
 
     public void loadCsv(Map<String, String> map) {
     }
+
 }

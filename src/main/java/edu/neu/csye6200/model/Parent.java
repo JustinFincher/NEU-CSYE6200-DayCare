@@ -6,7 +6,6 @@ import edu.neu.csye6200.helper.annotation.JavaBeansIgnore;
 import edu.neu.csye6200.manager.DatabaseManager;
 
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Parent extends Person
@@ -32,9 +31,7 @@ public class Parent extends Person
             .map(Integer::parseInt)
             .map(i -> DatabaseManager.getDB()
                             .onDemand(StudentDao.class)
-                            .findById(SQLUtils.getTableName(Student.class),
-                                    i))
-            .map(Optional::get)
+                            .find(Student.class, i))
             .filter(Objects::nonNull).collect(Collectors.toList());
     }
     @JavaBeansIgnore

@@ -1,6 +1,9 @@
 package edu.neu.csye6200.model;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Map;
 
@@ -27,10 +30,14 @@ public class Student extends User
     @Override
     public void loadCsv(Map<String, String> map) {
         super.loadCsv(map);
+        setGrade(Integer.parseInt(map.getOrDefault("grade", "0")));
+        setWalkInTime(Instant.ofEpochSecond(Long.parseLong(map.getOrDefault("walk_in_time","0"))).atZone(ZoneId.systemDefault()).toLocalDateTime());
     }
 
     @Override
     public void saveCsv(Map<String, String> map) {
         super.saveCsv(map);
+        map.put("grade",getGrade().toString());
+        map.put("walk_in_time", String.valueOf(getWalkInTime().toEpochSecond(ZoneOffset.UTC)));
     }
 }

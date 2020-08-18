@@ -133,6 +133,15 @@ public interface CrudDao<T extends DBObject> extends SqlObject
     @SqlUpdate("DELETE FROM <tableName> WHERE id = <id>")
     void deleteById(@Define("tableName") String tableName, @Define("id") Integer id);
 
+    default void reset(Class<T> className)
+    {
+        String tableName = SQLUtils.getTableName(className);
+        getHandle().createUpdate("DROP TABLE <tableName>")
+                .define("tableName", tableName)
+                .execute();
+        createTable(className);
+    }
+
     default void importCSV(String fileContent, Class<T> className)
     {
         String[] lines = fileContent.split("\\r?\\n");

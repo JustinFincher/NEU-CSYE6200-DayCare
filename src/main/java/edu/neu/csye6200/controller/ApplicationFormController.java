@@ -1,7 +1,9 @@
 package edu.neu.csye6200.controller;
 
+import edu.neu.csye6200.helper.SQLUtils;
 import edu.neu.csye6200.manager.AdminManager;
 import edu.neu.csye6200.manager.DatabaseManager;
+import edu.neu.csye6200.model.*;
 import edu.neu.csye6200.view.ApplicationForm;
 import edu.neu.csye6200.view.DashboardPanel;
 
@@ -12,6 +14,15 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 public class ApplicationFormController
 {
@@ -56,8 +67,26 @@ public class ApplicationFormController
                 dbFile.deleteOnExit();
             System.exit(0);
         });
-        form.loadMockDataMenuItem.addActionListener(e -> {
+        form.loadMockDataMenuItem.addActionListener(event -> {
 
+            List<AbstractMap.SimpleEntry<Class<? extends DBObject>, Class<? extends CrudDao<DBObject>>>> list = new ArrayList<>();
+            list.add(new AbstractMap.SimpleEntry(Student.class, StudentDao.class));
+            list.add(new AbstractMap.SimpleEntry(Parent.class, ParentDao.class));
+            list.add(new AbstractMap.SimpleEntry(Teacher.class, TeacherDao.class));
+            list.stream()
+                    .forEach(pair -> {
+                        String s = SQLUtils.getKeyInString(pair.getKey().getSimpleName());
+                        Path path = Paths.get("", (s + ".csv"));
+                        if (path.toFile().exists())
+                        {
+                            try {
+                                DatabaseManager.getDB().onDemand(pair.getValue()).reset((Class<DBObject>) pair.getKey());
+                                DatabaseManager.getDB().onDemand(pair.getValue()).importCSV(new String(Files.readAllBytes(path)), (Class<DBObject>) pair.getKey());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
         });
         form.documentationMenuItem.addActionListener(e -> {
             try {

@@ -19,6 +19,4 @@ public interface StudentDao extends CrudDao<Student>
                 .filter(p -> p.hasChild(student))
                 .collect(Collectors.toList());
     }
-
-
 }

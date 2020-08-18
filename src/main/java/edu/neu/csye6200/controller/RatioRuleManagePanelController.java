@@ -1,5 +1,6 @@
 package edu.neu.csye6200.controller;
 
+import edu.neu.csye6200.helper.FileUtils;
 import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.model.*;
 import edu.neu.csye6200.view.RatioRuleManagePanel;
@@ -72,42 +73,11 @@ public class RatioRuleManagePanelController {
         });
 
         panel.exportTableButton.addActionListener(event -> {
-            String s = DatabaseManager.getDB().onDemand(RatioRuleDao.class).exportCSV(RatioRule.class);
-            String fileName = "ratiorules.csv";
-            String home = System.getProperty("user.home");
-            Path path = Paths.get(home,"Downloads", fileName);
-            File file = path.toFile();
-            try {
-                if (file.exists()) {
-                    boolean delete = file.delete();
-                }
-                FileWriter writer = new FileWriter(path.toString());
-                writer.write(s);
-                writer.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Failed due to " + e.getMessage());
-                e.printStackTrace();
-            }
-            JOptionPane.showMessageDialog(null, "Saved to " + path);
+            FileUtils.exportCSV(RatioRule.class, RatioRuleDao.class);
         });
 
         panel.importTableButton.addActionListener(event -> {
-            JFileChooser jfc=new JFileChooser();
-            jfc.setFileFilter(new FileNameExtensionFilter("CSV Files","csv"));
-            jfc.setFileSelectionMode(JFileChooser.FILES_ONLY );
-            jfc.showDialog(new JLabel(), "Select");
-            File file=jfc.getSelectedFile();
-            if(file.isFile())
-            {
-                try {
-                    String s = new String(Files.readAllBytes(file.toPath()));
-                    DatabaseManager.getDB().onDemand(RatioRuleDao.class).importCSV(s, RatioRule.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Failed due to " + e.getMessage());
-                }
-            }
-            JOptionPane.showMessageDialog(null, "Success");
+            FileUtils.importCSV(RatioRule.class, RatioRuleDao.class);
             model.refresh();
         });
     }
