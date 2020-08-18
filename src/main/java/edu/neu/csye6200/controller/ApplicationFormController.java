@@ -32,7 +32,10 @@ public class ApplicationFormController
         form.dashboardAction.setListener(e -> {
             form.switchTo(new DashboardPanel());
         });
-        form.manageAgeRatioRuleAction.setListener(e -> {
+        form.manageTeacherAction.setListener(e -> {
+            form.switchTo(new TeacherManagePanelController().getPanel());
+        });
+        form.manageRatioRuleAction.setListener(e -> {
             form.switchTo(new RatioRuleManagePanelController().getPanel());
         });
         form.showDatabaseMenuItem.addActionListener(e -> {
