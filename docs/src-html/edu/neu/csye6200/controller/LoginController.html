@@ -14,43 +14,45 @@
 <span class="sourceLineNo">006</span><a name="line.6"></a>
 <span class="sourceLineNo">007</span>import java.awt.*;<a name="line.7"></a>
 <span class="sourceLineNo">008</span><a name="line.8"></a>
-<span class="sourceLineNo">009</span><a name="line.9"></a>
-<span class="sourceLineNo">010</span>public class LoginController<a name="line.10"></a>
-<span class="sourceLineNo">011</span>{<a name="line.11"></a>
-<span class="sourceLineNo">012</span>    public LoginPanel getPanel() { return panel; }<a name="line.12"></a>
-<span class="sourceLineNo">013</span>    private LoginPanel panel;<a name="line.13"></a>
-<span class="sourceLineNo">014</span><a name="line.14"></a>
-<span class="sourceLineNo">015</span>    public LoginController() {<a name="line.15"></a>
+<span class="sourceLineNo">009</span>/**<a name="line.9"></a>
+<span class="sourceLineNo">010</span> * @deprecated<a name="line.10"></a>
+<span class="sourceLineNo">011</span> */<a name="line.11"></a>
+<span class="sourceLineNo">012</span>public class LoginController<a name="line.12"></a>
+<span class="sourceLineNo">013</span>{<a name="line.13"></a>
+<span class="sourceLineNo">014</span>    public LoginPanel getPanel() { return panel; }<a name="line.14"></a>
+<span class="sourceLineNo">015</span>    private LoginPanel panel;<a name="line.15"></a>
 <span class="sourceLineNo">016</span><a name="line.16"></a>
-<span class="sourceLineNo">017</span>        panel.Login.addActionListener(e-&gt;{<a name="line.17"></a>
-<span class="sourceLineNo">018</span>            if(!DatabaseManager.getDB().onDemand(User.class).getUserName().equalsIgnoreCase(panel.Id.getText())){<a name="line.18"></a>
-<span class="sourceLineNo">019</span>                panel.Warnning.setText("*Incorrect Id or Password");<a name="line.19"></a>
-<span class="sourceLineNo">020</span>                panel.Warnning.setForeground(Color.RED);<a name="line.20"></a>
-<span class="sourceLineNo">021</span>                panel.Wrong_id.setText("*");<a name="line.21"></a>
-<span class="sourceLineNo">022</span>                panel.Wrong_id.setForeground(Color.RED);<a name="line.22"></a>
-<span class="sourceLineNo">023</span>            }<a name="line.23"></a>
-<span class="sourceLineNo">024</span>            else if(!DatabaseManager.getDB().onDemand(User.class).getHashedPassword().equalsIgnoreCase(panel.Password.getText())){<a name="line.24"></a>
-<span class="sourceLineNo">025</span>                panel.Warnning.setText("*Incorrect Id or Password");<a name="line.25"></a>
-<span class="sourceLineNo">026</span>                panel.Warnning.setForeground(Color.RED);<a name="line.26"></a>
-<span class="sourceLineNo">027</span>                panel.Wrong_password.setText("*");<a name="line.27"></a>
-<span class="sourceLineNo">028</span>                panel.Wrong_password.setForeground(Color.RED);<a name="line.28"></a>
-<span class="sourceLineNo">029</span>            }<a name="line.29"></a>
-<span class="sourceLineNo">030</span>            else if(!DatabaseManager.getDB().onDemand(User.class).getUserName().equalsIgnoreCase(panel.Id.getText())||!DatabaseManager.getDB().onDemand(User.class).getHashedPassword().equalsIgnoreCase(panel.Password.getText())){<a name="line.30"></a>
-<span class="sourceLineNo">031</span>                panel.Warnning.setText("*Incorrect Id or Password");<a name="line.31"></a>
-<span class="sourceLineNo">032</span>                panel.Warnning.setForeground(Color.RED);<a name="line.32"></a>
-<span class="sourceLineNo">033</span>                panel.Wrong_password.setText("*");<a name="line.33"></a>
-<span class="sourceLineNo">034</span>                panel.Wrong_password.setForeground(Color.RED);<a name="line.34"></a>
-<span class="sourceLineNo">035</span>                panel.Wrong_id.setText("*");<a name="line.35"></a>
-<span class="sourceLineNo">036</span>                panel.Wrong_id.setForeground(Color.RED);<a name="line.36"></a>
-<span class="sourceLineNo">037</span>            }<a name="line.37"></a>
-<span class="sourceLineNo">038</span>            else{<a name="line.38"></a>
-<span class="sourceLineNo">039</span>                panel.setVisible(false);<a name="line.39"></a>
-<span class="sourceLineNo">040</span>            }<a name="line.40"></a>
-<span class="sourceLineNo">041</span>        });<a name="line.41"></a>
-<span class="sourceLineNo">042</span><a name="line.42"></a>
-<span class="sourceLineNo">043</span><a name="line.43"></a>
-<span class="sourceLineNo">044</span>    }<a name="line.44"></a>
-<span class="sourceLineNo">045</span>}<a name="line.45"></a>
+<span class="sourceLineNo">017</span>    public LoginController() {<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>        panel.Login.addActionListener(e-&gt;{<a name="line.19"></a>
+<span class="sourceLineNo">020</span>            if(!DatabaseManager.getDB().onDemand(User.class).getUserName().equalsIgnoreCase(panel.Id.getText())){<a name="line.20"></a>
+<span class="sourceLineNo">021</span>                panel.Warnning.setText("*Incorrect Id or Password");<a name="line.21"></a>
+<span class="sourceLineNo">022</span>                panel.Warnning.setForeground(Color.RED);<a name="line.22"></a>
+<span class="sourceLineNo">023</span>                panel.Wrong_id.setText("*");<a name="line.23"></a>
+<span class="sourceLineNo">024</span>                panel.Wrong_id.setForeground(Color.RED);<a name="line.24"></a>
+<span class="sourceLineNo">025</span>            }<a name="line.25"></a>
+<span class="sourceLineNo">026</span>            else if(!DatabaseManager.getDB().onDemand(User.class).getHashedPassword().equalsIgnoreCase(panel.Password.getText())){<a name="line.26"></a>
+<span class="sourceLineNo">027</span>                panel.Warnning.setText("*Incorrect Id or Password");<a name="line.27"></a>
+<span class="sourceLineNo">028</span>                panel.Warnning.setForeground(Color.RED);<a name="line.28"></a>
+<span class="sourceLineNo">029</span>                panel.Wrong_password.setText("*");<a name="line.29"></a>
+<span class="sourceLineNo">030</span>                panel.Wrong_password.setForeground(Color.RED);<a name="line.30"></a>
+<span class="sourceLineNo">031</span>            }<a name="line.31"></a>
+<span class="sourceLineNo">032</span>            else if(!DatabaseManager.getDB().onDemand(User.class).getUserName().equalsIgnoreCase(panel.Id.getText())||!DatabaseManager.getDB().onDemand(User.class).getHashedPassword().equalsIgnoreCase(panel.Password.getText())){<a name="line.32"></a>
+<span class="sourceLineNo">033</span>                panel.Warnning.setText("*Incorrect Id or Password");<a name="line.33"></a>
+<span class="sourceLineNo">034</span>                panel.Warnning.setForeground(Color.RED);<a name="line.34"></a>
+<span class="sourceLineNo">035</span>                panel.Wrong_password.setText("*");<a name="line.35"></a>
+<span class="sourceLineNo">036</span>                panel.Wrong_password.setForeground(Color.RED);<a name="line.36"></a>
+<span class="sourceLineNo">037</span>                panel.Wrong_id.setText("*");<a name="line.37"></a>
+<span class="sourceLineNo">038</span>                panel.Wrong_id.setForeground(Color.RED);<a name="line.38"></a>
+<span class="sourceLineNo">039</span>            }<a name="line.39"></a>
+<span class="sourceLineNo">040</span>            else{<a name="line.40"></a>
+<span class="sourceLineNo">041</span>                panel.setVisible(false);<a name="line.41"></a>
+<span class="sourceLineNo">042</span>            }<a name="line.42"></a>
+<span class="sourceLineNo">043</span>        });<a name="line.43"></a>
+<span class="sourceLineNo">044</span><a name="line.44"></a>
+<span class="sourceLineNo">045</span><a name="line.45"></a>
+<span class="sourceLineNo">046</span>    }<a name="line.46"></a>
+<span class="sourceLineNo">047</span>}<a name="line.47"></a>
 
 
 

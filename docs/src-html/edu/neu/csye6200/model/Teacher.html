@@ -8,22 +8,36 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package edu.neu.csye6200.model;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>public class Teacher extends User<a name="line.3"></a>
-<span class="sourceLineNo">004</span>{<a name="line.4"></a>
-<span class="sourceLineNo">005</span>    public Integer getCredits() {<a name="line.5"></a>
-<span class="sourceLineNo">006</span>        return credits;<a name="line.6"></a>
-<span class="sourceLineNo">007</span>    }<a name="line.7"></a>
-<span class="sourceLineNo">008</span>    public void setCredits(Integer credits) {<a name="line.8"></a>
-<span class="sourceLineNo">009</span>        this.credits = credits;<a name="line.9"></a>
-<span class="sourceLineNo">010</span>    }<a name="line.10"></a>
-<span class="sourceLineNo">011</span>    private Integer credits;<a name="line.11"></a>
-<span class="sourceLineNo">012</span><a name="line.12"></a>
-<span class="sourceLineNo">013</span>    public String getEmailAddress() { return emailAddress == null ? "i@example.com" : emailAddress; }<a name="line.13"></a>
-<span class="sourceLineNo">014</span>    public void setEmailAddress(String emailAddress) {<a name="line.14"></a>
-<span class="sourceLineNo">015</span>        this.emailAddress = emailAddress;<a name="line.15"></a>
-<span class="sourceLineNo">016</span>    }<a name="line.16"></a>
-<span class="sourceLineNo">017</span>    private String emailAddress;<a name="line.17"></a>
-<span class="sourceLineNo">018</span>}<a name="line.18"></a>
+<span class="sourceLineNo">003</span>import java.util.Map;<a name="line.3"></a>
+<span class="sourceLineNo">004</span><a name="line.4"></a>
+<span class="sourceLineNo">005</span>public class Teacher extends User<a name="line.5"></a>
+<span class="sourceLineNo">006</span>{<a name="line.6"></a>
+<span class="sourceLineNo">007</span>    public Integer getCredits() {<a name="line.7"></a>
+<span class="sourceLineNo">008</span>        return credits;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>    }<a name="line.9"></a>
+<span class="sourceLineNo">010</span>    public void setCredits(Integer credits) {<a name="line.10"></a>
+<span class="sourceLineNo">011</span>        this.credits = credits;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>    }<a name="line.12"></a>
+<span class="sourceLineNo">013</span>    private Integer credits;<a name="line.13"></a>
+<span class="sourceLineNo">014</span><a name="line.14"></a>
+<span class="sourceLineNo">015</span>    public String getEmailAddress() { return emailAddress == null ? "i@example.com" : emailAddress; }<a name="line.15"></a>
+<span class="sourceLineNo">016</span>    public void setEmailAddress(String emailAddress) {<a name="line.16"></a>
+<span class="sourceLineNo">017</span>        this.emailAddress = emailAddress;<a name="line.17"></a>
+<span class="sourceLineNo">018</span>    }<a name="line.18"></a>
+<span class="sourceLineNo">019</span>    private String emailAddress;<a name="line.19"></a>
+<span class="sourceLineNo">020</span><a name="line.20"></a>
+<span class="sourceLineNo">021</span>    @Override<a name="line.21"></a>
+<span class="sourceLineNo">022</span>    public void saveCsv(Map&lt;String, String&gt; map) {<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        super.saveCsv(map);<a name="line.23"></a>
+<span class="sourceLineNo">024</span>        map.put("email_address",getEmailAddress());<a name="line.24"></a>
+<span class="sourceLineNo">025</span>    }<a name="line.25"></a>
+<span class="sourceLineNo">026</span><a name="line.26"></a>
+<span class="sourceLineNo">027</span>    @Override<a name="line.27"></a>
+<span class="sourceLineNo">028</span>    public void loadCsv(Map&lt;String, String&gt; map) {<a name="line.28"></a>
+<span class="sourceLineNo">029</span>        super.loadCsv(map);<a name="line.29"></a>
+<span class="sourceLineNo">030</span>        setEmailAddress(map.getOrDefault("email_address",""));<a name="line.30"></a>
+<span class="sourceLineNo">031</span>    }<a name="line.31"></a>
+<span class="sourceLineNo">032</span>}<a name="line.32"></a>
 
 
 
