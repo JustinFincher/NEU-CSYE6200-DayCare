@@ -8,9 +8,8 @@ import org.jdbi.v3.sqlobject.statement.SqlScript;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
 import java.util.List;
-
-public interface TeacherDao
-{
+@RegisterBeanMapper(Teacher.class)
+public interface TeacherDao extends CrudDao<Teacher> {
     @SqlUpdate("CREATE TABLE IF NOT EXISTS teacher (id INTEGER PRIMARY KEY AUTOINCREMENT, credits INTEGER, user_name TEXT, real_name TEXT, user_level INTEGER)")
     void createTable();
 
