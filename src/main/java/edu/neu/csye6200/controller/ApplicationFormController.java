@@ -39,7 +39,7 @@ public class ApplicationFormController
             form.switchTo(new ParentManagePanelController().getPanel());
         });
         form.dashboardAction.setListener(e -> {
-            form.switchTo(new DashboardPanel());
+            form.switchTo(new DashboardController().getPanel());
         });
         form.manageTeacherAction.setListener(e -> {
             form.switchTo(new TeacherManagePanelController().getPanel());

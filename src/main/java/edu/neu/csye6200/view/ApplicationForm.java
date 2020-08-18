@@ -64,9 +64,9 @@ public class ApplicationForm extends javax.swing.JFrame {
         splitViewMenuScrollPanel = new javax.swing.JScrollPane();
         splitViewMenuTaskPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
         dashboardTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        systemAdminTaskPane = new org.jdesktop.swingx.JXTaskPane();
         staffManageTaskPane = new org.jdesktop.swingx.JXTaskPane();
         facilityManageTaskPane = new org.jdesktop.swingx.JXTaskPane();
+        systemAdminTaskPane = new org.jdesktop.swingx.JXTaskPane();
         splitViewContentPanel = new javax.swing.JPanel();
         placeholderLabel = new javax.swing.JLabel();
         jXStatusBar1 = new org.jdesktop.swingx.JXStatusBar();
@@ -111,10 +111,6 @@ public class ApplicationForm extends javax.swing.JFrame {
         dashboardTaskPane.setTitle("Dashboard");
         splitViewMenuTaskPaneContainer.add(dashboardTaskPane);
 
-        systemAdminTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/identity-24.png"))); // NOI18N
-        systemAdminTaskPane.setTitle("System Admin");
-        splitViewMenuTaskPaneContainer.add(systemAdminTaskPane);
-
         staffManageTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/group-24.png"))); // NOI18N
         staffManageTaskPane.setTitle("Staff Management");
         splitViewMenuTaskPaneContainer.add(staffManageTaskPane);
@@ -122,6 +118,10 @@ public class ApplicationForm extends javax.swing.JFrame {
         facilityManageTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/location-24.png"))); // NOI18N
         facilityManageTaskPane.setTitle("Facility Management");
         splitViewMenuTaskPaneContainer.add(facilityManageTaskPane);
+
+        systemAdminTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/identity-24.png"))); // NOI18N
+        systemAdminTaskPane.setTitle("System Admin");
+        splitViewMenuTaskPaneContainer.add(systemAdminTaskPane);
 
         splitViewMenuScrollPanel.setViewportView(splitViewMenuTaskPaneContainer);
 

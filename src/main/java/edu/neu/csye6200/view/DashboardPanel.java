@@ -27,30 +27,93 @@ public class DashboardPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
+        jXTitledSeparator1 = new org.jdesktop.swingx.JXTitledSeparator();
+        scrollPane = new javax.swing.JScrollPane();
+        scrollContentView = new javax.swing.JPanel();
+        jXTitledSeparator3 = new org.jdesktop.swingx.JXTitledSeparator();
+        studentStatisticLabel = new javax.swing.JLabel();
+        studentChartPanel = new javax.swing.JPanel();
+        jXTitledSeparator2 = new org.jdesktop.swingx.JXTitledSeparator();
+        teacherStatisticLabel = new javax.swing.JLabel();
+        refreshTableButton = new javax.swing.JButton();
 
-        jLabel1.setText("Dashboard, work in progress");
+        titleLabel.setFont(titleLabel.getFont().deriveFont(titleLabel.getFont().getStyle() | java.awt.Font.BOLD, titleLabel.getFont().getSize()+13));
+        titleLabel.setText("Dashboard");
+
+        jXTitledSeparator1.setTitle("Statistics");
+
+        scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setHorizontalScrollBar(null);
+
+        scrollContentView.setLayout(new org.jdesktop.swingx.VerticalLayout());
+
+        jXTitledSeparator3.setTitle("Student");
+        scrollContentView.add(jXTitledSeparator3);
+
+        studentStatisticLabel.setText("Total:");
+        scrollContentView.add(studentStatisticLabel);
+
+        studentChartPanel.setMinimumSize(new java.awt.Dimension(0, 200));
+        studentChartPanel.setPreferredSize(new java.awt.Dimension(384, 200));
+        studentChartPanel.setLayout(new java.awt.BorderLayout());
+        scrollContentView.add(studentChartPanel);
+
+        jXTitledSeparator2.setTitle("Teacher");
+        scrollContentView.add(jXTitledSeparator2);
+
+        teacherStatisticLabel.setText("Total:");
+        scrollContentView.add(teacherStatisticLabel);
+
+        scrollPane.setViewportView(scrollContentView);
+
+        refreshTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh-24.png"))); // NOI18N
+        refreshTableButton.setText("Refresh");
+        refreshTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(97, 97, 97))
+                    .addComponent(jXTitledSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(refreshTableButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(titleLabel)
+                .addGap(0, 0, 0)
+                .addComponent(refreshTableButton)
+                .addGap(0, 0, 0)
+                .addComponent(jXTitledSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator1;
+    private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator2;
+    private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator3;
+    public javax.swing.JButton refreshTableButton;
+    public javax.swing.JPanel scrollContentView;
+    public javax.swing.JScrollPane scrollPane;
+    public javax.swing.JPanel studentChartPanel;
+    public javax.swing.JLabel studentStatisticLabel;
+    public javax.swing.JLabel teacherStatisticLabel;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
