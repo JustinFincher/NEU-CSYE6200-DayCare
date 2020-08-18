@@ -1,14 +1,19 @@
 package edu.neu.csye6200.model;
 
+import edu.neu.csye6200.helper.Log;
+import edu.neu.csye6200.helper.SQLUtils;
 import edu.neu.csye6200.helper.annotation.SQLLoggingFactory;
+import org.jdbi.v3.core.result.ResultBearing;
+import org.jdbi.v3.sqlobject.SqlObject;
 import org.jdbi.v3.sqlobject.customizer.Define;
 import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
-import org.jdbi.v3.sqlobject.statement.SqlScript;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.BiConsumer;
 
 /**
  *
@@ -36,8 +41,7 @@ import java.util.Optional;
  * @see DatabaseTableModel
  * @param <T> A placeholder for the data model class later to be specified
  */
-@SQLLoggingFactory
-public interface CrudDao<T extends DBObject>
+public interface CrudDao<T extends DBObject> extends SqlObject
 {
     /**
      * Create a table in database if it does not exist
@@ -56,14 +60,56 @@ public interface CrudDao<T extends DBObject>
     @SqlUpdate("INSERT INTO <tableName> <keysAndValues>")
     int insert(@Define("tableName") String tableName, @Define("keysAndValues") String keysAndValues);
 
+    default void insert(T object)
+    {
+        String tableName = SQLUtils.getTableName(object.getClass());
+        String bindings = SQLUtils.getKeysAndValueBindingsInCreateString(object, false);
+        Map<String, ?> map = SQLUtils.getKeysAndValuesInMap(object);
+        getHandle().createUpdate("INSERT INTO <tableName> " + bindings)
+                .define("tableName", tableName)
+                .bindMap(map)
+                .execute();
+    }
+
     @SqlQuery("SELECT * FROM <tableName> where id = ?")
     Optional<T> findById(@Define("tableName") String tableName, Integer id);
+    default T find(Class<T> className, Integer id)
+    {
+        String tableName = SQLUtils.getTableName(className);
+        return getHandle().createQuery("SELECT * FROM <tableName> where id = :id")
+                .define("tableName", tableName)
+                .bind("id", id)
+                .mapTo(className)
+                .one();
+    }
 
     @SqlQuery("SELECT * FROM <tableName>")
     List<T> list(@Define("tableName") String tableName);
 
+    default List<T> list(Class<T> className)
+    {
+        String tableName = SQLUtils.getTableName(className);
+        return getHandle().createQuery("SELECT * FROM <tableName>")
+                .define("tableName", tableName)
+                .mapTo(className)
+                .list();
+    }
+
     @SqlUpdate("UPDATE <tableName> SET <keyValuePairs> WHERE id = <id>")
     void update(@Define("tableName") String tableName, @Define("keyValuePairs") String keyValuePairs, @Define("id") Integer id);
+
+    default void update(T object)
+    {
+        String tableName = SQLUtils.getTableName(object.getClass());
+        String bindings = SQLUtils.getKeysAndValueBindingsInUpdateString(object, false);
+        Map<String, ?> map = SQLUtils.getKeysAndValuesInMap(object);
+        String query = "UPDATE <tableName> SET " + bindings + " WHERE id = :id";
+        getHandle().createUpdate(query)
+                .define("tableName", tableName)
+                .bindMap(map)
+                .bind("id", object.getId())
+                .execute();
+    }
 
     @SqlUpdate("DELETE FROM <tableName> WHERE id = <id>")
     void deleteById(@Define("tableName") String tableName, @Define("id") Integer id);

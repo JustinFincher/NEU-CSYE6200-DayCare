@@ -69,18 +69,18 @@ public class Dose extends DBObject {
     public void setCheck(boolean check) {
         this.check = check;
     }
-    
+
     /**
-     * 
-     * @return The date this dose was given
+     *
+     * @param doseDate
      */
     public void setDoseDate(LocalDate doseDate) {
         this.doseDate = doseDate;
     }
-    
+
     /**
-     * 
-     * @return The deadline of this Dose
+     *
+     * @param doseDeadline
      */
     public void setDoseDeadline(LocalDate doseDeadline) {
         this.doseDeadline = doseDeadline;

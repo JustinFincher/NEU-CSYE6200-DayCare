@@ -12,6 +12,7 @@ import java.net.URISyntaxException;
 
 public class ApplicationFormController
 {
+    public ApplicationForm getForm() { return form; }
     private ApplicationForm form;
     public ApplicationFormController()
     {
@@ -22,7 +23,6 @@ public class ApplicationFormController
         int width = screenSize.width;
         form.setSize((int) (width*0.75), (int) (height*0.75));
         form.setLocationRelativeTo(null);
-        form.setVisible(true);
         form.manageStudentAction.setListener(e -> {
             form.switchTo(new StudentManagePanelController().getPanel());
         });

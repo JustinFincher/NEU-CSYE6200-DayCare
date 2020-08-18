@@ -4,14 +4,20 @@ import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.helper.SQLUtils;
 import edu.neu.csye6200.model.*;
 import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.core.array.SqlArrayType;
+import org.jdbi.v3.core.mapper.ColumnMapper;
 import org.jdbi.v3.core.mapper.reflect.ReflectionMappers;
+import org.jdbi.v3.core.statement.SqlLogger;
+import org.jdbi.v3.core.statement.StatementContext;
 import org.jdbi.v3.sqlite3.SQLitePlugin;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public enum DatabaseManager {
 	INSTANCE;
@@ -56,9 +62,19 @@ public enum DatabaseManager {
 			jdbi = Jdbi.create(connection).installPlugin(new SqlObjectPlugin()).installPlugin(new SQLitePlugin());
 			jdbi.getConfig(ReflectionMappers.class).setStrictMatching(false);
 			jdbi.onDemand(TeacherDao.class).createTable();
-			jdbi.onDemand(StudentDao.class).createTable(SQLUtils.getTableName(Student.class), SQLUtils.getProperties(Student.class));
-			jdbi.onDemand(ParentDao.class).createTable(SQLUtils.getTableName(Parent.class), SQLUtils.getProperties(Parent.class));
-			jdbi.onDemand(RatioRuleDao.class).createTable(SQLUtils.getTableName(RatioRule.class), SQLUtils.getProperties(RatioRule.class));
+			jdbi.onDemand(StudentDao.class).createTable(SQLUtils.getTableName(Student.class), SQLUtils.getAllKeysInString(Student.class));
+			jdbi.onDemand(ParentDao.class).createTable(SQLUtils.getTableName(Parent.class), SQLUtils.getAllKeysInString(Parent.class));
+			jdbi.onDemand(RatioRuleDao.class).createTable(SQLUtils.getTableName(RatioRule.class), SQLUtils.getAllKeysInString(RatioRule.class));
+			jdbi.setSqlLogger(new SqlLogger() {
+				@Override
+				public void logBeforeExecution(StatementContext context) {
+					StringBuilder sb = new StringBuilder();
+					sb.append("SQL Before Execution:").append("\n");
+					sb.append("\t").append("[RAWSQL] ").append(context.getRawSql()).append(" ").append(context.getBinding().toString()).append("\n");
+					sb.append("\t").append("[RENDER] ").append(context.getRenderedSql()).append("\n");
+					Log.i(sb.toString());
+				}
+			});
 		} catch (SQLException throwable) {
 			Log.e(throwable.getMessage());
 			throwable.printStackTrace();

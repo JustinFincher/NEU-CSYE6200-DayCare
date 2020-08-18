@@ -19,8 +19,8 @@ public class ClassroomGroup {
     public boolean canAddStudent(Student student)
     {
         return students.size() < rule.getMaxStudentPerTeacher() &&
-                student.getAge() < rule.getMaxAge() &&
-                rule.getMinAge() < student.getAge();
+                student.getAgeInYear() < rule.getMaxAgeInMonth() &&
+                rule.getMinAgeInMonth() < student.getAgeInYear();
     }
 
     public void addStudent(Student student)

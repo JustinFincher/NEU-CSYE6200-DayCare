@@ -1,6 +1,7 @@
 package edu.neu.csye6200.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Student Data Model
@@ -14,11 +15,11 @@ import java.time.LocalDateTime;
  */
 public class Student extends User implements CsvSerializable
 {
-    public LocalDateTime getWalkInTime() { return walkInTime; }
+    public LocalDateTime getWalkInTime() { return walkInTime == null ? LocalDateTime.now() : walkInTime; }
     public void setWalkInTime(LocalDateTime walkInTime) { this.walkInTime = walkInTime; }
     private LocalDateTime walkInTime;
 
-    public Integer getGrade() { return grade; }
+    public Integer getGrade() { return grade == null ? 100 : grade; }
     public void setGrade(Integer grade) { this.grade = grade; }
     private Integer grade;
 
@@ -40,11 +41,10 @@ public class Student extends User implements CsvSerializable
                 ", saveCsv='" + saveCsv() + '\'' +
                 ", userName='" + getUserName() + '\'' +
                 ", userLevel=" + getUserLevel() +
-                ", emailAddress='" + getEmailAddress() + '\'' +
                 ", hashedPassword='" + getHashedPassword() + '\'' +
                 ", realName='" + getRealName() + '\'' +
                 ", birthDay=" + getBirthDay() +
-                ", age=" + getAge() +
+                ", age=" + getAgeInYear() +
                 ", id=" + getId() +
                 '}';
     }
