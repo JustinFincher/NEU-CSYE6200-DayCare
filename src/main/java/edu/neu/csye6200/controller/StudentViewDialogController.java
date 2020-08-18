@@ -9,6 +9,8 @@ import edu.neu.csye6200.model.Student;
 import edu.neu.csye6200.view.StudentViewDialog;
 
 import javax.swing.*;
+import java.time.ZoneId;
+import java.util.Date;
 
 /**
  *
@@ -19,8 +21,14 @@ public class StudentViewDialogController {
     public StudentViewDialogController(JFrame frame, Student student) {
         dialog = new StudentViewDialog(frame, false);
         this.student = student;
-
-        dialog.closeButton.addActionListener(e -> dialog.dispose());
+        dialog.titleLabel.setText(student.getRealName());
+        dialog.cancelButton.addActionListener(e -> dialog.dispose());
+        dialog.confirmButton.addActionListener(e -> {
+            dialog.dispose();
+        });
+        dialog.realNameTextField.setText(student.getRealName());
+        dialog.birthDayPicker.setDate(Date.from( student.getBirthDay().atZone( ZoneId.systemDefault()).toInstant()));
+        dialog.walkInDatePicker.setDate(Date.from( student.getWalkInTime().atZone( ZoneId.systemDefault()).toInstant()));
     }
 
     public StudentViewDialog getDialog() { return dialog; }
