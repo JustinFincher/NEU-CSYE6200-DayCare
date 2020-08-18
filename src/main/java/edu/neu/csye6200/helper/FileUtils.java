@@ -4,9 +4,6 @@ import edu.neu.csye6200.Application;
 import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.model.CrudDao;
 import edu.neu.csye6200.model.DBObject;
-import edu.neu.csye6200.model.Parent;
-import edu.neu.csye6200.model.ParentDao;
-import org.sqlite.core.DB;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;

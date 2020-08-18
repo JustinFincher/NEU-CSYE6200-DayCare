@@ -36,7 +36,12 @@ public class StudentManagePanelController
             tableModel.delete(panel.table, panel.table.getSelectedRows());
         });
         editItem.addActionListener(e -> {
-
+            int[] rows = panel.table.getSelectedRows();
+            if (rows.length == 1)
+            {
+                Student student = tableModel.getRowAt(panel.table, rows[0]);
+                new StudentViewDialogController((JFrame) SwingUtilities.getRoot(panel), student).show();
+            }
         });
         panel.table.addMouseListener(new MouseAdapter() {
             @Override

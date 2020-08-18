@@ -1,6 +1,5 @@
 package edu.neu.csye6200.model;
 
-import java.util.List;
 import java.util.Map;
 
 /**

@@ -70,6 +70,8 @@ public class ApplicationFormController
             list.add(new AbstractMap.SimpleEntry(Student.class, StudentDao.class));
             list.add(new AbstractMap.SimpleEntry(Parent.class, ParentDao.class));
             list.add(new AbstractMap.SimpleEntry(Teacher.class, TeacherDao.class));
+            list.add(new AbstractMap.SimpleEntry(Classroom.class, ClassroomDao.class));
+            list.add(new AbstractMap.SimpleEntry(RatioRule.class, RatioRuleDao.class));
             list.forEach(pair -> {
                 String text = null;
                 try {

@@ -58,10 +58,16 @@ public class Parent extends Person
     @Override
     public void saveCsv(Map<String, String> map) {
         super.saveCsv(map);
+        map.put("address", getAddress());
+        map.put("email_address", getEmailAddress());
+        map.put("phone_number", getPhoneNumber());
     }
 
     @Override
     public void loadCsv(Map<String, String> map) {
         super.loadCsv(map);
+        setPhoneNumber(map.getOrDefault("phone_number",""));
+        setEmailAddress(map.getOrDefault("email_address",""));
+        setAddress(map.getOrDefault("address",""));
     }
 }
