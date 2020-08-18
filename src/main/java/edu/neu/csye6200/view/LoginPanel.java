@@ -3,7 +3,7 @@ package edu.neu.csye6200.view;
 import javax.swing.*;
 
 /**
- *
+ * @deprecated
  * @author chengqian
  */
 public class LoginPanel extends javax.swing.JPanel {

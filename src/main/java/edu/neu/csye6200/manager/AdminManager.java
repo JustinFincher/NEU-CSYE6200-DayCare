@@ -1,5 +1,7 @@
 package edu.neu.csye6200.manager;
 
+import edu.neu.csye6200.model.Teacher;
+
 public enum AdminManager
 {
 	INSTANCE;
@@ -9,12 +11,10 @@ public enum AdminManager
 	}
 
 	public boolean isLoggedIn() {
-		return loggedIn;
+		return loggedInTeacher != null;
 	}
-
-	public void setLoggedIn(boolean loggedIn) {
-		this.loggedIn = loggedIn;
-	}
-
-	private boolean loggedIn;
+	public void logOut() { setLoggedInTeacher(null); }
+	public Teacher getLoggedInTeacher() { return loggedInTeacher; }
+	public void setLoggedInTeacher(Teacher loggedInTeacher) { this.loggedInTeacher = loggedInTeacher; }
+	private Teacher loggedInTeacher;
 }

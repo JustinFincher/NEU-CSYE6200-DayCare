@@ -90,6 +90,8 @@ public class ApplicationForm extends javax.swing.JFrame {
         loadMockDataMenuItem = new javax.swing.JMenuItem();
         showDatabaseMenuItem = new javax.swing.JMenuItem();
         loginMenu = new javax.swing.JMenu();
+        loginMenuItem = new javax.swing.JMenuItem();
+        logoutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -218,6 +220,15 @@ public class ApplicationForm extends javax.swing.JFrame {
         loginMenu.setMnemonic('h');
         loginMenu.setText("Login");
         loginMenu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        loginMenuItem.setMnemonic('t');
+        loginMenuItem.setText("Login");
+        loginMenu.add(loginMenuItem);
+
+        logoutMenuItem.setMnemonic('t');
+        logoutMenuItem.setText("Logout");
+        loginMenu.add(logoutMenuItem);
+
         menuBar.add(loginMenu);
 
         setJMenuBar(menuBar);
@@ -300,7 +311,9 @@ public class ApplicationForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private org.jdesktop.swingx.JXStatusBar jXStatusBar1;
     public javax.swing.JMenuItem loadMockDataMenuItem;
-    private javax.swing.JMenu loginMenu;
+    public javax.swing.JMenu loginMenu;
+    public javax.swing.JMenuItem loginMenuItem;
+    public javax.swing.JMenuItem logoutMenuItem;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;

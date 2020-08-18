@@ -1,19 +1,20 @@
 package edu.neu.csye6200.model;
 
+import edu.neu.csye6200.helper.BeanUtils;
 import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.helper.SQLUtils;
-import edu.neu.csye6200.helper.annotation.SQLLoggingFactory;
-import org.jdbi.v3.core.result.ResultBearing;
 import org.jdbi.v3.sqlobject.SqlObject;
 import org.jdbi.v3.sqlobject.customizer.Define;
 import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.BiConsumer;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -71,7 +72,7 @@ public interface CrudDao<T extends DBObject> extends SqlObject
     {
         String tableName = SQLUtils.getTableName(className);
         String bindings = SQLUtils.getKeysAndValueBindingsInCreateString(object, false);
-        Map<String, ?> map = SQLUtils.getKeysAndValuesInMap(object);
+        Map<String, ?> map = SQLUtils.getKeysAndValuesInMap(object, false);
         try {
             getHandle().createUpdate("INSERT INTO <tableName> " + bindings)
                     .define("tableName", tableName)
@@ -120,7 +121,7 @@ public interface CrudDao<T extends DBObject> extends SqlObject
     {
         String tableName = SQLUtils.getTableName(className);
         String bindings = SQLUtils.getKeysAndValueBindingsInUpdateString(object, false);
-        Map<String, ?> map = SQLUtils.getKeysAndValuesInMap(object);
+        Map<String, ?> map = SQLUtils.getKeysAndValuesInMap(object, false);
         String query = "UPDATE <tableName> SET " + bindings + " WHERE id = :id";
         getHandle().createUpdate(query)
                 .define("tableName", tableName)
@@ -131,4 +132,66 @@ public interface CrudDao<T extends DBObject> extends SqlObject
 
     @SqlUpdate("DELETE FROM <tableName> WHERE id = <id>")
     void deleteById(@Define("tableName") String tableName, @Define("id") Integer id);
+
+    default void importCSV(String fileContent, Class<T> className)
+    {
+        String[] lines = fileContent.split("\\r?\\n");
+        if (lines.length <= 1) return;
+        String keyLine = lines[0];
+        String[] keys = keyLine.split(",");
+        Arrays.stream(lines).skip(1).forEach(s -> {
+            String[] values = s.split(",");
+            if (keys.length != values.length)
+            {
+                return;
+            }
+            try {
+                T obj = className.newInstance();
+                if (obj instanceof CsvSerializable)
+                {
+                    Method loadCsv = className.getMethod("loadCsv");
+                    Map<String, String> map = new HashMap<>();
+                    for (int i=0; i < keys.length; i++) {
+                        map.put(keys[i], values[i]);
+                    }
+                    loadCsv.invoke(obj, map);
+                }
+                insert(obj, className);
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    default String exportCSV(Class<T> className)
+    {
+        String keys = String.join(",", SQLUtils.getAllKeysInList(className, false));
+        StringBuilder sb = new StringBuilder(keys).append("\n");
+        Iterator<T> iterator = list(className).iterator();
+        while (iterator.hasNext())
+        {
+            T obj = iterator.next();
+            try
+            {
+                if (obj instanceof CsvSerializable)
+                {
+                    Map<String, ?> strToObjMap = SQLUtils.getKeysAndValuesInMap(obj, false);
+                    Map<String, String> strToStrMap = new HashMap<>();
+                    strToObjMap.keySet().forEach(s -> strToStrMap.put(s,""));
+                    Method saveCsv = className.getMethod("saveCsv");
+                    saveCsv.invoke(obj, strToStrMap);
+                    String s = String.join(",", strToStrMap.keySet());
+                    sb.append(s);
+                    if (iterator.hasNext())
+                    {
+                        sb.append("\n");
+                    }
+                }
+            }catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
+    }
 }

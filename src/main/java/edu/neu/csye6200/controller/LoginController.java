@@ -6,7 +6,9 @@ import edu.neu.csye6200.view.LoginPanel;
 
 import java.awt.*;
 
-
+/**
+ * @deprecated
+ */
 public class LoginController
 {
     public LoginPanel getPanel() { return panel; }

@@ -5,10 +5,7 @@ import edu.neu.csye6200.helper.SQLUtils;
 import edu.neu.csye6200.helper.annotation.JavaBeansIgnore;
 import edu.neu.csye6200.manager.DatabaseManager;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -62,12 +59,12 @@ public class Parent extends Person implements CsvSerializable
     private String childrenIds;
 
     @Override
-    public String saveCsv() {
-        return null;
+    public void saveCsv(Map<String, String> map) {
+
     }
-    
+
     @Override
-    public void loadCsv(String csvStr) {
+    public void loadCsv(Map<String, String> map) {
 
     }
 }

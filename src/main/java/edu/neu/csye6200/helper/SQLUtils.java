@@ -40,21 +40,29 @@ public class SQLUtils
         return sb.toString();
     }
 
-    public static List<String> getAllKeysInList(Class<? extends DBObject> cls)
+    public static List<String> getAllKeysInList(Class<? extends DBObject> cls, boolean includeId)
     {
-        return BeanUtils.getBeanProperties(cls).stream().map(SQLUtils::getKeyInString).collect(Collectors.toList());
+        Stream<String> stream = BeanUtils.getBeanProperties(cls).stream().map(SQLUtils::getKeyInString);
+        if (!includeId)
+        {
+            stream = stream.filter(s -> !s.equals("id"));
+        }
+        return stream.collect(Collectors.toList());
     }
 
-    public static <T extends DBObject> Map<String, ?> getKeysAndValuesInMap(T obj)
+    public static <T extends DBObject> Map<String, ?> getKeysAndValuesInMap(T obj, boolean includeId)
     {
-        return BeanUtils.getBeanProperties(obj.getClass()).stream()
-                .collect(HashMap::new, (m,v) -> {
-                    try {
-                        m.put(SQLUtils.getKeyInString(v), v.getReadMethod().invoke(obj));
-                    } catch (IllegalAccessException | InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                }, HashMap::putAll);
+        Stream<PropertyDescriptor> stream = BeanUtils.getBeanProperties(obj.getClass()).stream();
+        if (!includeId) {
+            stream = stream.filter(d -> !d.getName().equals("id"));
+        }
+        return stream.collect(HashMap::new, (m, v) -> {
+            try {
+                m.put(SQLUtils.getKeyInString(v), v.getReadMethod().invoke(obj));
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }, HashMap::putAll);
     }
 
     public static <T extends DBObject> String getKeysAndValueBindingsInCreateString(T obj, boolean includeId)
@@ -85,86 +93,81 @@ public class SQLUtils
 
     public static <T extends DBObject> String getKeysAndValueBindingsInUpdateString(T obj, boolean includeId)
     {
-        Stream<String> stream = getAllKeysInList(obj.getClass())
-                .stream();
-        if (!includeId)
-        {
-            stream = stream.filter(s -> !s.equals("id"));
-        }
-        return stream
+        return getAllKeysInList(obj.getClass(), includeId)
+                .stream()
                 .map((Function<String, String>) input -> input + " = :" + input)
                 .collect(Collectors.joining(", "));
     }
 
-    public static <T extends DBObject> String getKeysAndValues(T obj, boolean includeId)
-    {
-        StringBuilder keys = new StringBuilder();
-        StringBuilder values = new StringBuilder();
-        Iterator<PropertyDescriptor> iterator = BeanUtils.getBeanProperties(obj.getClass()).iterator();
-        keys.append("(");
-        values.append("VALUES(");
-        while (iterator.hasNext()) {
-            PropertyDescriptor propertyDescriptor = iterator.next();
-            String name = propertyDescriptor.getName();
-            String dbKey = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
-            Object o = null;
-            try {
-                o = propertyDescriptor.getReadMethod().invoke(obj);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
-            if (!dbKey.equals("id") || includeId)
-            {
-                keys.append(dbKey);
-                values.append(o);
-                if (iterator.hasNext()) {
-                    keys.append(", ");
-                    values.append(", ");
-                }
-            }
-        }
-        keys.append(")");
-        values.append(")");
-        return keys.append(" ").append(values).toString();
-    }
-
-    public static <T extends DBObject> String getKeyValuePairs(T obj, boolean includeId)
-    {
-        StringBuilder sb = new StringBuilder();
-        Iterator<PropertyDescriptor> iterator = BeanUtils.getBeanProperties(obj.getClass()).iterator();
-        while (iterator.hasNext()) {
-            PropertyDescriptor propertyDescriptor = iterator.next();
-            String name = propertyDescriptor.getName();
-            String dbKey = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
-            Object o = null;
-            try {
-                o = propertyDescriptor.getReadMethod().invoke(obj);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
-            if (!dbKey.equals("id") || includeId)
-            {
-                sb.append(dbKey);
-                sb.append(" = ");
-                sb.append('\'').append(o).append('\'');
-                if (iterator.hasNext()) {
-                    sb.append(", ");
-                }
-            }
-        }
-        return sb.toString();
-    }
-
-    public static String getKeyValuePair(PropertyDescriptor propertyDescriptor, Object newValue)
-    {
-        StringBuilder sb = new StringBuilder();
-        String name = propertyDescriptor.getName();
-        String dbKey = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
-        sb.append(dbKey);
-        sb.append(" = ");
-        sb.append('\'').append(newValue).append('\'');
-        return sb.toString();
-    }
+//    public static <T extends DBObject> String getKeysAndValues(T obj, boolean includeId)
+//    {
+//        StringBuilder keys = new StringBuilder();
+//        StringBuilder values = new StringBuilder();
+//        Iterator<PropertyDescriptor> iterator = BeanUtils.getBeanProperties(obj.getClass()).iterator();
+//        keys.append("(");
+//        values.append("VALUES(");
+//        while (iterator.hasNext()) {
+//            PropertyDescriptor propertyDescriptor = iterator.next();
+//            String name = propertyDescriptor.getName();
+//            String dbKey = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
+//            Object o = null;
+//            try {
+//                o = propertyDescriptor.getReadMethod().invoke(obj);
+//            } catch (IllegalAccessException | InvocationTargetException e) {
+//                e.printStackTrace();
+//            }
+//            if (!dbKey.equals("id") || includeId)
+//            {
+//                keys.append(dbKey);
+//                values.append(o);
+//                if (iterator.hasNext()) {
+//                    keys.append(", ");
+//                    values.append(", ");
+//                }
+//            }
+//        }
+//        keys.append(")");
+//        values.append(")");
+//        return keys.append(" ").append(values).toString();
+//    }
+//
+//    public static <T extends DBObject> String getKeyValuePairs(T obj, boolean includeId)
+//    {
+//        StringBuilder sb = new StringBuilder();
+//        Iterator<PropertyDescriptor> iterator = BeanUtils.getBeanProperties(obj.getClass()).iterator();
+//        while (iterator.hasNext()) {
+//            PropertyDescriptor propertyDescriptor = iterator.next();
+//            String name = propertyDescriptor.getName();
+//            String dbKey = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
+//            Object o = null;
+//            try {
+//                o = propertyDescriptor.getReadMethod().invoke(obj);
+//            } catch (IllegalAccessException | InvocationTargetException e) {
+//                e.printStackTrace();
+//            }
+//            if (!dbKey.equals("id") || includeId)
+//            {
+//                sb.append(dbKey);
+//                sb.append(" = ");
+//                sb.append('\'').append(o).append('\'');
+//                if (iterator.hasNext()) {
+//                    sb.append(", ");
+//                }
+//            }
+//        }
+//        return sb.toString();
+//    }
+//
+//    public static String getKeyValuePair(PropertyDescriptor propertyDescriptor, Object newValue)
+//    {
+//        StringBuilder sb = new StringBuilder();
+//        String name = propertyDescriptor.getName();
+//        String dbKey = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
+//        sb.append(dbKey);
+//        sb.append(" = ");
+//        sb.append('\'').append(newValue).append('\'');
+//        return sb.toString();
+//    }
 
     public static String getTableName(Class<? extends DBObject> cls)
     {

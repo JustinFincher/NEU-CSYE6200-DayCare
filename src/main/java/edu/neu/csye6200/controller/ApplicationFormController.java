@@ -6,6 +6,8 @@ import edu.neu.csye6200.view.ApplicationForm;
 import edu.neu.csye6200.view.DashboardPanel;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -64,6 +66,13 @@ public class ApplicationFormController
                 ioException.printStackTrace();
             }
         });
+        form.loginMenuItem.addActionListener(e -> {
+            show();
+        });
+        form.logoutMenuItem.addActionListener(e -> {
+            AdminManager.getInstance().logOut();
+            show();
+        });
     }
 
     public void show()
@@ -72,8 +81,18 @@ public class ApplicationFormController
         {
             form.setVisible(false);
             new LoginDialogController(this.form).show();
+            refresh();
         }else {
             form.setVisible(true);
         }
+    }
+
+    public void refresh()
+    {
+        form.logoutMenuItem.setEnabled(AdminManager.getInstance().isLoggedIn());
+        form.loginMenuItem.setEnabled(!AdminManager.getInstance().isLoggedIn());
+        form.loginMenu.setText(AdminManager.getInstance().isLoggedIn() ?
+                "Welcome, " + AdminManager.getInstance().getLoggedInTeacher().getRealName():
+                "Click to login");
     }
 }

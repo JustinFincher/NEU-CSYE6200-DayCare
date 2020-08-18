@@ -2,6 +2,7 @@ package edu.neu.csye6200.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Student Data Model
@@ -24,28 +25,12 @@ public class Student extends User implements CsvSerializable
     private Integer grade;
 
     @Override
-    public String saveCsv() {
-        return null;
-    }
-
-    @Override
-    public void loadCsv(String csvStr) {
+    public void loadCsv(Map<String, String> map) {
 
     }
 
     @Override
-    public String toString() {
-        return "Student{" +
-                "walkInTime=" + walkInTime +
-                ", grade=" + grade +
-                ", saveCsv='" + saveCsv() + '\'' +
-                ", userName='" + getUserName() + '\'' +
-                ", userLevel=" + getUserLevel() +
-                ", hashedPassword='" + getHashedPassword() + '\'' +
-                ", realName='" + getRealName() + '\'' +
-                ", birthDay=" + getBirthDay() +
-                ", age=" + getAgeInYear() +
-                ", id=" + getId() +
-                '}';
+    public void saveCsv(Map<String, String> map) {
+
     }
 }

@@ -6,6 +6,7 @@
 package edu.neu.csye6200.controller;
 
 import edu.neu.csye6200.helper.Log;
+import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.model.DatabaseTableModel;
 import edu.neu.csye6200.model.Teacher;
 import edu.neu.csye6200.model.TeacherDao;
@@ -15,10 +16,16 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.regex.Pattern;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableRowSorter;
+import javax.xml.crypto.Data;
+
 import org.jdesktop.swingx.search.PatternMatcher;
 
 /**
@@ -72,65 +79,41 @@ public class TeacherManagePanelController {
         panel.table.setModel(tableModel);
         tableModel.refresh();
 
-        panel.exportTableButton.addActionListener(e -> {
-            File file=new File("results.xls");
-            FileWriter out = null;
+        panel.exportTableButton.addActionListener(event -> {
+            String s = DatabaseManager.getDB().onDemand(TeacherDao.class).exportCSV(Teacher.class);
+            String fileName = "teacher.csv";
+            String homePath = System.getProperty("user.home");
+            Log.i(homePath);
+            String home = System.getProperty("user.home");
+            Path path = Paths.get(home,"Downloads", fileName);
             try {
-                out = new FileWriter(file);
-            } catch (IOException ex) {
-                ex.printStackTrace();
+                FileWriter writer = new FileWriter(path.toString());
+                writer.write(s);
+                writer.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Failed due to " + e.getMessage());
+                e.printStackTrace();
             }
-
-            for(int i=0; i < tableModel.getColumnCount(); i++) {
-                try {
-                    out.write(tableModel.getColumnName(i) + "\t");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-            try {
-                out.write("\n");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            for(int i=0; i<tableModel.getRowCount(); i++) {
-                for(int j=0; j <tableModel.getColumnCount(); j++) {
-                    try {
-                        out.write(tableModel.getValueAt(i,j).toString()+"\t");
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-                try {
-                    out.write("\n");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-            try {
-                out.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            System.out.println("write out to: " + file);
-
-
+            JOptionPane.showMessageDialog(null, "Saved to " + path);
         });
 
-        panel.importTableButton.addActionListener(e -> {
-
+        panel.importTableButton.addActionListener(event -> {
             JFileChooser jfc=new JFileChooser();
-            jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES );
-            jfc.showDialog(new JLabel(), "选择");
+            jfc.setFileFilter(new FileNameExtensionFilter("csv"));
+            jfc.setFileSelectionMode(JFileChooser.FILES_ONLY );
+            jfc.showDialog(new JLabel(), "Select");
             File file=jfc.getSelectedFile();
-            if(file.isDirectory()){
-                System.out.println("文件夹:"+file.getAbsolutePath());
-            }else if(file.isFile()){
-                System.out.println("文件:"+file.getAbsolutePath());
+            if(file.isFile())
+            {
+                try {
+                    String s = new String(Files.readAllBytes(file.toPath()));
+                    DatabaseManager.getDB().onDemand(TeacherDao.class).importCSV(s, Teacher.class);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Failed due to " + e.getMessage());
+                }
             }
-            System.out.println(jfc.getSelectedFile().getName());
-
-            
+            JOptionPane.showMessageDialog(null, "Success");
         });
         panel.addStudentButton.addActionListener(e -> {
             tableModel.addEmpty();

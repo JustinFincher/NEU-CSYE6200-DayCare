@@ -42,7 +42,7 @@ public class LoginDialogController {
             Optional<Teacher> teacher = DatabaseManager.getDB().onDemand(TeacherDao.class).findByUserName(userName);
             if (teacher.isPresent() && teacher.get().isPasswordRight(password))
             {
-                AdminManager.getInstance().setLoggedIn(true);
+                AdminManager.getInstance().setLoggedInTeacher(teacher.get());
                 dialog.dispose();
                 GUIManager.getInstance().show();
             }
