@@ -82,8 +82,6 @@ public class TeacherManagePanelController {
         panel.exportTableButton.addActionListener(event -> {
             String s = DatabaseManager.getDB().onDemand(TeacherDao.class).exportCSV(Teacher.class);
             String fileName = "teacher.csv";
-            String homePath = System.getProperty("user.home");
-            Log.i(homePath);
             String home = System.getProperty("user.home");
             Path path = Paths.get(home,"Downloads", fileName);
             File file = path.toFile();

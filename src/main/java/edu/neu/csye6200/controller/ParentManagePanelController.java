@@ -1,16 +1,21 @@
 package edu.neu.csye6200.controller;
 
 import edu.neu.csye6200.helper.Log;
-import edu.neu.csye6200.model.DatabaseTableModel;
-import edu.neu.csye6200.model.Parent;
-import edu.neu.csye6200.model.ParentDao;
+import edu.neu.csye6200.manager.DatabaseManager;
+import edu.neu.csye6200.model.*;
 import edu.neu.csye6200.view.ParentManagePanel;
 import edu.neu.csye6200.view.StudentManagePanel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.regex.Pattern;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableRowSorter;
 import org.jdesktop.swingx.search.PatternMatcher;
 
@@ -109,9 +114,46 @@ public class ParentManagePanelController // CONTROLLER
         });
         tableRowSorter = new TableRowSorter<>(tableModel);
         panel.table.setRowSorter(tableRowSorter);
-//        panel.table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
-//
-//        });
+
+        panel.exportTableButton.addActionListener(event -> {
+            String s = DatabaseManager.getDB().onDemand(ParentDao.class).exportCSV(Parent.class);
+            String fileName = "parent.csv";
+            String home = System.getProperty("user.home");
+            Path path = Paths.get(home,"Downloads", fileName);
+            File file = path.toFile();
+            try {
+                if (file.exists()) {
+                    boolean delete = file.delete();
+                }
+                FileWriter writer = new FileWriter(path.toString());
+                writer.write(s);
+                writer.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Failed due to " + e.getMessage());
+                e.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(null, "Saved to " + path);
+        });
+
+        panel.importTableButton.addActionListener(event -> {
+            JFileChooser jfc=new JFileChooser();
+            jfc.setFileFilter(new FileNameExtensionFilter("CSV Files","csv"));
+            jfc.setFileSelectionMode(JFileChooser.FILES_ONLY );
+            jfc.showDialog(new JLabel(), "Select");
+            File file=jfc.getSelectedFile();
+            if(file.isFile())
+            {
+                try {
+                    String s = new String(Files.readAllBytes(file.toPath()));
+                    DatabaseManager.getDB().onDemand(ParentDao.class).importCSV(s, Parent.class);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Failed due to " + e.getMessage());
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Success");
+            tableModel.refresh();
+        });
     }
         
     
