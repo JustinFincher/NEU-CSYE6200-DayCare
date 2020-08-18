@@ -23,10 +23,6 @@ public class Student extends User implements CsvSerializable
     public void setGrade(Integer grade) { this.grade = grade; }
     private Integer grade;
 
-//    public List<Parent> getParents() {
-//        return
-//    }
-
     @Override
     public String saveCsv() {
         return null;
@@ -45,7 +41,6 @@ public class Student extends User implements CsvSerializable
                 ", saveCsv='" + saveCsv() + '\'' +
                 ", userName='" + getUserName() + '\'' +
                 ", userLevel=" + getUserLevel() +
-                ", emailAddress='" + getEmailAddress() + '\'' +
                 ", hashedPassword='" + getHashedPassword() + '\'' +
                 ", realName='" + getRealName() + '\'' +
                 ", birthDay=" + getBirthDay() +

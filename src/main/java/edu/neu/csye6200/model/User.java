@@ -18,12 +18,6 @@ public class User extends Person
     }
     private Integer userLevel;
 
-    public String getEmailAddress() { return emailAddress == null ? "i@example.com" : emailAddress; }
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-    private String emailAddress;
-
     public String getHashedPassword() { return hashedPassword == null ? Hashing.sha256().hashString("password", Charset.defaultCharset()).toString() : hashedPassword; }
     public void setHashedPassword(String hashedPassword) { this.hashedPassword = hashedPassword; }
     public void setPassword(String password) {

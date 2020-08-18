@@ -103,7 +103,6 @@ public interface CrudDao<T extends DBObject> extends SqlObject
         String tableName = SQLUtils.getTableName(object.getClass());
         String bindings = SQLUtils.getKeysAndValueBindingsInUpdateString(object, false);
         Map<String, ?> map = SQLUtils.getKeysAndValuesInMap(object);
-        map.forEach((s, o) -> Log.i(s + " -> " + o));
         String query = "UPDATE <tableName> SET " + bindings + " WHERE id = :id";
         getHandle().createUpdate(query)
                 .define("tableName", tableName)

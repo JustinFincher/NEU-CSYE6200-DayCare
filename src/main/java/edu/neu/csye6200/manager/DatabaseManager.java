@@ -5,6 +5,7 @@ import edu.neu.csye6200.helper.SQLUtils;
 import edu.neu.csye6200.model.*;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.array.SqlArrayType;
+import org.jdbi.v3.core.mapper.ColumnMapper;
 import org.jdbi.v3.core.mapper.reflect.ReflectionMappers;
 import org.jdbi.v3.core.statement.SqlLogger;
 import org.jdbi.v3.core.statement.StatementContext;
@@ -14,6 +15,7 @@ import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -66,21 +68,11 @@ public enum DatabaseManager {
 			jdbi.setSqlLogger(new SqlLogger() {
 				@Override
 				public void logBeforeExecution(StatementContext context) {
-
-				}
-
-				@Override
-				public void logAfterExecution(StatementContext context) {
 					StringBuilder sb = new StringBuilder();
-					sb.append("SQL:").append("\n");
+					sb.append("SQL Before Execution:").append("\n");
 					sb.append("\t").append("[RAWSQL] ").append(context.getRawSql()).append(" ").append(context.getBinding().toString()).append("\n");
 					sb.append("\t").append("[RENDER] ").append(context.getRenderedSql()).append("\n");
 					Log.i(sb.toString());
-				}
-
-				@Override
-				public void logException(StatementContext context, SQLException ex) {
-
 				}
 			});
 		} catch (SQLException throwable) {
@@ -88,17 +80,5 @@ public enum DatabaseManager {
 			throwable.printStackTrace();
 		}
 		Log.i("DatabaseManager connection " + (connection != null ? "established" : "lost"));
-	}
-
-	// use http://jdbi.org/#_named_arguments
-	public <T extends DBObject> void insert(T object, Class<T> objectType)
-	{
-		String tableName = SQLUtils.getTableName(objectType);
-		List<String> keys = SQLUtils.getAllKeysInList(objectType);
-	}
-
-	public <T extends DBObject> void remove(T object)
-	{
-
 	}
 }
