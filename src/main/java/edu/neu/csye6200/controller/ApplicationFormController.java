@@ -50,6 +50,9 @@ public class ApplicationFormController
         form.manageClassroomAction.setListener(e -> {
             form.switchTo(new ClassroomManagePanelController().getPanel());
         });
+        form.alertAction.setListener(e -> {
+            form.switchTo(new AlertPanelController().getPanel());
+        });
         form.showDatabaseMenuItem.addActionListener(e -> {
             File dbFile = DatabaseManager.getInstance().getFile();
             try {

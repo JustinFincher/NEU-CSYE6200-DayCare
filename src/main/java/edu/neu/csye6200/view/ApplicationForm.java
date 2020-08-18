@@ -14,6 +14,7 @@ import javax.swing.*;
 public class ApplicationForm extends javax.swing.JFrame {
 
     public TaskAction dashboardAction = new TaskAction("Glance", new ImageIcon(getClass().getResource("/icons/report-24.png")));
+    public TaskAction alertAction = new TaskAction("Alert", new ImageIcon(getClass().getResource("/icons/doorbell-24.png")));
     public TaskAction manageTeacherAction = new TaskAction("Teachers", new ImageIcon(getClass().getResource("/icons/teacher-24.png")));
     public TaskAction manageStudentAction = new TaskAction("Students", new ImageIcon(getClass().getResource("/icons/baby-24.png")));
     public TaskAction manageParentAction = new TaskAction("Parents", new ImageIcon(getClass().getResource("/icons/parent-24.png")));
@@ -33,6 +34,7 @@ public class ApplicationForm extends javax.swing.JFrame {
 //            setIconImage(image);
 //        }
         dashboardTaskPane.add(dashboardAction);
+        dashboardTaskPane.add(alertAction);
         staffManageTaskPane.add(manageTeacherAction);
         staffManageTaskPane.add(manageStudentAction);
         staffManageTaskPane.add(manageParentAction);

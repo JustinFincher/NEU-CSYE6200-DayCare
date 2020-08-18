@@ -9,12 +9,12 @@ package edu.neu.csye6200.view;
  *
  * @author fincher
  */
-public class DashboardPanel extends javax.swing.JPanel {
+public class AlertPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form DashboardPanel
+     * Creates new form AlertPanel
      */
-    public DashboardPanel() {
+    public AlertPanel() {
         initComponents();
     }
 
@@ -31,40 +31,17 @@ public class DashboardPanel extends javax.swing.JPanel {
         jXTitledSeparator1 = new org.jdesktop.swingx.JXTitledSeparator();
         scrollPane = new javax.swing.JScrollPane();
         scrollContentView = new javax.swing.JPanel();
-        jXTitledSeparator3 = new org.jdesktop.swingx.JXTitledSeparator();
-        studentStatisticLabel = new javax.swing.JLabel();
-        studentChartPanel = new javax.swing.JPanel();
-        jXTitledSeparator2 = new org.jdesktop.swingx.JXTitledSeparator();
-        teacherStatisticLabel = new javax.swing.JLabel();
         refreshTableButton = new javax.swing.JButton();
 
         titleLabel.setFont(titleLabel.getFont().deriveFont(titleLabel.getFont().getStyle() | java.awt.Font.BOLD, titleLabel.getFont().getSize()+13));
-        titleLabel.setText("Dashboard");
+        titleLabel.setText("Alerts");
 
-        jXTitledSeparator1.setTitle("Statistics");
+        jXTitledSeparator1.setTitle("Notifications");
 
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setHorizontalScrollBar(null);
 
         scrollContentView.setLayout(new org.jdesktop.swingx.VerticalLayout());
-
-        jXTitledSeparator3.setTitle("Student");
-        scrollContentView.add(jXTitledSeparator3);
-
-        studentStatisticLabel.setText("Total:");
-        scrollContentView.add(studentStatisticLabel);
-
-        studentChartPanel.setMinimumSize(new java.awt.Dimension(0, 200));
-        studentChartPanel.setPreferredSize(new java.awt.Dimension(384, 200));
-        studentChartPanel.setLayout(new java.awt.BorderLayout());
-        scrollContentView.add(studentChartPanel);
-
-        jXTitledSeparator2.setTitle("Teacher");
-        scrollContentView.add(jXTitledSeparator2);
-
-        teacherStatisticLabel.setText("Total:");
-        scrollContentView.add(teacherStatisticLabel);
-
         scrollPane.setViewportView(scrollContentView);
 
         refreshTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh-24.png"))); // NOI18N
@@ -96,7 +73,7 @@ public class DashboardPanel extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(jXTitledSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -104,14 +81,9 @@ public class DashboardPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator1;
-    private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator2;
-    private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator3;
     public javax.swing.JButton refreshTableButton;
     public javax.swing.JPanel scrollContentView;
     public javax.swing.JScrollPane scrollPane;
-    public javax.swing.JPanel studentChartPanel;
-    public javax.swing.JLabel studentStatisticLabel;
-    public javax.swing.JLabel teacherStatisticLabel;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
