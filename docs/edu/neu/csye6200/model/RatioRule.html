@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -112,7 +112,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public class <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.3">RatioRule</a>
+<pre>public class <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.5">RatioRule</a>
 extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a></pre>
 </li>
 </ul>
@@ -198,17 +198,25 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/RatioRule.html#setMaxAgeInMonth-java.lang.Integer-">setMaxAgeInMonth</a></span>(java.lang.Integer&nbsp;maxAgeInMonth)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/RatioRule.html#loadCsv-java.util.Map-">loadCsv</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;map)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/RatioRule.html#setMaxGroupsPerRoom-java.lang.Integer-">setMaxGroupsPerRoom</a></span>(java.lang.Integer&nbsp;maxGroupsPerRoom)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/RatioRule.html#saveCsv-java.util.Map-">saveCsv</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;map)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/RatioRule.html#setMaxStudentPerTeacher-java.lang.Integer-">setMaxStudentPerTeacher</a></span>(java.lang.Integer&nbsp;maxStudentPerTeacher)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/RatioRule.html#setMaxAgeInMonth-java.lang.Integer-">setMaxAgeInMonth</a></span>(java.lang.Integer&nbsp;maxAgeInMonth)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/RatioRule.html#setMaxGroupsPerRoom-java.lang.Integer-">setMaxGroupsPerRoom</a></span>(java.lang.Integer&nbsp;maxGroupsPerRoom)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/RatioRule.html#setMaxStudentPerTeacher-java.lang.Integer-">setMaxStudentPerTeacher</a></span>(java.lang.Integer&nbsp;maxStudentPerTeacher)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/RatioRule.html#setMinAgeInMonth-java.lang.Integer-">setMinAgeInMonth</a></span>(java.lang.Integer&nbsp;minAgeInMonth)</code>&nbsp;</td>
 </tr>
@@ -218,7 +226,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;edu.neu.csye6200.model.<a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a></h3>
-<code><a href="../../../../edu/neu/csye6200/model/DBObject.html#getId--">getId</a>, <a href="../../../../edu/neu/csye6200/model/DBObject.html#loadCsv-java.util.Map-">loadCsv</a>, <a href="../../../../edu/neu/csye6200/model/DBObject.html#saveCsv-java.util.Map-">saveCsv</a>, <a href="../../../../edu/neu/csye6200/model/DBObject.html#setId-java.lang.Integer-">setId</a></code></li>
+<code><a href="../../../../edu/neu/csye6200/model/DBObject.html#getId--">getId</a>, <a href="../../../../edu/neu/csye6200/model/DBObject.html#setId-java.lang.Integer-">setId</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -247,7 +255,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>maxGroupsPerRoom</h4>
-<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.29">maxGroupsPerRoom</a></pre>
+<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.31">maxGroupsPerRoom</a></pre>
 </li>
 </ul>
 <a name="maxStudentPerTeacher">
@@ -256,7 +264,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>maxStudentPerTeacher</h4>
-<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.30">maxStudentPerTeacher</a></pre>
+<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.32">maxStudentPerTeacher</a></pre>
 </li>
 </ul>
 <a name="minAgeInMonth">
@@ -265,7 +273,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>minAgeInMonth</h4>
-<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.31">minAgeInMonth</a></pre>
+<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.33">minAgeInMonth</a></pre>
 </li>
 </ul>
 <a name="maxAgeInMonth">
@@ -274,7 +282,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>maxAgeInMonth</h4>
-<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.32">maxAgeInMonth</a></pre>
+<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.34">maxAgeInMonth</a></pre>
 </li>
 </ul>
 </li>
@@ -291,7 +299,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>RatioRule</h4>
-<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.3">RatioRule</a>()</pre>
+<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.5">RatioRule</a>()</pre>
 </li>
 </ul>
 </li>
@@ -308,7 +316,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>getMaxGroupsPerRoom</h4>
-<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.5">getMaxGroupsPerRoom</a>()</pre>
+<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.7">getMaxGroupsPerRoom</a>()</pre>
 </li>
 </ul>
 <a name="setMaxGroupsPerRoom-java.lang.Integer-">
@@ -317,7 +325,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>setMaxGroupsPerRoom</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.8">setMaxGroupsPerRoom</a>(java.lang.Integer&nbsp;maxGroupsPerRoom)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.10">setMaxGroupsPerRoom</a>(java.lang.Integer&nbsp;maxGroupsPerRoom)</pre>
 </li>
 </ul>
 <a name="getMaxStudentPerTeacher--">
@@ -326,7 +334,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>getMaxStudentPerTeacher</h4>
-<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.11">getMaxStudentPerTeacher</a>()</pre>
+<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.13">getMaxStudentPerTeacher</a>()</pre>
 </li>
 </ul>
 <a name="setMaxStudentPerTeacher-java.lang.Integer-">
@@ -335,7 +343,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>setMaxStudentPerTeacher</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.14">setMaxStudentPerTeacher</a>(java.lang.Integer&nbsp;maxStudentPerTeacher)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.16">setMaxStudentPerTeacher</a>(java.lang.Integer&nbsp;maxStudentPerTeacher)</pre>
 </li>
 </ul>
 <a name="getMinAgeInMonth--">
@@ -344,7 +352,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>getMinAgeInMonth</h4>
-<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.16">getMinAgeInMonth</a>()</pre>
+<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.18">getMinAgeInMonth</a>()</pre>
 </li>
 </ul>
 <a name="setMinAgeInMonth-java.lang.Integer-">
@@ -353,7 +361,7 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>setMinAgeInMonth</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.19">setMinAgeInMonth</a>(java.lang.Integer&nbsp;minAgeInMonth)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.21">setMinAgeInMonth</a>(java.lang.Integer&nbsp;minAgeInMonth)</pre>
 </li>
 </ul>
 <a name="getMaxAgeInMonth--">
@@ -362,16 +370,42 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>getMaxAgeInMonth</h4>
-<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.22">getMaxAgeInMonth</a>()</pre>
+<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.24">getMaxAgeInMonth</a>()</pre>
 </li>
 </ul>
 <a name="setMaxAgeInMonth-java.lang.Integer-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setMaxAgeInMonth</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.25">setMaxAgeInMonth</a>(java.lang.Integer&nbsp;maxAgeInMonth)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.27">setMaxAgeInMonth</a>(java.lang.Integer&nbsp;maxAgeInMonth)</pre>
+</li>
+</ul>
+<a name="saveCsv-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveCsv</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.37">saveCsv</a>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;map)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../edu/neu/csye6200/model/DBObject.html#saveCsv-java.util.Map-">saveCsv</a></code>&nbsp;in class&nbsp;<code><a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="loadCsv-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>loadCsv</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/RatioRule.html#line.46">loadCsv</a>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;map)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../edu/neu/csye6200/model/DBObject.html#loadCsv-java.util.Map-">loadCsv</a></code>&nbsp;in class&nbsp;<code><a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>

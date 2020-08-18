@@ -34,7 +34,7 @@
 <span class="sourceLineNo">026</span>         */<a name="line.26"></a>
 <span class="sourceLineNo">027</span>        public static void main(String[] args)<a name="line.27"></a>
 <span class="sourceLineNo">028</span>        {<a name="line.28"></a>
-<span class="sourceLineNo">029</span>                Log.i(FileUtils.getPath());<a name="line.29"></a>
+<span class="sourceLineNo">029</span>                System.setProperty("log4j.saveDirectory", FileUtils.getPath());<a name="line.29"></a>
 <span class="sourceLineNo">030</span>                Options options = new Options();<a name="line.30"></a>
 <span class="sourceLineNo">031</span>                options.addOption(Option.builder("db").argName( "pathFile" ).hasArg().desc("The alternative path of the db file").build());<a name="line.31"></a>
 <span class="sourceLineNo">032</span>                options.addOption(Option.builder("verbose").desc("Enable extensive logging").build());<a name="line.32"></a>

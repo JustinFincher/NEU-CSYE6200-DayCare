@@ -64,31 +64,34 @@
 <span class="sourceLineNo">056</span>                        connection = DriverManager.getConnection("jdbc:sqlite:"+path);<a name="line.56"></a>
 <span class="sourceLineNo">057</span>                        jdbi = Jdbi.create(connection).installPlugin(new SqlObjectPlugin()).installPlugin(new SQLitePlugin());<a name="line.57"></a>
 <span class="sourceLineNo">058</span>                        jdbi.getConfig(ReflectionMappers.class).setStrictMatching(false);<a name="line.58"></a>
-<span class="sourceLineNo">059</span>                        jdbi.onDemand(TeacherDao.class).createTable(Teacher.class);<a name="line.59"></a>
-<span class="sourceLineNo">060</span>                        if (jdbi.onDemand(TeacherDao.class).isTableEmpty(Teacher.class))<a name="line.60"></a>
-<span class="sourceLineNo">061</span>                        {<a name="line.61"></a>
-<span class="sourceLineNo">062</span>                                jdbi.onDemand(TeacherDao.class).insertRootUser();<a name="line.62"></a>
-<span class="sourceLineNo">063</span>                        }<a name="line.63"></a>
-<span class="sourceLineNo">064</span>                        jdbi.onDemand(StudentDao.class).createTable(Student.class);<a name="line.64"></a>
-<span class="sourceLineNo">065</span>                        jdbi.onDemand(ParentDao.class).createTable(Parent.class);<a name="line.65"></a>
-<span class="sourceLineNo">066</span>                        jdbi.onDemand(RatioRuleDao.class).createTable(RatioRule.class);<a name="line.66"></a>
-<span class="sourceLineNo">067</span>                        jdbi.setSqlLogger(new SqlLogger() {<a name="line.67"></a>
-<span class="sourceLineNo">068</span>                                @Override<a name="line.68"></a>
-<span class="sourceLineNo">069</span>                                public void logBeforeExecution(StatementContext context) {<a name="line.69"></a>
-<span class="sourceLineNo">070</span>                                        StringBuilder sb = new StringBuilder();<a name="line.70"></a>
-<span class="sourceLineNo">071</span>                                        sb.append("SQL Before Execution:").append("\n");<a name="line.71"></a>
-<span class="sourceLineNo">072</span>                                        sb.append("\t").append("[RAWSQL] ").append(context.getRawSql()).append(" ").append(context.getBinding().toString()).append("\n");<a name="line.72"></a>
-<span class="sourceLineNo">073</span>                                        sb.append("\t").append("[RENDER] ").append(context.getRenderedSql()).append("\n");<a name="line.73"></a>
-<span class="sourceLineNo">074</span>                                        Log.i(sb.toString());<a name="line.74"></a>
-<span class="sourceLineNo">075</span>                                }<a name="line.75"></a>
-<span class="sourceLineNo">076</span>                        });<a name="line.76"></a>
-<span class="sourceLineNo">077</span>                } catch (SQLException throwable) {<a name="line.77"></a>
-<span class="sourceLineNo">078</span>                        Log.e(throwable.getMessage());<a name="line.78"></a>
-<span class="sourceLineNo">079</span>                        throwable.printStackTrace();<a name="line.79"></a>
-<span class="sourceLineNo">080</span>                }<a name="line.80"></a>
-<span class="sourceLineNo">081</span>                Log.i("DatabaseManager connection " + (connection != null ? "established" : "lost"));<a name="line.81"></a>
-<span class="sourceLineNo">082</span>        }<a name="line.82"></a>
-<span class="sourceLineNo">083</span>}<a name="line.83"></a>
+<span class="sourceLineNo">059</span>                        jdbi.setSqlLogger(new SqlLogger() {<a name="line.59"></a>
+<span class="sourceLineNo">060</span>                                @Override<a name="line.60"></a>
+<span class="sourceLineNo">061</span>                                public void logBeforeExecution(StatementContext context) {<a name="line.61"></a>
+<span class="sourceLineNo">062</span>                                        StringBuilder sb = new StringBuilder();<a name="line.62"></a>
+<span class="sourceLineNo">063</span>                                        sb.append("SQL Before Execution:").append("\n");<a name="line.63"></a>
+<span class="sourceLineNo">064</span>                                        sb.append("\t").append("[RAWSQL] ").append(context.getRawSql()).append(" ").append(context.getBinding().toString()).append("\n");<a name="line.64"></a>
+<span class="sourceLineNo">065</span>                                        sb.append("\t").append("[RENDER] ").append(context.getRenderedSql()).append("\n");<a name="line.65"></a>
+<span class="sourceLineNo">066</span>                                        Log.i(sb.toString());<a name="line.66"></a>
+<span class="sourceLineNo">067</span>                                }<a name="line.67"></a>
+<span class="sourceLineNo">068</span>                        });<a name="line.68"></a>
+<span class="sourceLineNo">069</span><a name="line.69"></a>
+<span class="sourceLineNo">070</span>                        jdbi.onDemand(TeacherDao.class).createTable(Teacher.class);<a name="line.70"></a>
+<span class="sourceLineNo">071</span>                        if (jdbi.onDemand(TeacherDao.class).isTableEmpty(Teacher.class))<a name="line.71"></a>
+<span class="sourceLineNo">072</span>                        {<a name="line.72"></a>
+<span class="sourceLineNo">073</span>                                jdbi.onDemand(TeacherDao.class).insertRootUser();<a name="line.73"></a>
+<span class="sourceLineNo">074</span>                        }<a name="line.74"></a>
+<span class="sourceLineNo">075</span>                        jdbi.onDemand(StudentDao.class).createTable(Student.class);<a name="line.75"></a>
+<span class="sourceLineNo">076</span>                        jdbi.onDemand(ParentDao.class).createTable(Parent.class);<a name="line.76"></a>
+<span class="sourceLineNo">077</span>                        jdbi.onDemand(RatioRuleDao.class).createTable(RatioRule.class);<a name="line.77"></a>
+<span class="sourceLineNo">078</span>                        jdbi.onDemand(ClassroomDao.class).createTable(Classroom.class);<a name="line.78"></a>
+<span class="sourceLineNo">079</span>                        jdbi.onDemand(ClassroomGroupDao.class).createTable(ClassroomGroup.class);<a name="line.79"></a>
+<span class="sourceLineNo">080</span>                } catch (SQLException throwable) {<a name="line.80"></a>
+<span class="sourceLineNo">081</span>                        Log.e(throwable.getMessage());<a name="line.81"></a>
+<span class="sourceLineNo">082</span>                        throwable.printStackTrace();<a name="line.82"></a>
+<span class="sourceLineNo">083</span>                }<a name="line.83"></a>
+<span class="sourceLineNo">084</span>                Log.i("DatabaseManager connection " + (connection != null ? "established" : "lost"));<a name="line.84"></a>
+<span class="sourceLineNo">085</span>        }<a name="line.85"></a>
+<span class="sourceLineNo">086</span>}<a name="line.86"></a>
 
 
 
