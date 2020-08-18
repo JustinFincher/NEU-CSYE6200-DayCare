@@ -28,7 +28,12 @@ public class ClassroomManagePanelController {
         JMenuItem deleteItem = new JMenuItem("Delete");
         JMenuItem editItem = new JMenuItem("Edit (WIP)");
         editItem.addActionListener(e -> {
-
+            int[] rows = panel.table.getSelectedRows();
+            if (rows.length == 1)
+            {
+                Classroom classroom = tableModel.getRowAt(panel.table, rows[0]);
+                new ClassroomEditDialogController((JFrame) SwingUtilities.getRoot(panel), classroom).show();
+            }
         });
         deleteItem.addActionListener(e -> {
             tableModel.delete(panel.table, panel.table.getSelectedRows());

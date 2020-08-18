@@ -75,9 +75,9 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
         refresh();
     }
 
-    public MODEL getRowAt(int row)
+    public MODEL getRowAt(JTable table, int row)
     {
-        return objectList.get(row);
+        return objectList.get(table.convertRowIndexToModel(row));
     }
 
     @Override
