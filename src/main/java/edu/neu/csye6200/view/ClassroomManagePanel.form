@@ -20,8 +20,8 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="tableScrollPane" alignment="1" pref="388" max="32767" attributes="0"/>
-                  <Component id="titleLabel" alignment="1" pref="388" max="32767" attributes="0"/>
+                  <Component id="tableScrollPane" alignment="1" pref="858" max="32767" attributes="0"/>
+                  <Component id="titleLabel" alignment="1" pref="858" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -35,7 +35,7 @@
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="toolbarPanel" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tableScrollPane" pref="210" max="32767" attributes="0"/>
+              <Component id="tableScrollPane" pref="361" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -134,6 +134,17 @@
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[0, 2, 0, 8]"/>
             </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="org.jdesktop.swingx.JXSearchPanel" name="searchPanel">
+          <Properties>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[485, 37]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -252,6 +263,22 @@
               <ExpressionOrigin>
                 <ExpressionProvider type="ComponentRef">
                   <ComponentRef name="exportTableButton"/>
+                </ExpressionProvider>
+              </ExpressionOrigin>
+            </CodeExpression>
+          </Parameters>
+        </CodeStatement>
+        <CodeStatement>
+          <CodeExpression id="4_toolbarPanel"/>
+          <StatementProvider type="CodeMethod">
+            <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component"/>
+          </StatementProvider>
+          <Parameters>
+            <CodeExpression id="9_searchPanel">
+              <CodeVariable name="searchPanel" type="8193" declaredType="org.jdesktop.swingx.JXSearchPanel"/>
+              <ExpressionOrigin>
+                <ExpressionProvider type="ComponentRef">
+                  <ComponentRef name="searchPanel"/>
                 </ExpressionProvider>
               </ExpressionOrigin>
             </CodeExpression>

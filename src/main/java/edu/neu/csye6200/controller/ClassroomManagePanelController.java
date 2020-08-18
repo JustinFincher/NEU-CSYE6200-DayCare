@@ -3,7 +3,7 @@ package edu.neu.csye6200.controller;
 import edu.neu.csye6200.helper.FileUtils;
 import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.model.*;
-import edu.neu.csye6200.view.ParentManagePanel;
+import edu.neu.csye6200.view.ClassroomManagePanel;
 import org.jdesktop.swingx.search.PatternMatcher;
 
 import javax.swing.*;
@@ -18,13 +18,13 @@ public class ClassroomManagePanelController {
     private TableRowSorter<DatabaseTableModel<Classroom, ClassroomDao>> tableRowSorter = new TableRowSorter<>(tableModel);
     private final JPopupMenu tableRightClickMenu = new JPopupMenu();
 
-    public ParentManagePanel getPanel() {
+    public ClassroomManagePanel getPanel() {
         return panel;
     }
-    private ParentManagePanel panel; // VIEW
+    private ClassroomManagePanel panel; // VIEW
 
     public ClassroomManagePanelController() {
-        panel = new ParentManagePanel();
+        panel = new ClassroomManagePanel();
         JMenuItem deleteItem = new JMenuItem("Delete");
         deleteItem.addActionListener(e -> {
             tableModel.delete(panel.table, panel.table.getSelectedRows());
@@ -68,7 +68,7 @@ public class ClassroomManagePanelController {
         panel.importTableButton.addActionListener(e -> {
 
         });
-        panel.addParentButton.addActionListener(e -> {
+        panel.addRuleButton.addActionListener(e -> {
             tableModel.addEmpty();
         });
         panel.refreshTableButton.addActionListener(e -> {
@@ -95,14 +95,14 @@ public class ClassroomManagePanelController {
         tableRowSorter = new TableRowSorter<>(tableModel);
         panel.table.setRowSorter(tableRowSorter);
 
-//        panel.exportTableButton.addActionListener(event -> {
-//            FileUtils.exportCSV(Classroom.class, ParentDao.class);
-//        });
-//
-//        panel.importTableButton.addActionListener(event -> {
-//            FileUtils.importCSV(Classroom.class, ParentDao.class);
-//            tableModel.refresh();
-//        });
+        panel.exportTableButton.addActionListener(event -> {
+            FileUtils.exportCSV(Classroom.class, ClassroomDao.class);
+        });
+
+        panel.importTableButton.addActionListener(event -> {
+            FileUtils.importCSV(Classroom.class, ClassroomDao.class);
+            tableModel.refresh();
+        });
     }
 
 }

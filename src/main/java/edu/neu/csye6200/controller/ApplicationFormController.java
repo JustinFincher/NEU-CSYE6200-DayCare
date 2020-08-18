@@ -47,6 +47,9 @@ public class ApplicationFormController
         form.manageRatioRuleAction.setListener(e -> {
             form.switchTo(new RatioRuleManagePanelController().getPanel());
         });
+        form.manageClassroomAction.setListener(e -> {
+            form.switchTo(new ClassroomManagePanelController().getPanel());
+        });
         form.showDatabaseMenuItem.addActionListener(e -> {
             File dbFile = DatabaseManager.getInstance().getFile();
             try {

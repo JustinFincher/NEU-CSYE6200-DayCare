@@ -56,14 +56,6 @@ public enum DatabaseManager {
 			connection = DriverManager.getConnection("jdbc:sqlite:"+path);
 			jdbi = Jdbi.create(connection).installPlugin(new SqlObjectPlugin()).installPlugin(new SQLitePlugin());
 			jdbi.getConfig(ReflectionMappers.class).setStrictMatching(false);
-			jdbi.onDemand(TeacherDao.class).createTable(Teacher.class);
-			if (jdbi.onDemand(TeacherDao.class).isTableEmpty(Teacher.class))
-			{
-				jdbi.onDemand(TeacherDao.class).insertRootUser();
-			}
-			jdbi.onDemand(StudentDao.class).createTable(Student.class);
-			jdbi.onDemand(ParentDao.class).createTable(Parent.class);
-			jdbi.onDemand(RatioRuleDao.class).createTable(RatioRule.class);
 			jdbi.setSqlLogger(new SqlLogger() {
 				@Override
 				public void logBeforeExecution(StatementContext context) {
@@ -74,6 +66,17 @@ public enum DatabaseManager {
 					Log.i(sb.toString());
 				}
 			});
+
+			jdbi.onDemand(TeacherDao.class).createTable(Teacher.class);
+			if (jdbi.onDemand(TeacherDao.class).isTableEmpty(Teacher.class))
+			{
+				jdbi.onDemand(TeacherDao.class).insertRootUser();
+			}
+			jdbi.onDemand(StudentDao.class).createTable(Student.class);
+			jdbi.onDemand(ParentDao.class).createTable(Parent.class);
+			jdbi.onDemand(RatioRuleDao.class).createTable(RatioRule.class);
+			jdbi.onDemand(ClassroomDao.class).createTable(Classroom.class);
+			jdbi.onDemand(ClassroomGroupDao.class).createTable(ClassroomGroup.class);
 		} catch (SQLException throwable) {
 			Log.e(throwable.getMessage());
 			throwable.printStackTrace();

@@ -35,6 +35,7 @@ public class ClassroomManagePanel extends javax.swing.JPanel {
         addRuleButton = new javax.swing.JButton();
         importTableButton = new javax.swing.JButton();
         exportTableButton = new javax.swing.JButton();
+        searchPanel = new org.jdesktop.swingx.JXSearchPanel();
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,6 +78,10 @@ public class ClassroomManagePanel extends javax.swing.JPanel {
         exportTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
         toolbarPanel.add(exportTableButton);
 
+        searchPanel.setMinimumSize(new java.awt.Dimension(485, 37));
+        searchPanel.setName(""); // NOI18N
+        toolbarPanel.add(searchPanel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,8 +90,8 @@ public class ClassroomManagePanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
+                    .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -97,7 +102,7 @@ public class ClassroomManagePanel extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(toolbarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -107,6 +112,7 @@ public class ClassroomManagePanel extends javax.swing.JPanel {
     public javax.swing.JButton exportTableButton;
     public javax.swing.JButton importTableButton;
     public javax.swing.JButton refreshTableButton;
+    public org.jdesktop.swingx.JXSearchPanel searchPanel;
     public javax.swing.JTable table;
     public javax.swing.JScrollPane tableScrollPane;
     private javax.swing.JLabel titleLabel;
