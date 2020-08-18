@@ -14,7 +14,7 @@ import java.util.Map;
  * @see <a href="https://www.notion.so/haotianzheng/Student-256835304927473cb082a6feabdb5d8e">Student Data On Notion</a>
  * @author Haotian Zheng
  */
-public class Student extends User implements CsvSerializable
+public class Student extends User
 {
     public LocalDateTime getWalkInTime() { return walkInTime == null ? LocalDateTime.now() : walkInTime; }
     public void setWalkInTime(LocalDateTime walkInTime) { this.walkInTime = walkInTime; }
@@ -26,11 +26,11 @@ public class Student extends User implements CsvSerializable
 
     @Override
     public void loadCsv(Map<String, String> map) {
-
+        super.loadCsv(map);
     }
 
     @Override
     public void saveCsv(Map<String, String> map) {
-
+        super.saveCsv(map);
     }
 }

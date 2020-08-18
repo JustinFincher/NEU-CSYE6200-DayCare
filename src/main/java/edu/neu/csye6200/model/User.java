@@ -3,6 +3,7 @@ package edu.neu.csye6200.model;
 import com.google.common.hash.Hashing;
 
 import java.nio.charset.Charset;
+import java.util.Map;
 
 public class User extends Person
 {
@@ -27,5 +28,17 @@ public class User extends Person
     public boolean isPasswordRight(String password)
     {
         return hashedPassword.equals(Hashing.sha256().hashString(password, Charset.defaultCharset()).toString());
+    }
+
+    @Override
+    public void saveCsv(Map<String, String> map) {
+        super.saveCsv(map);
+        map.put("user_name",getUserName());
+    }
+
+    @Override
+    public void loadCsv(Map<String, String> map) {
+        super.saveCsv(map);
+        setUserName(map.getOrDefault("user_name",""));
     }
 }

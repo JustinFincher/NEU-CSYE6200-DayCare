@@ -86,7 +86,11 @@ public class TeacherManagePanelController {
             Log.i(homePath);
             String home = System.getProperty("user.home");
             Path path = Paths.get(home,"Downloads", fileName);
+            File file = path.toFile();
             try {
+                if (file.exists()) {
+                    boolean delete = file.delete();
+                }
                 FileWriter writer = new FileWriter(path.toString());
                 writer.write(s);
                 writer.close();
@@ -99,7 +103,7 @@ public class TeacherManagePanelController {
 
         panel.importTableButton.addActionListener(event -> {
             JFileChooser jfc=new JFileChooser();
-            jfc.setFileFilter(new FileNameExtensionFilter("csv"));
+            jfc.setFileFilter(new FileNameExtensionFilter("CSV Files","csv"));
             jfc.setFileSelectionMode(JFileChooser.FILES_ONLY );
             jfc.showDialog(new JLabel(), "Select");
             File file=jfc.getSelectedFile();
@@ -114,6 +118,7 @@ public class TeacherManagePanelController {
                 }
             }
             JOptionPane.showMessageDialog(null, "Success");
+            tableModel.refresh();
         });
         panel.addStudentButton.addActionListener(e -> {
             tableModel.addEmpty();

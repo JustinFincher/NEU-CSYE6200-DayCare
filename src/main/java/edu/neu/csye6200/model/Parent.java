@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class Parent extends Person implements CsvSerializable
+public class Parent extends Person
 {
     public String getAddress() { return address == null ? "" : address; }
     public void setAddress(String address) { this.address = address; }
@@ -60,11 +60,11 @@ public class Parent extends Person implements CsvSerializable
 
     @Override
     public void saveCsv(Map<String, String> map) {
-
+        super.saveCsv(map);
     }
 
     @Override
     public void loadCsv(Map<String, String> map) {
-
+        super.loadCsv(map);
     }
 }

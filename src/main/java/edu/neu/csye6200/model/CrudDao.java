@@ -147,17 +147,13 @@ public interface CrudDao<T extends DBObject> extends SqlObject
             }
             try {
                 T obj = className.newInstance();
-                if (obj instanceof CsvSerializable)
-                {
-                    Method loadCsv = className.getMethod("loadCsv");
-                    Map<String, String> map = new HashMap<>();
-                    for (int i=0; i < keys.length; i++) {
-                        map.put(keys[i], values[i]);
-                    }
-                    loadCsv.invoke(obj, map);
+                Map<String, String> map = new HashMap<>();
+                for (int i=0; i < keys.length; i++) {
+                    map.put(keys[i], values[i]);
                 }
+                obj.loadCsv(map);
                 insert(obj, className);
-            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         });
@@ -165,31 +161,22 @@ public interface CrudDao<T extends DBObject> extends SqlObject
 
     default String exportCSV(Class<T> className)
     {
-        String keys = String.join(",", SQLUtils.getAllKeysInList(className, false));
+        List<String> keysList = SQLUtils.getAllKeysInList(className, false);
+        String keys = String.join(",", keysList);
         StringBuilder sb = new StringBuilder(keys).append("\n");
         Iterator<T> iterator = list(className).iterator();
         while (iterator.hasNext())
         {
             T obj = iterator.next();
-            try
+            Map<String, ?> strToObjMap = SQLUtils.getKeysAndValuesInMap(obj, false);
+            Map<String, String> strToStrMap = new HashMap<>();
+            strToObjMap.keySet().forEach(s -> strToStrMap.put(s, ""));
+            obj.saveCsv(strToStrMap);
+            String values = keysList.stream().map(strToStrMap::get).collect(Collectors.joining(","));
+            sb.append(values);
+            if (iterator.hasNext())
             {
-                if (obj instanceof CsvSerializable)
-                {
-                    Map<String, ?> strToObjMap = SQLUtils.getKeysAndValuesInMap(obj, false);
-                    Map<String, String> strToStrMap = new HashMap<>();
-                    strToObjMap.keySet().forEach(s -> strToStrMap.put(s,""));
-                    Method saveCsv = className.getMethod("saveCsv");
-                    saveCsv.invoke(obj, strToStrMap);
-                    String s = String.join(",", strToStrMap.keySet());
-                    sb.append(s);
-                    if (iterator.hasNext())
-                    {
-                        sb.append("\n");
-                    }
-                }
-            }catch (Exception e)
-            {
-                e.printStackTrace();
+                sb.append("\n");
             }
         }
         return sb.toString();

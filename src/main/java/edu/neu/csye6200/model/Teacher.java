@@ -2,7 +2,7 @@ package edu.neu.csye6200.model;
 
 import java.util.Map;
 
-public class Teacher extends User implements CsvSerializable
+public class Teacher extends User
 {
     public Integer getCredits() {
         return credits;
@@ -20,11 +20,13 @@ public class Teacher extends User implements CsvSerializable
 
     @Override
     public void saveCsv(Map<String, String> map) {
-
+        super.saveCsv(map);
+        map.put("email_address",getEmailAddress());
     }
 
     @Override
     public void loadCsv(Map<String, String> map) {
-
+        super.saveCsv(map);
+        setEmailAddress(map.getOrDefault("email_address",""));
     }
 }
