@@ -8,13 +8,24 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package edu.neu.csye6200.manager;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>public class AdminManager<a name="line.3"></a>
-<span class="sourceLineNo">004</span>{<a name="line.4"></a>
-<span class="sourceLineNo">005</span>        public boolean isLoggedIn()<a name="line.5"></a>
-<span class="sourceLineNo">006</span>        {<a name="line.6"></a>
-<span class="sourceLineNo">007</span>                return false;<a name="line.7"></a>
-<span class="sourceLineNo">008</span>        }<a name="line.8"></a>
-<span class="sourceLineNo">009</span>}<a name="line.9"></a>
+<span class="sourceLineNo">003</span>import edu.neu.csye6200.model.Teacher;<a name="line.3"></a>
+<span class="sourceLineNo">004</span><a name="line.4"></a>
+<span class="sourceLineNo">005</span>public enum AdminManager<a name="line.5"></a>
+<span class="sourceLineNo">006</span>{<a name="line.6"></a>
+<span class="sourceLineNo">007</span>        INSTANCE;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>        public static AdminManager getInstance()<a name="line.8"></a>
+<span class="sourceLineNo">009</span>        {<a name="line.9"></a>
+<span class="sourceLineNo">010</span>                return INSTANCE;<a name="line.10"></a>
+<span class="sourceLineNo">011</span>        }<a name="line.11"></a>
+<span class="sourceLineNo">012</span><a name="line.12"></a>
+<span class="sourceLineNo">013</span>        public boolean isLoggedIn() {<a name="line.13"></a>
+<span class="sourceLineNo">014</span>                return loggedInTeacher != null;<a name="line.14"></a>
+<span class="sourceLineNo">015</span>        }<a name="line.15"></a>
+<span class="sourceLineNo">016</span>        public void logOut() { setLoggedInTeacher(null); }<a name="line.16"></a>
+<span class="sourceLineNo">017</span>        public Teacher getLoggedInTeacher() { return loggedInTeacher; }<a name="line.17"></a>
+<span class="sourceLineNo">018</span>        public void setLoggedInTeacher(Teacher loggedInTeacher) { this.loggedInTeacher = loggedInTeacher; }<a name="line.18"></a>
+<span class="sourceLineNo">019</span>        private Teacher loggedInTeacher;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>}<a name="line.20"></a>
 
 
 

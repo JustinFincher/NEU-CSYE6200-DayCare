@@ -1,16 +1,22 @@
 package edu.neu.csye6200.controller;
 
+import edu.neu.csye6200.helper.FileUtils;
 import edu.neu.csye6200.helper.Log;
-import edu.neu.csye6200.model.DatabaseTableModel;
-import edu.neu.csye6200.model.Student;
-import edu.neu.csye6200.model.StudentDao;
+import edu.neu.csye6200.manager.DatabaseManager;
+import edu.neu.csye6200.model.*;
 import edu.neu.csye6200.view.StudentManagePanel;
 import org.jdesktop.swingx.search.PatternMatcher;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableRowSorter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.regex.Pattern;
 
 public class StudentManagePanelController
@@ -25,8 +31,17 @@ public class StudentManagePanelController
     public StudentManagePanelController() {
         panel = new StudentManagePanel();
         JMenuItem deleteItem = new JMenuItem("Delete");
+        JMenuItem editItem = new JMenuItem("Edit (WIP)");
         deleteItem.addActionListener(e -> {
             tableModel.delete(panel.table, panel.table.getSelectedRows());
+        });
+        editItem.addActionListener(e -> {
+            int[] rows = panel.table.getSelectedRows();
+            if (rows.length == 1)
+            {
+                Student student = tableModel.getRowAt(panel.table, rows[0]);
+                new StudentViewDialogController((JFrame) SwingUtilities.getRoot(panel), student).show();
+            }
         });
         panel.table.addMouseListener(new MouseAdapter() {
             @Override
@@ -47,6 +62,8 @@ public class StudentManagePanelController
                     int column = panel.table.columnAtPoint(e.getPoint());
                     tableRightClickMenu.removeAll();
                     if (row >= 0 && row < panel.table.getRowCount()) {
+                        tableRightClickMenu.add(editItem);
+                        tableRightClickMenu.add(new JSeparator());
                         tableRightClickMenu.add(deleteItem);
                         if (!panel.table.isRowSelected(row)) {
                             panel.table.changeSelection(row, column, false, false);
@@ -94,8 +111,14 @@ public class StudentManagePanelController
         });
         tableRowSorter = new TableRowSorter<>(tableModel);
         panel.table.setRowSorter(tableRowSorter);
-//        panel.table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
-//
-//        });
+
+        panel.exportTableButton.addActionListener(event -> {
+            FileUtils.exportCSV(Student.class, StudentDao.class);
+        });
+
+        panel.importTableButton.addActionListener(event -> {
+            FileUtils.importCSV(Student.class, StudentDao.class);
+            tableModel.refresh();
+        });
     }
 }

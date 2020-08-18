@@ -1,28 +1,41 @@
 package edu.neu.csye6200.model;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import edu.neu.csye6200.helper.annotation.JavaBeansIgnore;
+
+import java.time.*;
 import java.time.temporal.ChronoUnit;
+import java.util.Map;
 
 public class Person extends DBObject
 {
     public String getRealName() {
-        return realName;
+        return realName == null ? "" : realName;
     }
     public void setRealName(String realName) {
         this.realName = realName;
     }
-    public String getEmailAddress() { return emailAddress; }
-    public void setEmailAddress(String emailAddress) {
-       this.emailAddress = emailAddress;
-    }
     private String realName;
 
-    private String emailAddress;
-    
-    public LocalDate getBirthDay() { return birthDay; }
-    public void setBirthDay(LocalDate birthDay) { this.birthDay = birthDay; }
-    private LocalDate birthDay;
+    public LocalDateTime getBirthDay() { return birthDay == null ? LocalDateTime.now() : birthDay; }
+    public void setBirthDay(LocalDateTime birthDay) { this.birthDay = birthDay; }
+    private LocalDateTime birthDay;
 
-    public Integer getAge() {return Math.toIntExact(getBirthDay().until(LocalDateTime.now(), ChronoUnit.YEARS));}
+    @JavaBeansIgnore
+    public Integer getAgeInYear() {return Math.toIntExact(getBirthDay().until(LocalDateTime.now(), ChronoUnit.YEARS));}
+    @JavaBeansIgnore
+    public Integer getAgeInMonth() {return Math.toIntExact(getBirthDay().until(LocalDateTime.now(), ChronoUnit.MONTHS));}
+
+    @Override
+    public void saveCsv(Map<String, String> map) {
+        super.saveCsv(map);
+        map.put("real_name", getRealName());
+        map.put("birth_day", String.valueOf(getBirthDay().toEpochSecond(ZoneOffset.UTC)));
+    }
+
+    @Override
+    public void loadCsv(Map<String, String> map) {
+        super.loadCsv(map);
+        setRealName(map.getOrDefault("real_name", ""));
+        setBirthDay(Instant.ofEpochSecond(Long.parseLong(map.getOrDefault("birth_day","0"))).atZone(ZoneId.systemDefault()).toLocalDateTime());
+    }
 }

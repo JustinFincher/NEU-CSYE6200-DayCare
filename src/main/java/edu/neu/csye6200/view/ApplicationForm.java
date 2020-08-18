@@ -5,8 +5,6 @@
  */
 package edu.neu.csye6200.view;
 
-import edu.neu.csye6200.controller.StudentManagePanelController;
-
 import javax.swing.*;
 
 /**
@@ -16,12 +14,13 @@ import javax.swing.*;
 public class ApplicationForm extends javax.swing.JFrame {
 
     public TaskAction dashboardAction = new TaskAction("Glance", new ImageIcon(getClass().getResource("/icons/report-24.png")));
+    public TaskAction alertAction = new TaskAction("Alert", new ImageIcon(getClass().getResource("/icons/doorbell-24.png")));
     public TaskAction manageTeacherAction = new TaskAction("Teachers", new ImageIcon(getClass().getResource("/icons/teacher-24.png")));
     public TaskAction manageStudentAction = new TaskAction("Students", new ImageIcon(getClass().getResource("/icons/baby-24.png")));
     public TaskAction manageParentAction = new TaskAction("Parents", new ImageIcon(getClass().getResource("/icons/parent-24.png")));
     public TaskAction manageImmunizationAction = new TaskAction("Immunization", new ImageIcon(getClass().getResource("/icons/virus-24.png")));
     public TaskAction manageClassroomAction = new TaskAction("Classroom", new ImageIcon(getClass().getResource("/icons/classroom-24.png")));
-    public TaskAction manageAgeRatioRuleAction = new TaskAction("Ratio Rule", new ImageIcon(getClass().getResource("/icons/structure-24.png")));
+    public TaskAction manageRatioRuleAction = new TaskAction("Ratio Rule", new ImageIcon(getClass().getResource("/icons/structure-24.png")));
     /**
      * Creates new form ApplicationForm
      */
@@ -35,12 +34,13 @@ public class ApplicationForm extends javax.swing.JFrame {
 //            setIconImage(image);
 //        }
         dashboardTaskPane.add(dashboardAction);
+        dashboardTaskPane.add(alertAction);
         staffManageTaskPane.add(manageTeacherAction);
         staffManageTaskPane.add(manageStudentAction);
         staffManageTaskPane.add(manageParentAction);
         facilityManageTaskPane.add(manageClassroomAction);
         facilityManageTaskPane.add(manageImmunizationAction);
-        facilityManageTaskPane.add(manageAgeRatioRuleAction);
+        facilityManageTaskPane.add(manageRatioRuleAction);
         
         menuBar.add(Box.createHorizontalGlue(), menuBar.getComponents().length - 1);
     }
@@ -66,9 +66,9 @@ public class ApplicationForm extends javax.swing.JFrame {
         splitViewMenuScrollPanel = new javax.swing.JScrollPane();
         splitViewMenuTaskPaneContainer = new org.jdesktop.swingx.JXTaskPaneContainer();
         dashboardTaskPane = new org.jdesktop.swingx.JXTaskPane();
-        systemAdminTaskPane = new org.jdesktop.swingx.JXTaskPane();
         staffManageTaskPane = new org.jdesktop.swingx.JXTaskPane();
         facilityManageTaskPane = new org.jdesktop.swingx.JXTaskPane();
+        systemAdminTaskPane = new org.jdesktop.swingx.JXTaskPane();
         splitViewContentPanel = new javax.swing.JPanel();
         placeholderLabel = new javax.swing.JLabel();
         jXStatusBar1 = new org.jdesktop.swingx.JXStatusBar();
@@ -92,6 +92,8 @@ public class ApplicationForm extends javax.swing.JFrame {
         loadMockDataMenuItem = new javax.swing.JMenuItem();
         showDatabaseMenuItem = new javax.swing.JMenuItem();
         loginMenu = new javax.swing.JMenu();
+        loginMenuItem = new javax.swing.JMenuItem();
+        logoutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -111,10 +113,6 @@ public class ApplicationForm extends javax.swing.JFrame {
         dashboardTaskPane.setTitle("Dashboard");
         splitViewMenuTaskPaneContainer.add(dashboardTaskPane);
 
-        systemAdminTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/identity-24.png"))); // NOI18N
-        systemAdminTaskPane.setTitle("System Admin");
-        splitViewMenuTaskPaneContainer.add(systemAdminTaskPane);
-
         staffManageTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/group-24.png"))); // NOI18N
         staffManageTaskPane.setTitle("Staff Management");
         splitViewMenuTaskPaneContainer.add(staffManageTaskPane);
@@ -122,6 +120,10 @@ public class ApplicationForm extends javax.swing.JFrame {
         facilityManageTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/location-24.png"))); // NOI18N
         facilityManageTaskPane.setTitle("Facility Management");
         splitViewMenuTaskPaneContainer.add(facilityManageTaskPane);
+
+        systemAdminTaskPane.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/identity-24.png"))); // NOI18N
+        systemAdminTaskPane.setTitle("System Admin");
+        splitViewMenuTaskPaneContainer.add(systemAdminTaskPane);
 
         splitViewMenuScrollPanel.setViewportView(splitViewMenuTaskPaneContainer);
 
@@ -220,6 +222,15 @@ public class ApplicationForm extends javax.swing.JFrame {
         loginMenu.setMnemonic('h');
         loginMenu.setText("Login");
         loginMenu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        loginMenuItem.setMnemonic('t');
+        loginMenuItem.setText("Login");
+        loginMenu.add(loginMenuItem);
+
+        logoutMenuItem.setMnemonic('t');
+        logoutMenuItem.setText("Logout");
+        loginMenu.add(logoutMenuItem);
+
         menuBar.add(loginMenu);
 
         setJMenuBar(menuBar);
@@ -302,7 +313,9 @@ public class ApplicationForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private org.jdesktop.swingx.JXStatusBar jXStatusBar1;
     public javax.swing.JMenuItem loadMockDataMenuItem;
-    private javax.swing.JMenu loginMenu;
+    public javax.swing.JMenu loginMenu;
+    public javax.swing.JMenuItem loginMenuItem;
+    public javax.swing.JMenuItem logoutMenuItem;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;

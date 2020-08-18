@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>package edu.neu.csye6200.helper.annotation;<a name="line.1"></a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span>import edu.neu.csye6200.helper.Log;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import org.jdbi.v3.core.statement.SqlLogger;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import org.jdbi.v3.core.statement.StatementContext;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import org.jdbi.v3.sqlobject.customizer.SqlStatementCustomizer;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import org.jdbi.v3.sqlobject.customizer.SqlStatementCustomizerFactory;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import org.jdbi.v3.sqlobject.customizer.SqlStatementCustomizingAnnotation;<a name="line.8"></a>
+<span class="sourceLineNo">009</span><a name="line.9"></a>
+<span class="sourceLineNo">010</span>import java.lang.annotation.*;<a name="line.10"></a>
+<span class="sourceLineNo">011</span><a name="line.11"></a>
+<span class="sourceLineNo">012</span>@Retention(RetentionPolicy.RUNTIME)<a name="line.12"></a>
+<span class="sourceLineNo">013</span>@Target(ElementType.TYPE)<a name="line.13"></a>
+<span class="sourceLineNo">014</span>@SqlStatementCustomizingAnnotation(SQLLoggingFactory.Factory.class)<a name="line.14"></a>
+<span class="sourceLineNo">015</span>public @interface SQLLoggingFactory {<a name="line.15"></a>
+<span class="sourceLineNo">016</span><a name="line.16"></a>
+<span class="sourceLineNo">017</span>    class Factory implements SqlStatementCustomizerFactory<a name="line.17"></a>
+<span class="sourceLineNo">018</span>    {<a name="line.18"></a>
+<span class="sourceLineNo">019</span>        @Override<a name="line.19"></a>
+<span class="sourceLineNo">020</span>        public SqlStatementCustomizer createForType(Annotation annotation, Class sqlObjectType) {<a name="line.20"></a>
+<span class="sourceLineNo">021</span>            SqlLogger sqlLogger = new SqlLogger() {<a name="line.21"></a>
+<span class="sourceLineNo">022</span>                @Override<a name="line.22"></a>
+<span class="sourceLineNo">023</span>                public void logBeforeExecution(StatementContext context) {<a name="line.23"></a>
+<span class="sourceLineNo">024</span>                    logSql(context);<a name="line.24"></a>
+<span class="sourceLineNo">025</span>                }<a name="line.25"></a>
+<span class="sourceLineNo">026</span>            };<a name="line.26"></a>
+<span class="sourceLineNo">027</span>            return statement -&gt; statement.setSqlLogger(sqlLogger);<a name="line.27"></a>
+<span class="sourceLineNo">028</span>        }<a name="line.28"></a>
+<span class="sourceLineNo">029</span><a name="line.29"></a>
+<span class="sourceLineNo">030</span>        private static void logSql(StatementContext context) {<a name="line.30"></a>
+<span class="sourceLineNo">031</span>            StringBuilder sb = new StringBuilder();<a name="line.31"></a>
+<span class="sourceLineNo">032</span>            sb.append("SQL:").append("\n");<a name="line.32"></a>
+<span class="sourceLineNo">033</span>            sb.append("\t").append("[PARSED] ").append(context.getRawSql()).append("\n");<a name="line.33"></a>
+<span class="sourceLineNo">034</span>            sb.append("\t").append("[RENDER] ").append(context.getRenderedSql()).append("\n");<a name="line.34"></a>
+<span class="sourceLineNo">035</span>            Log.i(sb.toString());<a name="line.35"></a>
+<span class="sourceLineNo">036</span>        }<a name="line.36"></a>
+<span class="sourceLineNo">037</span>    }<a name="line.37"></a>
+<span class="sourceLineNo">038</span>}<a name="line.38"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

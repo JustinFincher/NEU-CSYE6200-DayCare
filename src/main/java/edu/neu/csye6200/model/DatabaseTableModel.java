@@ -52,7 +52,7 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
     public void refresh()
     {
         columns = BeanUtils.getBeanProperties(modelClass);
-        objectList = DatabaseManager.getDB().onDemand(daoClass).list(SQLUtils.getTableName(modelClass));
+        objectList = DatabaseManager.getDB().onDemand(daoClass).list(modelClass);
         fireTableStructureChanged();
     }
 
@@ -60,7 +60,7 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
     {
         try {
             MODEL model = modelClass.newInstance();
-            DatabaseManager.getDB().onDemand(daoClass).insert(SQLUtils.getTableName(modelClass), SQLUtils.getKeysAndValues(model, false));
+            DatabaseManager.getDB().onDemand(daoClass).insert(model, modelClass);
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -75,9 +75,9 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
         refresh();
     }
 
-    public MODEL getRowAt(int row)
+    public MODEL getRowAt(JTable table, int row)
     {
-        return objectList.get(row);
+        return objectList.get(table.convertRowIndexToModel(row));
     }
 
     @Override
@@ -122,7 +122,12 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         MODEL model = objectList.get(rowIndex);
         PropertyDescriptor propertyDescriptor = columns.get(columnIndex);
-        DatabaseManager.getDB().onDemand(daoClass).update(SQLUtils.getTableName(modelClass), SQLUtils.getKeyValuePair(propertyDescriptor, aValue), model.getId());
+        try {
+            propertyDescriptor.getWriteMethod().invoke(model, aValue);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        DatabaseManager.getDB().onDemand(daoClass).update(model, modelClass);
         refresh();
     }
 }

@@ -1,36 +1,21 @@
 package edu.neu.csye6200.controller;
 
+import edu.neu.csye6200.helper.FileUtils;
 import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.model.DatabaseTableModel;
 import edu.neu.csye6200.model.Parent;
 import edu.neu.csye6200.model.ParentDao;
 import edu.neu.csye6200.view.ParentManagePanel;
-import edu.neu.csye6200.controller.ParentInsertController;
-import edu.neu.csye6200.view.ParentInsertDialog;
-import edu.neu.csye6200.view.StudentManagePanel;
+import org.jdesktop.swingx.search.PatternMatcher;
+
+import javax.swing.*;
+import javax.swing.table.TableRowSorter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.regex.Pattern;
 
-import javax.swing.*;
-import javax.swing.table.TableRowSorter;
-import org.jdesktop.swingx.search.PatternMatcher;
-
 public class ParentManagePanelController // CONTROLLER
 {
-  //  public ParentManagePanelController() {
-      //  panel = new ParentMangerPanel();
-   //     panel.table.setModel(tableModel);
-    //    tableModel.refresh();
-
-    //    panel.refreshButton.addActionListener(e -> {
-    //        tableModel.refresh();
-    //    });
-    //    panel.addButton.addActionListener(e -> {
-     //       tableModel.addEmpty();
-    //    });
-   // }
-
     private final DatabaseTableModel<Parent, ParentDao> tableModel = new DatabaseTableModel<>(Parent.class, ParentDao.class); // MODEL
     private TableRowSorter<DatabaseTableModel<Parent, ParentDao>> tableRowSorter = new TableRowSorter<>(tableModel);
     private final JPopupMenu tableRightClickMenu = new JPopupMenu();
@@ -40,10 +25,8 @@ public class ParentManagePanelController // CONTROLLER
     }
     private ParentManagePanel panel; // VIEW
     
-        
     public ParentManagePanelController() {
         panel = new ParentManagePanel();
-       // panel.pack();
         JMenuItem deleteItem = new JMenuItem("Delete");
         deleteItem.addActionListener(e -> {
             tableModel.delete(panel.table, panel.table.getSelectedRows());
@@ -93,20 +76,7 @@ public class ParentManagePanelController // CONTROLLER
         panel.refreshTableButton.addActionListener(e -> {
             tableModel.refresh();
         });
-        panel.insertTableButton.addActionListener(e ->{
-            JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(getPanel());
-            new ParentInsertController(topFrame).getDialog().setVisible(true);  
-        });
-        
-        
-        /*myButton.addActionListener(new ActionListener() {
-    public void actionPerformed(ActionEvent e) {
-       ThisGuiClass.this.setVisible(false);
-       newGUI.setVisible(true);
-    }
-});*/
-        
-        
+
         panel.searchPanel.addPatternMatcher(new PatternMatcher() {
             @Override
             public Pattern getPattern() {
@@ -126,14 +96,14 @@ public class ParentManagePanelController // CONTROLLER
         });
         tableRowSorter = new TableRowSorter<>(tableModel);
         panel.table.setRowSorter(tableRowSorter);
-//        panel.table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
-//
-//        });
+
+        panel.exportTableButton.addActionListener(event -> {
+            FileUtils.exportCSV(Parent.class, ParentDao.class);
+        });
+
+        panel.importTableButton.addActionListener(event -> {
+            FileUtils.importCSV(Parent.class, ParentDao.class);
+            tableModel.refresh();
+        });
     }
-        
-    //public void show()
-	//{
-	//	controller.show();
-	//}
-    
 }

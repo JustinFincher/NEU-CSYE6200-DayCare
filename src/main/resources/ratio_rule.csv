@@ -1,0 +1,7 @@
+max_age_in_month,max_groups_per_room,max_student_per_teacher,min_age_in_month
+12,3,4,6
+24,3,5,13
+35,3,6,25
+47,3,8,36
+59,2,12,48
+99999999,2,15,60
