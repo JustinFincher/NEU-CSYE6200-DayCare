@@ -24,4 +24,8 @@ public class User extends Person
         setHashedPassword(Hashing.sha256().hashString(password, Charset.defaultCharset()).toString());
     }
     private String hashedPassword;
+    public boolean isPasswordRight(String password)
+    {
+        return hashedPassword.equals(Hashing.sha256().hashString(password, Charset.defaultCharset()).toString());
+    }
 }

@@ -60,7 +60,7 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
     {
         try {
             MODEL model = modelClass.newInstance();
-            DatabaseManager.getDB().onDemand(daoClass).insert(model);
+            DatabaseManager.getDB().onDemand(daoClass).insert(model, modelClass);
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -127,7 +127,7 @@ public class DatabaseTableModel<MODEL extends DBObject, DAO extends CrudDao<MODE
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
-        DatabaseManager.getDB().onDemand(daoClass).update(model);
+        DatabaseManager.getDB().onDemand(daoClass).update(model, modelClass);
         refresh();
     }
 }

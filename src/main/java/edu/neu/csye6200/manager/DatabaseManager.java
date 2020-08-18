@@ -61,10 +61,14 @@ public enum DatabaseManager {
 			connection = DriverManager.getConnection("jdbc:sqlite:"+path);
 			jdbi = Jdbi.create(connection).installPlugin(new SqlObjectPlugin()).installPlugin(new SQLitePlugin());
 			jdbi.getConfig(ReflectionMappers.class).setStrictMatching(false);
-			jdbi.onDemand(TeacherDao.class).createTable();
-			jdbi.onDemand(StudentDao.class).createTable(SQLUtils.getTableName(Student.class), SQLUtils.getAllKeysInString(Student.class));
-			jdbi.onDemand(ParentDao.class).createTable(SQLUtils.getTableName(Parent.class), SQLUtils.getAllKeysInString(Parent.class));
-			jdbi.onDemand(RatioRuleDao.class).createTable(SQLUtils.getTableName(RatioRule.class), SQLUtils.getAllKeysInString(RatioRule.class));
+			jdbi.onDemand(TeacherDao.class).createTable(Teacher.class);
+			if (jdbi.onDemand(TeacherDao.class).isTableEmpty(Teacher.class))
+			{
+				jdbi.onDemand(TeacherDao.class).insertRootUser();
+			}
+			jdbi.onDemand(StudentDao.class).createTable(Student.class);
+			jdbi.onDemand(ParentDao.class).createTable(Parent.class);
+			jdbi.onDemand(RatioRuleDao.class).createTable(RatioRule.class);
 			jdbi.setSqlLogger(new SqlLogger() {
 				@Override
 				public void logBeforeExecution(StatementContext context) {

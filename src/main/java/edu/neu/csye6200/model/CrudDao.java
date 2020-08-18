@@ -50,6 +50,13 @@ public interface CrudDao<T extends DBObject> extends SqlObject
      */
     @SqlUpdate("CREATE TABLE IF NOT EXISTS <tableName> (<sql>)")
     void createTable(@Define("tableName") String tableName, @Define("sql") String sql);
+    default void createTable(Class<T> className)
+    {
+        getHandle().createUpdate("CREATE TABLE IF NOT EXISTS <tableName> (<sql>)")
+                .define("tableName", SQLUtils.getTableName(className))
+                .define("sql", SQLUtils.getAllKeysInString(className))
+                .execute();
+    }
 
     /**
      * Insert an entry into the database
@@ -60,15 +67,21 @@ public interface CrudDao<T extends DBObject> extends SqlObject
     @SqlUpdate("INSERT INTO <tableName> <keysAndValues>")
     int insert(@Define("tableName") String tableName, @Define("keysAndValues") String keysAndValues);
 
-    default void insert(T object)
+    default void insert(T object, Class<T> className)
     {
-        String tableName = SQLUtils.getTableName(object.getClass());
+        String tableName = SQLUtils.getTableName(className);
         String bindings = SQLUtils.getKeysAndValueBindingsInCreateString(object, false);
         Map<String, ?> map = SQLUtils.getKeysAndValuesInMap(object);
-        getHandle().createUpdate("INSERT INTO <tableName> " + bindings)
-                .define("tableName", tableName)
-                .bindMap(map)
-                .execute();
+        try {
+            getHandle().createUpdate("INSERT INTO <tableName> " + bindings)
+                    .define("tableName", tableName)
+                    .bindMap(map)
+                    .execute();
+        }catch (Exception e)
+        {
+            Log.e(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @SqlQuery("SELECT * FROM <tableName> where id = ?")
@@ -95,12 +108,17 @@ public interface CrudDao<T extends DBObject> extends SqlObject
                 .list();
     }
 
+    default boolean isTableEmpty(Class<T> className)
+    {
+        return list(className).isEmpty();
+    }
+
     @SqlUpdate("UPDATE <tableName> SET <keyValuePairs> WHERE id = <id>")
     void update(@Define("tableName") String tableName, @Define("keyValuePairs") String keyValuePairs, @Define("id") Integer id);
 
-    default void update(T object)
+    default void update(T object, Class<T> className)
     {
-        String tableName = SQLUtils.getTableName(object.getClass());
+        String tableName = SQLUtils.getTableName(className);
         String bindings = SQLUtils.getKeysAndValueBindingsInUpdateString(object, false);
         Map<String, ?> map = SQLUtils.getKeysAndValuesInMap(object);
         String query = "UPDATE <tableName> SET " + bindings + " WHERE id = :id";

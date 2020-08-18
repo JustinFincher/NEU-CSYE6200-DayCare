@@ -10,6 +10,11 @@ public enum GUIManager {
 		return INSTANCE;
 	}
 
+	public ApplicationFormController getController() {
+		return controller;
+	}
+	private ApplicationFormController controller;
+
 	GUIManager()
 	{
 		if (System.getProperty("os.name", "").startsWith("Mac OS")) {
@@ -17,11 +22,11 @@ public enum GUIManager {
 			System.setProperty("apple.awt.textantialiasing", "true");
 		}
 		FlatIntelliJLaf.install();
+		controller = new ApplicationFormController();
 	}
 
-	public void start()
+	public void show()
 	{
-		new ApplicationFormController().getForm().setVisible(true);
-		//TODO: @QianCheng -> do a query for admin, and show login dialog if necessary
+		controller.show();
 	}
 }

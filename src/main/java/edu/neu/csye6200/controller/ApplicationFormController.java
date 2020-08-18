@@ -1,5 +1,6 @@
 package edu.neu.csye6200.controller;
 
+import edu.neu.csye6200.manager.AdminManager;
 import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.view.ApplicationForm;
 import edu.neu.csye6200.view.DashboardPanel;
@@ -32,7 +33,10 @@ public class ApplicationFormController
         form.dashboardAction.setListener(e -> {
             form.switchTo(new DashboardPanel());
         });
-        form.manageAgeRatioRuleAction.setListener(e -> {
+        form.manageTeacherAction.setListener(e -> {
+            form.switchTo(new TeacherManagePanelController().getPanel());
+        });
+        form.manageRatioRuleAction.setListener(e -> {
             form.switchTo(new RatioRuleManagePanelController().getPanel());
         });
         form.showDatabaseMenuItem.addActionListener(e -> {
@@ -60,5 +64,16 @@ public class ApplicationFormController
                 ioException.printStackTrace();
             }
         });
+    }
+
+    public void show()
+    {
+        if (!AdminManager.getInstance().isLoggedIn())
+        {
+            form.setVisible(false);
+            new LoginDialogController(this.form).show();
+        }else {
+            form.setVisible(true);
+        }
     }
 }
