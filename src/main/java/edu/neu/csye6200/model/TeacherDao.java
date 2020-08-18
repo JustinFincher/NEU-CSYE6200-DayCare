@@ -23,6 +23,9 @@ public interface TeacherDao extends CrudDao<Teacher> {
         insert(new Teacher(){{
             setUserName("root");
             setPassword("password");
+            setEmailAddress("admin@northeastern.edu");
+            setCredits(100);
+            setRealName("Dan Peters");
             setUserLevel(0);
         }}, Teacher.class);
     }

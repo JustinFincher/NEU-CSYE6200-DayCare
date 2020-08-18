@@ -18,18 +18,10 @@ public class LoginDialogController {
     {
         dialog = new LoginDialog(frame, true);
         dialog.loginButton.addActionListener(e -> {
-            String userName = dialog.userNameTextField.getText();
-            String password = new String(dialog.passwordTextField.getPassword());
-            if (dialog.isPasswordPresent() && dialog.isUserNamePresent())
-            {
-                Optional<Teacher> teacher = DatabaseManager.getDB().onDemand(TeacherDao.class).findByUserName(userName);
-                if (teacher.isPresent() && teacher.get().isPasswordRight(password))
-                {
-                    AdminManager.getInstance().setLoggedIn(true);
-                    dialog.dispose();
-                    GUIManager.getInstance().show();
-                }
-            }
+            login();
+        });
+        dialog.passwordTextField.addActionListener(e -> {
+            login();
         });
     }
 
@@ -39,5 +31,21 @@ public class LoginDialogController {
         dialog.setUndecorated(true);
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
+    }
+
+    private void login()
+    {
+        String userName = dialog.userNameTextField.getText();
+        String password = new String(dialog.passwordTextField.getPassword());
+        if (dialog.isPasswordPresent() && dialog.isUserNamePresent())
+        {
+            Optional<Teacher> teacher = DatabaseManager.getDB().onDemand(TeacherDao.class).findByUserName(userName);
+            if (teacher.isPresent() && teacher.get().isPasswordRight(password))
+            {
+                AdminManager.getInstance().setLoggedIn(true);
+                dialog.dispose();
+                GUIManager.getInstance().show();
+            }
+        }
     }
 }
