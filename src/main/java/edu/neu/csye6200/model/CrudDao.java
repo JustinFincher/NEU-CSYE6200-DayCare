@@ -1,6 +1,5 @@
 package edu.neu.csye6200.model;
 
-import edu.neu.csye6200.helper.BeanUtils;
 import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.helper.SQLUtils;
 import org.jdbi.v3.sqlobject.SqlObject;
@@ -9,11 +8,7 @@ import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
-import java.beans.PropertyDescriptor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.*;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**

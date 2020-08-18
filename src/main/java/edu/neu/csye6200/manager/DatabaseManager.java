@@ -1,11 +1,8 @@
 package edu.neu.csye6200.manager;
 
 import edu.neu.csye6200.helper.Log;
-import edu.neu.csye6200.helper.SQLUtils;
 import edu.neu.csye6200.model.*;
 import org.jdbi.v3.core.Jdbi;
-import org.jdbi.v3.core.array.SqlArrayType;
-import org.jdbi.v3.core.mapper.ColumnMapper;
 import org.jdbi.v3.core.mapper.reflect.ReflectionMappers;
 import org.jdbi.v3.core.statement.SqlLogger;
 import org.jdbi.v3.core.statement.StatementContext;
@@ -15,9 +12,7 @@ import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 public enum DatabaseManager {
 	INSTANCE;

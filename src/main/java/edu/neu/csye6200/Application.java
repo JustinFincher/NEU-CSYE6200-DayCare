@@ -1,5 +1,6 @@
 package edu.neu.csye6200;
 
+import edu.neu.csye6200.helper.FileUtils;
 import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.manager.DatabaseManager;
 import edu.neu.csye6200.manager.GUIManager;
@@ -25,6 +26,7 @@ public class Application {
 	 */
 	public static void main(String[] args)
 	{
+		Log.i(FileUtils.getPath());
 		Options options = new Options();
 		options.addOption(Option.builder("db").argName( "pathFile" ).hasArg().desc("The alternative path of the db file").build());
 		options.addOption(Option.builder("verbose").desc("Enable extensive logging").build());
@@ -39,7 +41,7 @@ public class Application {
 				return;
 			}
 			Log.verbose = cmd.hasOption("verbose");
-			DatabaseManager.getInstance().use(cmd.hasOption("db") ? cmd.getOptionValue("db") : Paths.get("","prod.sqlite3").toAbsolutePath().toString());
+			DatabaseManager.getInstance().use(cmd.hasOption("db") ? cmd.getOptionValue("db") : Paths.get(FileUtils.getPath(),"prod.sqlite3").toAbsolutePath().toString());
 			GUIManager.getInstance().show();
 		} catch (ParseException e) {
 			e.printStackTrace();

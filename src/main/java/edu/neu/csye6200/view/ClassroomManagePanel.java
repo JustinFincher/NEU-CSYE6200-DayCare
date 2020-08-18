@@ -50,7 +50,7 @@ public class ClassroomManagePanel extends javax.swing.JPanel {
         tableScrollPane.setViewportView(table);
 
         titleLabel.setFont(titleLabel.getFont().deriveFont(titleLabel.getFont().getStyle() | java.awt.Font.BOLD, titleLabel.getFont().getSize()+13));
-        titleLabel.setText("Ratio Rule");
+        titleLabel.setText("Classroom");
 
         toolbarPanel.setPreferredSize(new java.awt.Dimension(100, 38));
         java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEADING);
