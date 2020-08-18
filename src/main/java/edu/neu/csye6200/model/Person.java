@@ -12,8 +12,14 @@ public class Person extends DBObject
     public void setRealName(String realName) {
         this.realName = realName;
     }
+    public String getEmailAddress() { return emailAddress; }
+    public void setEmailAddress(String emailAddress) {
+       this.emailAddress = emailAddress;
+    }
     private String realName;
 
+    private String emailAddress;
+    
     public LocalDate getBirthDay() { return birthDay; }
     public void setBirthDay(LocalDate birthDay) { this.birthDay = birthDay; }
     private LocalDate birthDay;

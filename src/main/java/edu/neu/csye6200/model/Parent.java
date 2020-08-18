@@ -37,6 +37,7 @@ public class Parent extends Person implements CsvSerializable
                 ", age=" + getAge() +
                 ", id=" + getId() +
                 ", childName=" + childName +
+                ", emailAddress='" + getEmailAddress() + '\'' +
                 '}';
     }
 }

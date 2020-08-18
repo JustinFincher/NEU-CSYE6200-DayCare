@@ -40,7 +40,6 @@ public class Student extends User implements CsvSerializable
                 ", saveCsv='" + saveCsv() + '\'' +
                 ", userName='" + getUserName() + '\'' +
                 ", userLevel=" + getUserLevel() +
-                ", emailAddress='" + getEmailAddress() + '\'' +
                 ", hashedPassword='" + getHashedPassword() + '\'' +
                 ", realName='" + getRealName() + '\'' +
                 ", birthDay=" + getBirthDay() +

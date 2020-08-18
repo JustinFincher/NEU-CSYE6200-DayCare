@@ -22,11 +22,6 @@ public class User extends Person
     }
     private Integer userLevel;
 
-    public String getEmailAddress() { return emailAddress; }
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-    private String emailAddress;
 
     public String getHashedPassword() { return hashedPassword; }
     public void setHashedPassword(String hashedPassword) { this.hashedPassword = hashedPassword; }
