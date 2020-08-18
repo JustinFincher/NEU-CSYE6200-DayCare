@@ -31,8 +31,12 @@ public class StudentManagePanelController
     public StudentManagePanelController() {
         panel = new StudentManagePanel();
         JMenuItem deleteItem = new JMenuItem("Delete");
+        JMenuItem editItem = new JMenuItem("Edit (WIP)");
         deleteItem.addActionListener(e -> {
             tableModel.delete(panel.table, panel.table.getSelectedRows());
+        });
+        editItem.addActionListener(e -> {
+
         });
         panel.table.addMouseListener(new MouseAdapter() {
             @Override
@@ -53,6 +57,8 @@ public class StudentManagePanelController
                     int column = panel.table.columnAtPoint(e.getPoint());
                     tableRightClickMenu.removeAll();
                     if (row >= 0 && row < panel.table.getRowCount()) {
+                        tableRightClickMenu.add(editItem);
+                        tableRightClickMenu.add(new JSeparator());
                         tableRightClickMenu.add(deleteItem);
                         if (!panel.table.isRowSelected(row)) {
                             panel.table.changeSelection(row, column, false, false);

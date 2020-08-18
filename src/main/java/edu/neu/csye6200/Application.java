@@ -26,7 +26,7 @@ public class Application {
 	 */
 	public static void main(String[] args)
 	{
-		Log.i(FileUtils.getPath());
+		System.setProperty("log4j.saveDirectory", FileUtils.getPath());
 		Options options = new Options();
 		options.addOption(Option.builder("db").argName( "pathFile" ).hasArg().desc("The alternative path of the db file").build());
 		options.addOption(Option.builder("verbose").desc("Enable extensive logging").build());
