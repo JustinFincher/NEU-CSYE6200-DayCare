@@ -18,22 +18,22 @@ public class LoginController
             if(!DatabaseManager.getDB().onDemand(User.class).getUserName().equalsIgnoreCase(panel.Id.getText())){
                 panel.Warnning.setText("*Incorrect Id or Password");
                 panel.Warnning.setForeground(Color.RED);
-                panel.Id.setText("*");
-                panel.Id.setForeground(Color.RED);
+                panel.Wrong_id.setText("*");
+                panel.Wrong_id.setForeground(Color.RED);
             }
             else if(!DatabaseManager.getDB().onDemand(User.class).getHashedPassword().equalsIgnoreCase(panel.Password.getText())){
                 panel.Warnning.setText("*Incorrect Id or Password");
                 panel.Warnning.setForeground(Color.RED);
-                panel.Password.setText("*");
-                panel.Password.setForeground(Color.RED);
+                panel.Wrong_password.setText("*");
+                panel.Wrong_password.setForeground(Color.RED);
             }
             else if(!DatabaseManager.getDB().onDemand(User.class).getUserName().equalsIgnoreCase(panel.Id.getText())||!DatabaseManager.getDB().onDemand(User.class).getHashedPassword().equalsIgnoreCase(panel.Password.getText())){
                 panel.Warnning.setText("*Incorrect Id or Password");
                 panel.Warnning.setForeground(Color.RED);
-                panel.Password.setText("*");
-                panel.Password.setForeground(Color.RED);
-                panel.Id.setText("*");
-                panel.Id.setForeground(Color.RED);
+                panel.Wrong_password.setText("*");
+                panel.Wrong_password.setForeground(Color.RED);
+                panel.Wrong_id.setText("*");
+                panel.Wrong_id.setForeground(Color.RED);
             }
             else{
                 panel.setVisible(false);
