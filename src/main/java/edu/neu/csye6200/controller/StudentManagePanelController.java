@@ -73,6 +73,7 @@ public class StudentManagePanelController
         panel.refreshTableButton.addActionListener(e -> {
             tableModel.refresh();
         });
+        
 
         panel.searchPanel.addPatternMatcher(new PatternMatcher() {
             @Override

@@ -5,6 +5,8 @@ import edu.neu.csye6200.model.DatabaseTableModel;
 import edu.neu.csye6200.model.Parent;
 import edu.neu.csye6200.model.ParentDao;
 import edu.neu.csye6200.view.ParentManagePanel;
+import edu.neu.csye6200.controller.ParentInsertController;
+import edu.neu.csye6200.view.ParentInsertDialog;
 import edu.neu.csye6200.view.StudentManagePanel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -38,8 +40,10 @@ public class ParentManagePanelController // CONTROLLER
     }
     private ParentManagePanel panel; // VIEW
     
+        
     public ParentManagePanelController() {
         panel = new ParentManagePanel();
+       // panel.pack();
         JMenuItem deleteItem = new JMenuItem("Delete");
         deleteItem.addActionListener(e -> {
             tableModel.delete(panel.table, panel.table.getSelectedRows());
@@ -89,7 +93,20 @@ public class ParentManagePanelController // CONTROLLER
         panel.refreshTableButton.addActionListener(e -> {
             tableModel.refresh();
         });
-
+        panel.insertTableButton.addActionListener(e ->{
+            JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(getPanel());
+            new ParentInsertController(topFrame).getDialog().setVisible(true);  
+        });
+        
+        
+        /*myButton.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+       ThisGuiClass.this.setVisible(false);
+       newGUI.setVisible(true);
+    }
+});*/
+        
+        
         panel.searchPanel.addPatternMatcher(new PatternMatcher() {
             @Override
             public Pattern getPattern() {
@@ -114,5 +131,9 @@ public class ParentManagePanelController // CONTROLLER
 //        });
     }
         
+    //public void show()
+	//{
+	//	controller.show();
+	//}
     
 }

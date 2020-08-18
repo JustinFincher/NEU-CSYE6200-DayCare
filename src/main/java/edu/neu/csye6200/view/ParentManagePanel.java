@@ -35,6 +35,7 @@ public class ParentManagePanel extends javax.swing.JPanel {
         searchPanel = new org.jdesktop.swingx.JXSearchPanel();
         tableScrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        insertTableButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(850, 477));
 
@@ -73,6 +74,10 @@ public class ParentManagePanel extends javax.swing.JPanel {
         ));
         tableScrollPane.setViewportView(table);
 
+        insertTableButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/parent-24.png"))); // NOI18N
+        insertTableButton.setText("Insert");
+        insertTableButton.setMargin(new java.awt.Insets(0, 2, 0, 8));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,22 +85,23 @@ public class ParentManagePanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tableScrollPane)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(refreshTableButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addParentButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(importTableButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(exportTableButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(refreshTableButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addParentButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(importTableButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(exportTableButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(insertTableButton)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +114,8 @@ public class ParentManagePanel extends javax.swing.JPanel {
                         .addComponent(refreshTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(addParentButton)
                         .addComponent(importTableButton)
-                        .addComponent(exportTableButton))
+                        .addComponent(exportTableButton)
+                        .addComponent(insertTableButton))
                     .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(tableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
@@ -121,6 +128,7 @@ public class ParentManagePanel extends javax.swing.JPanel {
     public javax.swing.JButton addParentButton;
     public javax.swing.JButton exportTableButton;
     public javax.swing.JButton importTableButton;
+    public javax.swing.JButton insertTableButton;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JButton refreshTableButton;
     public org.jdesktop.swingx.JXSearchPanel searchPanel;
