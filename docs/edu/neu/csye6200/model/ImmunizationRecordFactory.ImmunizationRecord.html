@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -159,7 +159,9 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#ImmunizationRecord--">ImmunizationRecord</a></span>()</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#ImmunizationRecord--">ImmunizationRecord</a></span>()</code>
+<div class="block">Default constructor</div>
+</td>
 </tr>
 </table>
 </li>
@@ -177,18 +179,43 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#addNewDose-edu.neu.csye6200.model.Vaccine-edu.neu.csye6200.model.Dose-">addNewDose</a></span>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v,
-          <a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&nbsp;d)</code>&nbsp;</td>
+          <a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&nbsp;d)</code>
+<div class="block">Method to add new dose to an existing vaccination record</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#addNewVaccine-edu.neu.csye6200.model.Vaccine-java.util.List-">addNewVaccine</a></span>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v,
-             java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&gt;&nbsp;doses)</code>&nbsp;</td>
+             java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&gt;&nbsp;doses)</code>
+<div class="block">Method to add new vaccination to record</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#isComplete--">isComplete</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#checkDose-edu.neu.csye6200.model.Vaccine-">checkDose</a></span>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v)</code>
+<div class="block">Method to check one Dose</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#isComplete--">isComplete</a></span>()</code>
+<div class="block">Method to check if this record is complete</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#removeDose-edu.neu.csye6200.model.Vaccine-int-">removeDose</a></span>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v,
+          int&nbsp;n)</code>
+<div class="block">Method to remove an existing Dose</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#removeVaccine-edu.neu.csye6200.model.Vaccine-">removeVaccine</a></span>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v)</code>
+<div class="block">Method to remove immunization record of the given Vaccine</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -251,7 +278,8 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ImmunizationRecord</h4>
-<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.16">ImmunizationRecord</a>()</pre>
+<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.19">ImmunizationRecord</a>()</pre>
+<div class="block">Default constructor</div>
 </li>
 </ul>
 </li>
@@ -268,8 +296,14 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>addNewVaccine</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.21">addNewVaccine</a>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v,
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.30">addNewVaccine</a>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v,
                           java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&gt;&nbsp;doses)</pre>
+<div class="block">Method to add new vaccination to record</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>v</code> - The Vaccine to be added</dd>
+<dd><code>doses</code> - A List of all required doses</dd>
+</dl>
 </li>
 </ul>
 <a name="addNewDose-edu.neu.csye6200.model.Vaccine-edu.neu.csye6200.model.Dose-">
@@ -278,8 +312,67 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>addNewDose</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.25">addNewDose</a>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v,
-                       <a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&nbsp;d)</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.41">addNewDose</a>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v,
+                          <a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&nbsp;d)</pre>
+<div class="block">Method to add new dose to an existing vaccination record</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>v</code> - The Vaccine to add dose to</dd>
+<dd><code>d</code> - The Dose to be added</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>True if successfully added this Dose, otherwise false</dd>
+</dl>
+</li>
+</ul>
+<a name="removeVaccine-edu.neu.csye6200.model.Vaccine-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeVaccine</h4>
+<pre>public&nbsp;java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.51">removeVaccine</a>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v)</pre>
+<div class="block">Method to remove immunization record of the given Vaccine</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>v</code> - The Vaccine to be removed</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The List of Dose of this Vaccine</dd>
+</dl>
+</li>
+</ul>
+<a name="removeDose-edu.neu.csye6200.model.Vaccine-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeDose</h4>
+<pre>public&nbsp;<a href="../../../../edu/neu/csye6200/model/Dose.html" title="class in edu.neu.csye6200.model">Dose</a>&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.62">removeDose</a>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v,
+                       int&nbsp;n)</pre>
+<div class="block">Method to remove an existing Dose</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>v</code> - The Vaccine to remove Dose from</dd>
+<dd><code>n</code> - The index of the Dose to be removed</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The removed Dose</dd>
+</dl>
+</li>
+</ul>
+<a name="checkDose-edu.neu.csye6200.model.Vaccine-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>checkDose</h4>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.73">checkDose</a>(<a href="../../../../edu/neu/csye6200/model/Vaccine.html" title="class in edu.neu.csye6200.model">Vaccine</a>&nbsp;v)</pre>
+<div class="block">Method to check one Dose</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>v</code> - The Vaccine to check Dose of</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Return true if successfully check a Dose of the given Vaccine
+         v. If no available Dose to check, return false</dd>
+</dl>
 </li>
 </ul>
 <a name="isComplete--">
@@ -288,7 +381,12 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>isComplete</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.29">isComplete</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/ImmunizationRecordFactory.ImmunizationRecord.html#line.89">isComplete</a>()</pre>
+<div class="block">Method to check if this record is complete</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Return true if all Doses of all Vaccines are checked</dd>
+</dl>
 </li>
 </ul>
 </li>

@@ -167,6 +167,11 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
     java.time.LocalDate&nbsp;doseDate,
     java.time.LocalDate&nbsp;doseDeadline)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Dose.html#Dose-java.time.LocalDate-">Dose</a></span>(java.time.LocalDate&nbsp;doseDeadline)</code>
+<div class="block">Construct an unchecked Dose</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -270,15 +275,35 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
+<a name="Dose-java.time.LocalDate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>Dose</h4>
+<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.25">Dose</a>(java.time.LocalDate&nbsp;doseDeadline)</pre>
+<div class="block">Construct an unchecked Dose</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>doseDeadline</code> - The deadline of this Dose</dd>
+</dl>
+</li>
+</ul>
 <a name="Dose-boolean-java.time.LocalDate-java.time.LocalDate-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Dose</h4>
-<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.20">Dose</a>(boolean&nbsp;check,
+<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.35">Dose</a>(boolean&nbsp;check,
             java.time.LocalDate&nbsp;doseDate,
             java.time.LocalDate&nbsp;doseDeadline)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>check</code> - The status of this Dose, checked or unchecked</dd>
+<dd><code>doseDate</code> - The date this dose was given.</dd>
+<dd><code>doseDeadline</code> - The deadline of this Dose</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -295,7 +320,11 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>getCheck</h4>
-<pre>public&nbsp;boolean&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.26">getCheck</a>()</pre>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.45">getCheck</a>()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The status of this Dose</dd>
+</dl>
 </li>
 </ul>
 <a name="getDoseDate--">
@@ -304,7 +333,11 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>getDoseDate</h4>
-<pre>public&nbsp;java.time.LocalDate&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.30">getDoseDate</a>()</pre>
+<pre>public&nbsp;java.time.LocalDate&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.53">getDoseDate</a>()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The date this dose was given</dd>
+</dl>
 </li>
 </ul>
 <a name="getDoseDeadline--">
@@ -313,7 +346,11 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>getDoseDeadline</h4>
-<pre>public&nbsp;java.time.LocalDate&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.34">getDoseDeadline</a>()</pre>
+<pre>public&nbsp;java.time.LocalDate&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.61">getDoseDeadline</a>()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The deadline of this Dose</dd>
+</dl>
 </li>
 </ul>
 <a name="setCheck-boolean-">
@@ -322,7 +359,11 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>setCheck</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.38">setCheck</a>(boolean&nbsp;check)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.69">setCheck</a>(boolean&nbsp;check)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>check</code> - The status of this Dose</dd>
+</dl>
 </li>
 </ul>
 <a name="setDoseDate-java.time.LocalDate-">
@@ -331,7 +372,11 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockList">
 <li class="blockList">
 <h4>setDoseDate</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.42">setDoseDate</a>(java.time.LocalDate&nbsp;doseDate)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.77">setDoseDate</a>(java.time.LocalDate&nbsp;doseDate)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>doseDate</code> - </dd>
+</dl>
 </li>
 </ul>
 <a name="setDoseDeadline-java.time.LocalDate-">
@@ -340,7 +385,11 @@ extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>setDoseDeadline</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.46">setDoseDeadline</a>(java.time.LocalDate&nbsp;doseDeadline)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Dose.html#line.85">setDoseDeadline</a>(java.time.LocalDate&nbsp;doseDeadline)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>doseDeadline</code> - </dd>
+</dl>
 </li>
 </ul>
 </li>

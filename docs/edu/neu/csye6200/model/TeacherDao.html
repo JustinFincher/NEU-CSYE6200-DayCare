@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":18,"i1":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -97,9 +97,14 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>All Superinterfaces:</dt>
+<dd><a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="interface in edu.neu.csye6200.model">CrudDao</a>&lt;<a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a>&gt;, org.jdbi.v3.sqlobject.SqlObject</dd>
+</dl>
 <hr>
 <br>
-<pre>public interface <a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.12">TeacherDao</a></pre>
+<pre>public interface <a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.9">TeacherDao</a>
+extends <a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="interface in edu.neu.csye6200.model">CrudDao</a>&lt;<a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a>&gt;</pre>
 </li>
 </ul>
 </div>
@@ -113,42 +118,34 @@ var activeTableTab = "activeTableTab";
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/TeacherDao.html#createTable--">createTable</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>default java.util.Optional&lt;<a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/TeacherDao.html#findByUserName-java.lang.String-">findByUserName</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/TeacherDao.html#createTable-java.lang.String-">createTable</a></span>(java.lang.String&nbsp;sql)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/TeacherDao.html#findTeacher-java.lang.Integer-">findTeacher</a></span>(java.lang.Integer&nbsp;id)</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/TeacherDao.html#insertTeacher-java.lang.String-java.lang.String-">insertTeacher</a></span>(java.lang.String&nbsp;key,
-             java.lang.String&nbsp;value)</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/TeacherDao.html#insertTeacher-edu.neu.csye6200.model.Teacher-">insertTeacher</a></span>(<a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a>&nbsp;teacher)</code>&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/TeacherDao.html#listTeachers--">listTeachers</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/TeacherDao.html#updateTeacher-java.lang.String-java.lang.Integer-">updateTeacher</a></span>(java.lang.String&nbsp;keyValuePairs,
-             java.lang.Integer&nbsp;id)</code>&nbsp;</td>
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/TeacherDao.html#insertRootUser--">insertRootUser</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.edu.neu.csye6200.model.CrudDao">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;edu.neu.csye6200.model.<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="interface in edu.neu.csye6200.model">CrudDao</a></h3>
+<code><a href="../../../../edu/neu/csye6200/model/CrudDao.html#createTable-java.lang.Class-">createTable</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#createTable-java.lang.String-java.lang.String-">createTable</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#deleteById-java.lang.String-java.lang.Integer-">deleteById</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#find-java.lang.Class-java.lang.Integer-">find</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#findById-java.lang.String-java.lang.Integer-">findById</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#insert-java.lang.String-java.lang.String-">insert</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#insert-T-java.lang.Class-">insert</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#isTableEmpty-java.lang.Class-">isTableEmpty</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#list-java.lang.Class-">list</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#list-java.lang.String-">list</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#update-java.lang.String-java.lang.String-java.lang.Integer-">update</a>, <a href="../../../../edu/neu/csye6200/model/CrudDao.html#update-T-java.lang.Class-">update</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.jdbi.v3.sqlobject.SqlObject">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.jdbi.v3.sqlobject.SqlObject</h3>
+<code>getHandle, useHandle, withHandle</code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -163,69 +160,22 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="createTable--">
+<a name="findByUserName-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>createTable</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.15">createTable</a>()</pre>
+<h4>findByUserName</h4>
+<pre>default&nbsp;java.util.Optional&lt;<a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.11">findByUserName</a>(java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
-<a name="createTable-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>createTable</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.18">createTable</a>(java.lang.String&nbsp;sql)</pre>
-</li>
-</ul>
-<a name="listTeachers--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>listTeachers</h4>
-<pre>java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.22">listTeachers</a>()</pre>
-</li>
-</ul>
-<a name="findTeacher-java.lang.Integer-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>findTeacher</h4>
-<pre><a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a>&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.26">findTeacher</a>(java.lang.Integer&nbsp;id)</pre>
-</li>
-</ul>
-<a name="insertTeacher-edu.neu.csye6200.model.Teacher-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>insertTeacher</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.29">insertTeacher</a>(<a href="../../../../edu/neu/csye6200/model/Teacher.html" title="class in edu.neu.csye6200.model">Teacher</a>&nbsp;teacher)</pre>
-</li>
-</ul>
-<a name="insertTeacher-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>insertTeacher</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.32">insertTeacher</a>(java.lang.String&nbsp;key,
-                   java.lang.String&nbsp;value)</pre>
-</li>
-</ul>
-<a name="updateTeacher-java.lang.String-java.lang.Integer-">
+<a name="insertRootUser--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>updateTeacher</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.35">updateTeacher</a>(java.lang.String&nbsp;keyValuePairs,
-                   java.lang.Integer&nbsp;id)</pre>
+<h4>insertRootUser</h4>
+<pre>default&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/TeacherDao.html#line.21">insertRootUser</a>()</pre>
 </li>
 </ul>
 </li>
