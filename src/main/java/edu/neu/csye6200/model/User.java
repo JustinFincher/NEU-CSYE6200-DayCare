@@ -34,11 +34,13 @@ public class User extends Person
     public void saveCsv(Map<String, String> map) {
         super.saveCsv(map);
         map.put("user_name",getUserName());
+        map.put("hashed_password",getHashedPassword());
     }
 
     @Override
     public void loadCsv(Map<String, String> map) {
-        super.saveCsv(map);
+        super.loadCsv(map);
         setUserName(map.getOrDefault("user_name",""));
+        setHashedPassword(map.getOrDefault("hashed_password",null));
     }
 }

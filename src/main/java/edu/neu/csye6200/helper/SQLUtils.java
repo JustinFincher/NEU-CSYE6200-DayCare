@@ -15,6 +15,10 @@ import java.util.stream.Stream;
 
 public class SQLUtils
 {
+    public static String getKeyInString(String str)
+    {
+        return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, str);
+    }
     public static String getKeyInString(PropertyDescriptor descriptor)
     {
         return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, descriptor.getName());

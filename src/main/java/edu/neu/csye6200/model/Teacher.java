@@ -26,7 +26,7 @@ public class Teacher extends User
 
     @Override
     public void loadCsv(Map<String, String> map) {
-        super.saveCsv(map);
+        super.loadCsv(map);
         setEmailAddress(map.getOrDefault("email_address",""));
     }
 }

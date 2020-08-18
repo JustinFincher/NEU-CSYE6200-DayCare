@@ -1,10 +1,17 @@
 package edu.neu.csye6200.controller;
 
+import edu.neu.csye6200.helper.FileUtils;
 import edu.neu.csye6200.helper.Log;
 import edu.neu.csye6200.manager.DatabaseManager;
-import edu.neu.csye6200.model.*;
+import edu.neu.csye6200.model.DatabaseTableModel;
+import edu.neu.csye6200.model.Parent;
+import edu.neu.csye6200.model.ParentDao;
 import edu.neu.csye6200.view.ParentManagePanel;
-import edu.neu.csye6200.view.StudentManagePanel;
+import org.jdesktop.swingx.search.PatternMatcher;
+
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.TableRowSorter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -14,26 +21,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.regex.Pattern;
 
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.TableRowSorter;
-import org.jdesktop.swingx.search.PatternMatcher;
-
 public class ParentManagePanelController // CONTROLLER
 {
-  //  public ParentManagePanelController() {
-      //  panel = new ParentMangerPanel();
-   //     panel.table.setModel(tableModel);
-    //    tableModel.refresh();
-
-    //    panel.refreshButton.addActionListener(e -> {
-    //        tableModel.refresh();
-    //    });
-    //    panel.addButton.addActionListener(e -> {
-     //       tableModel.addEmpty();
-    //    });
-   // }
-
     private final DatabaseTableModel<Parent, ParentDao> tableModel = new DatabaseTableModel<>(Parent.class, ParentDao.class); // MODEL
     private TableRowSorter<DatabaseTableModel<Parent, ParentDao>> tableRowSorter = new TableRowSorter<>(tableModel);
     private final JPopupMenu tableRightClickMenu = new JPopupMenu();
@@ -116,42 +105,11 @@ public class ParentManagePanelController // CONTROLLER
         panel.table.setRowSorter(tableRowSorter);
 
         panel.exportTableButton.addActionListener(event -> {
-            String s = DatabaseManager.getDB().onDemand(ParentDao.class).exportCSV(Parent.class);
-            String fileName = "parent.csv";
-            String home = System.getProperty("user.home");
-            Path path = Paths.get(home,"Downloads", fileName);
-            File file = path.toFile();
-            try {
-                if (file.exists()) {
-                    boolean delete = file.delete();
-                }
-                FileWriter writer = new FileWriter(path.toString());
-                writer.write(s);
-                writer.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Failed due to " + e.getMessage());
-                e.printStackTrace();
-            }
-            JOptionPane.showMessageDialog(null, "Saved to " + path);
+            FileUtils.exportCSV(Parent.class, ParentDao.class);
         });
 
         panel.importTableButton.addActionListener(event -> {
-            JFileChooser jfc=new JFileChooser();
-            jfc.setFileFilter(new FileNameExtensionFilter("CSV Files","csv"));
-            jfc.setFileSelectionMode(JFileChooser.FILES_ONLY );
-            jfc.showDialog(new JLabel(), "Select");
-            File file=jfc.getSelectedFile();
-            if(file.isFile())
-            {
-                try {
-                    String s = new String(Files.readAllBytes(file.toPath()));
-                    DatabaseManager.getDB().onDemand(ParentDao.class).importCSV(s, Parent.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Failed due to " + e.getMessage());
-                }
-            }
-            JOptionPane.showMessageDialog(null, "Success");
+            FileUtils.importCSV(Parent.class, ParentDao.class);
             tableModel.refresh();
         });
     }
