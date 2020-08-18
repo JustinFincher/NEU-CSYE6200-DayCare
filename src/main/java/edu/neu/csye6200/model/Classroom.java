@@ -3,10 +3,7 @@ package edu.neu.csye6200.model;
 import edu.neu.csye6200.helper.annotation.JavaBeansIgnore;
 import edu.neu.csye6200.manager.DatabaseManager;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Classroom extends DBObject
@@ -14,7 +11,8 @@ public class Classroom extends DBObject
     @JavaBeansIgnore
     public List<ClassroomGroup> getGroups()
     {
-        return Arrays.stream(groupIds.split(","))
+        if (getGroupIds().isEmpty()) return new ArrayList<>();
+        return Arrays.stream(getGroupIds().split(","))
                 .map(Integer::parseInt)
                 .map(i -> DatabaseManager.getDB()
                         .onDemand(ClassroomGroupDao.class)
@@ -27,11 +25,11 @@ public class Classroom extends DBObject
     {
         groupIds = groups.stream().map(DBObject::getId).map(Object::toString).collect(Collectors.joining(","));
     }
-    public String getGroupIds() { return groupIds; }
+    public String getGroupIds() { return groupIds == null ? "" : groupIds; }
     public void setGroupIds(String groupIds) { this.groupIds = groupIds; }
     private String groupIds;
 
-    public String getRoomNumber() { return roomNumber; }
+    public String getRoomNumber() { return roomNumber == null ? "" : roomNumber; }
     public void setRoomNumber(String roomNumber) { this.roomNumber = roomNumber; }
     private String roomNumber;
 
