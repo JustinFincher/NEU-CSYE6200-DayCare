@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -121,7 +121,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public class <a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.4">Parent</a>
+<pre>public class <a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.15">Parent</a>
 extends <a href="../../../../edu/neu/csye6200/model/Person.html" title="class in edu.neu.csye6200.model">Person</a>
 implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" title="interface in edu.neu.csye6200.model">CsvSerializable</a></pre>
 </li>
@@ -148,10 +148,14 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>private java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#childName">childName</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#childrenIds">childrenIds</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>private java.lang.Integer</code></td>
+<td class="colFirst"><code>private java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#emailAddress">emailAddress</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>private java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#phoneNumber">phoneNumber</a></span></code>&nbsp;</td>
 </tr>
 </table>
@@ -191,36 +195,56 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#getAddress--">getAddress</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#getChildName--">getChildName</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Student.html" title="class in edu.neu.csye6200.model">Student</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#getChildren--">getChildren</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.Integer</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#getPhoneNumber--">getPhoneNumber</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#getChildrenIds--">getChildrenIds</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#loadCsv-java.lang.String-">loadCsv</a></span>(java.lang.String&nbsp;csvStr)</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#getEmailAddress--">getEmailAddress</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#saveCsv--">saveCsv</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#getPhoneNumber--">getPhoneNumber</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#setAddress-java.lang.String-">setAddress</a></span>(java.lang.String&nbsp;address)</code>&nbsp;</td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#hasChild-java.lang.Integer-">hasChild</a></span>(java.lang.Integer&nbsp;childId)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#setChildName-java.lang.String-">setChildName</a></span>(java.lang.String&nbsp;childName)</code>&nbsp;</td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#hasChild-edu.neu.csye6200.model.Student-">hasChild</a></span>(<a href="../../../../edu/neu/csye6200/model/Student.html" title="class in edu.neu.csye6200.model">Student</a>&nbsp;child)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#setPhoneNumber-java.lang.Integer-">setPhoneNumber</a></span>(java.lang.Integer&nbsp;phoneNumber)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#loadCsv-java.lang.String-">loadCsv</a></span>(java.lang.String&nbsp;csvStr)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#toString--">toString</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#saveCsv--">saveCsv</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#setAddress-java.lang.String-">setAddress</a></span>(java.lang.String&nbsp;address)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#setChildren-java.util.List-">setChildren</a></span>(java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Student.html" title="class in edu.neu.csye6200.model">Student</a>&gt;&nbsp;children)</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#setChildrenIds-java.lang.String-">setChildrenIds</a></span>(java.lang.String&nbsp;childrenIds)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#setEmailAddress-java.lang.String-">setEmailAddress</a></span>(java.lang.String&nbsp;emailAddress)</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/Parent.html#setPhoneNumber-java.lang.String-">setPhoneNumber</a></span>(java.lang.String&nbsp;phoneNumber)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -228,7 +252,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;edu.neu.csye6200.model.<a href="../../../../edu/neu/csye6200/model/Person.html" title="class in edu.neu.csye6200.model">Person</a></h3>
-<code><a href="../../../../edu/neu/csye6200/model/Person.html#getAge--">getAge</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#getBirthDay--">getBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#getRealName--">getRealName</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setBirthDay-java.time.LocalDate-">setBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setRealName-java.lang.String-">setRealName</a></code></li>
+<code><a href="../../../../edu/neu/csye6200/model/Person.html#getAgeInMonth--">getAgeInMonth</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#getAgeInYear--">getAgeInYear</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#getBirthDay--">getBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#getRealName--">getRealName</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setBirthDay-java.time.LocalDate-">setBirthDay</a>, <a href="../../../../edu/neu/csye6200/model/Person.html#setRealName-java.lang.String-">setRealName</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.edu.neu.csye6200.model.DBObject">
@@ -242,7 +266,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -264,7 +288,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>address</h4>
-<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.17">address</a></pre>
+<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.19">address</a></pre>
 </li>
 </ul>
 <a name="phoneNumber">
@@ -273,16 +297,25 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>phoneNumber</h4>
-<pre>private&nbsp;java.lang.Integer <a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.21">phoneNumber</a></pre>
+<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.23">phoneNumber</a></pre>
 </li>
 </ul>
-<a name="childName">
+<a name="emailAddress">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>emailAddress</h4>
+<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.29">emailAddress</a></pre>
+</li>
+</ul>
+<a name="childrenIds">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>childName</h4>
-<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.25">childName</a></pre>
+<h4>childrenIds</h4>
+<pre>private&nbsp;java.lang.String <a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.62">childrenIds</a></pre>
 </li>
 </ul>
 </li>
@@ -299,7 +332,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Parent</h4>
-<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.4">Parent</a>()</pre>
+<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.15">Parent</a>()</pre>
 </li>
 </ul>
 </li>
@@ -316,7 +349,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>getAddress</h4>
-<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.15">getAddress</a>()</pre>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.17">getAddress</a>()</pre>
 </li>
 </ul>
 <a name="setAddress-java.lang.String-">
@@ -325,7 +358,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>setAddress</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.16">setAddress</a>(java.lang.String&nbsp;address)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.18">setAddress</a>(java.lang.String&nbsp;address)</pre>
 </li>
 </ul>
 <a name="getPhoneNumber--">
@@ -334,34 +367,88 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>getPhoneNumber</h4>
-<pre>public&nbsp;java.lang.Integer&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.19">getPhoneNumber</a>()</pre>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.21">getPhoneNumber</a>()</pre>
 </li>
 </ul>
-<a name="setPhoneNumber-java.lang.Integer-">
+<a name="setPhoneNumber-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setPhoneNumber</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.20">setPhoneNumber</a>(java.lang.Integer&nbsp;phoneNumber)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.22">setPhoneNumber</a>(java.lang.String&nbsp;phoneNumber)</pre>
 </li>
 </ul>
-<a name="getChildName--">
+<a name="getEmailAddress--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getChildName</h4>
-<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.23">getChildName</a>()</pre>
+<h4>getEmailAddress</h4>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.25">getEmailAddress</a>()</pre>
 </li>
 </ul>
-<a name="setChildName-java.lang.String-">
+<a name="setEmailAddress-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setChildName</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.24">setChildName</a>(java.lang.String&nbsp;childName)</pre>
+<h4>setEmailAddress</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.26">setEmailAddress</a>(java.lang.String&nbsp;emailAddress)</pre>
+</li>
+</ul>
+<a name="getChildren--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getChildren</h4>
+<pre>public&nbsp;java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Student.html" title="class in edu.neu.csye6200.model">Student</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.32">getChildren</a>()</pre>
+</li>
+</ul>
+<a name="setChildren-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setChildren</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.44">setChildren</a>(java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/Student.html" title="class in edu.neu.csye6200.model">Student</a>&gt;&nbsp;children)</pre>
+</li>
+</ul>
+<a name="hasChild-edu.neu.csye6200.model.Student-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasChild</h4>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.48">hasChild</a>(<a href="../../../../edu/neu/csye6200/model/Student.html" title="class in edu.neu.csye6200.model">Student</a>&nbsp;child)</pre>
+</li>
+</ul>
+<a name="hasChild-java.lang.Integer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasChild</h4>
+<pre>public&nbsp;boolean&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.52">hasChild</a>(java.lang.Integer&nbsp;childId)</pre>
+</li>
+</ul>
+<a name="getChildrenIds--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getChildrenIds</h4>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.60">getChildrenIds</a>()</pre>
+</li>
+</ul>
+<a name="setChildrenIds-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setChildrenIds</h4>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.61">setChildrenIds</a>(java.lang.String&nbsp;childrenIds)</pre>
 </li>
 </ul>
 <a name="saveCsv--">
@@ -370,7 +457,7 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>saveCsv</h4>
-<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.28">saveCsv</a>()</pre>
+<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.65">saveCsv</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html#saveCsv--">saveCsv</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" title="interface in edu.neu.csye6200.model">CsvSerializable</a></code></dd>
@@ -380,26 +467,13 @@ implements <a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" tit
 <a name="loadCsv-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>loadCsv</h4>
-<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.33">loadCsv</a>(java.lang.String&nbsp;csvStr)</pre>
+<pre>public&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.70">loadCsv</a>(java.lang.String&nbsp;csvStr)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html#loadCsv-java.lang.String-">loadCsv</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../edu/neu/csye6200/model/CsvSerializable.html" title="interface in edu.neu.csye6200.model">CsvSerializable</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="toString--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/Parent.html#line.38">toString</a>()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 </dl>
 </li>
 </ul>

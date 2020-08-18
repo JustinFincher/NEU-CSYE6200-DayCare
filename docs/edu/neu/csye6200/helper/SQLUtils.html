@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public class <a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.10">SQLUtils</a>
+<pre>public class <a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.16">SQLUtils</a>
 extends java.lang.Object</pre>
 </li>
 </ul>
@@ -145,29 +145,51 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static java.util.List&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getAllKeysInList-java.lang.Class-">getAllKeysInList</a></span>(java.lang.Class&lt;? extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;cls)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getAllKeysInString-java.lang.Class-">getAllKeysInString</a></span>(java.lang.Class&lt;? extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;cls)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getKeyInString-java.beans.PropertyDescriptor-">getKeyInString</a></span>(java.beans.PropertyDescriptor&nbsp;descriptor)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static &lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;<br>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getKeysAndValueBindingsInCreateString-T-boolean-">getKeysAndValueBindingsInCreateString</a></span>(T&nbsp;obj,
+                                     boolean&nbsp;includeId)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static &lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;<br>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getKeysAndValueBindingsInUpdateString-T-boolean-">getKeysAndValueBindingsInUpdateString</a></span>(T&nbsp;obj,
+                                     boolean&nbsp;includeId)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static &lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;<br>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getKeysAndValues-T-boolean-">getKeysAndValues</a></span>(T&nbsp;obj,
                 boolean&nbsp;includeId)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static &lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;<br>java.util.Map&lt;java.lang.String,?&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getKeysAndValuesInMap-T-">getKeysAndValuesInMap</a></span>(T&nbsp;obj)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getKeyValuePair-java.beans.PropertyDescriptor-java.lang.Object-">getKeyValuePair</a></span>(java.beans.PropertyDescriptor&nbsp;propertyDescriptor,
                java.lang.Object&nbsp;newValue)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static &lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;<br>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getKeyValuePairs-T-boolean-">getKeyValuePairs</a></span>(T&nbsp;obj,
                 boolean&nbsp;includeId)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getProperties-java.lang.Class-">getProperties</a></span>(java.lang.Class&lt;? extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;cls)</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getTableName-java.lang.Class-">getTableName</a></span>(java.lang.Class&lt;? extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;cls)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/helper/SQLUtils.html#getType-java.lang.String-java.lang.Class-">getType</a></span>(java.lang.String&nbsp;name,
        java.lang.Class&lt;?&gt;&nbsp;cls)</code>
@@ -203,7 +225,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>SQLUtils</h4>
-<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.10">SQLUtils</a>()</pre>
+<pre>public&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.16">SQLUtils</a>()</pre>
 </li>
 </ul>
 </li>
@@ -214,13 +236,66 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getProperties-java.lang.Class-">
+<a name="getKeyInString-java.beans.PropertyDescriptor-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getProperties</h4>
-<pre>public static&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.12">getProperties</a>(java.lang.Class&lt;? extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;cls)</pre>
+<h4>getKeyInString</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.18">getKeyInString</a>(java.beans.PropertyDescriptor&nbsp;descriptor)</pre>
+</li>
+</ul>
+<a name="getAllKeysInString-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAllKeysInString</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.23">getAllKeysInString</a>(java.lang.Class&lt;? extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;cls)</pre>
+</li>
+</ul>
+<a name="getAllKeysInList-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAllKeysInList</h4>
+<pre>public static&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.43">getAllKeysInList</a>(java.lang.Class&lt;? extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;cls)</pre>
+</li>
+</ul>
+<a name="getKeysAndValuesInMap-edu.neu.csye6200.model.DBObject-">
+<!--   -->
+</a><a name="getKeysAndValuesInMap-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getKeysAndValuesInMap</h4>
+<pre>public static&nbsp;&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;java.util.Map&lt;java.lang.String,?&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.48">getKeysAndValuesInMap</a>(T&nbsp;obj)</pre>
+</li>
+</ul>
+<a name="getKeysAndValueBindingsInCreateString-edu.neu.csye6200.model.DBObject-boolean-">
+<!--   -->
+</a><a name="getKeysAndValueBindingsInCreateString-T-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getKeysAndValueBindingsInCreateString</h4>
+<pre>public static&nbsp;&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.60">getKeysAndValueBindingsInCreateString</a>(T&nbsp;obj,
+                                                                                          boolean&nbsp;includeId)</pre>
+</li>
+</ul>
+<a name="getKeysAndValueBindingsInUpdateString-edu.neu.csye6200.model.DBObject-boolean-">
+<!--   -->
+</a><a name="getKeysAndValueBindingsInUpdateString-T-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getKeysAndValueBindingsInUpdateString</h4>
+<pre>public static&nbsp;&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.86">getKeysAndValueBindingsInUpdateString</a>(T&nbsp;obj,
+                                                                                          boolean&nbsp;includeId)</pre>
 </li>
 </ul>
 <a name="getKeysAndValues-edu.neu.csye6200.model.DBObject-boolean-">
@@ -231,7 +306,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getKeysAndValues</h4>
-<pre>public static&nbsp;&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.33">getKeysAndValues</a>(T&nbsp;obj,
+<pre>public static&nbsp;&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.99">getKeysAndValues</a>(T&nbsp;obj,
                                                                      boolean&nbsp;includeId)</pre>
 </li>
 </ul>
@@ -243,7 +318,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getKeyValuePairs</h4>
-<pre>public static&nbsp;&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.65">getKeyValuePairs</a>(T&nbsp;obj,
+<pre>public static&nbsp;&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.131">getKeyValuePairs</a>(T&nbsp;obj,
                                                                      boolean&nbsp;includeId)</pre>
 </li>
 </ul>
@@ -253,7 +328,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getKeyValuePair</h4>
-<pre>public static&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.92">getKeyValuePair</a>(java.beans.PropertyDescriptor&nbsp;propertyDescriptor,
+<pre>public static&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.158">getKeyValuePair</a>(java.beans.PropertyDescriptor&nbsp;propertyDescriptor,
                                                java.lang.Object&nbsp;newValue)</pre>
 </li>
 </ul>
@@ -263,7 +338,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getTableName</h4>
-<pre>public static&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.103">getTableName</a>(java.lang.Class&lt;? extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;cls)</pre>
+<pre>public static&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.169">getTableName</a>(java.lang.Class&lt;? extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;&nbsp;cls)</pre>
 </li>
 </ul>
 <a name="getType-java.lang.String-java.lang.Class-">
@@ -272,7 +347,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getType</h4>
-<pre>public static&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.118">getType</a>(java.lang.String&nbsp;name,
+<pre>public static&nbsp;java.lang.String&nbsp;<a href="../../../../src-html/edu/neu/csye6200/helper/SQLUtils.html#line.184">getType</a>(java.lang.String&nbsp;name,
                                        java.lang.Class&lt;?&gt;&nbsp;cls)</pre>
 <div class="block">Get corresponding SQLite type from the Java type, with special prefix activated by the name<br>
  For example: <br>

@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":18,"i1":6,"i2":6,"i3":18,"i4":6,"i5":6,"i6":18,"i7":18,"i8":18,"i9":6,"i10":6,"i11":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -102,12 +102,17 @@ var activeTableTab = "activeTableTab";
 <dd><code>T</code> - A placeholder for the data model class later to be specified</dd>
 </dl>
 <dl>
+<dt>All Superinterfaces:</dt>
+<dd>org.jdbi.v3.sqlobject.SqlObject</dd>
+</dl>
+<dl>
 <dt>All Known Subinterfaces:</dt>
-<dd><a href="../../../../edu/neu/csye6200/model/ParentDao.html" title="interface in edu.neu.csye6200.model">ParentDao</a>, <a href="../../../../edu/neu/csye6200/model/RatioRuleDao.html" title="interface in edu.neu.csye6200.model">RatioRuleDao</a>, <a href="../../../../edu/neu/csye6200/model/StudentDao.html" title="interface in edu.neu.csye6200.model">StudentDao</a></dd>
+<dd><a href="../../../../edu/neu/csye6200/model/ParentDao.html" title="interface in edu.neu.csye6200.model">ParentDao</a>, <a href="../../../../edu/neu/csye6200/model/RatioRuleDao.html" title="interface in edu.neu.csye6200.model">RatioRuleDao</a>, <a href="../../../../edu/neu/csye6200/model/StudentDao.html" title="interface in edu.neu.csye6200.model">StudentDao</a>, <a href="../../../../edu/neu/csye6200/model/TeacherDao.html" title="interface in edu.neu.csye6200.model">TeacherDao</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public interface <a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.40">CrudDao</a>&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;</pre>
+<pre>public interface <a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.44">CrudDao</a>&lt;T extends <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model">DBObject</a>&gt;
+extends org.jdbi.v3.sqlobject.SqlObject</pre>
 <div class="block">CRUD DAO, a generic DAO class for all <a href="../../../../edu/neu/csye6200/model/DBObject.html" title="class in edu.neu.csye6200.model"><code>DBObject</code></a> subclass <br>
  How to use:<br>
  <pre>
@@ -146,46 +151,80 @@ var activeTableTab = "activeTableTab";
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#createTable-java.lang.Class-">createTable</a></span>(java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#createTable-java.lang.String-java.lang.String-">createTable</a></span>(java.lang.String&nbsp;tableName,
            java.lang.String&nbsp;sql)</code>
 <div class="block">Create a table in database if it does not exist</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#deleteById-java.lang.String-java.lang.Integer-">deleteById</a></span>(java.lang.String&nbsp;tableName,
           java.lang.Integer&nbsp;id)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#find-java.lang.Class-java.lang.Integer-">find</a></span>(java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className,
+    java.lang.Integer&nbsp;id)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#findById-java.lang.String-java.lang.Integer-">findById</a></span>(java.lang.String&nbsp;tableName,
         java.lang.Integer&nbsp;id)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#insert-java.lang.String-java.lang.String-">insert</a></span>(java.lang.String&nbsp;tableName,
       java.lang.String&nbsp;keysAndValues)</code>
 <div class="block">Insert an entry into the database</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#insert-T-java.lang.Class-">insert</a></span>(<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&nbsp;object,
+      java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#isTableEmpty-java.lang.Class-">isTableEmpty</a></span>(java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>default java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#list-java.lang.Class-">list</a></span>(java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#list-java.lang.String-">list</a></span>(java.lang.String&nbsp;tableName)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#update-java.lang.String-java.lang.String-java.lang.Integer-">update</a></span>(java.lang.String&nbsp;tableName,
       java.lang.String&nbsp;keyValuePairs,
       java.lang.Integer&nbsp;id)</code>&nbsp;</td>
 </tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../edu/neu/csye6200/model/CrudDao.html#update-T-java.lang.Class-">update</a></span>(<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&nbsp;object,
+      java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</code>&nbsp;</td>
+</tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.jdbi.v3.sqlobject.SqlObject">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.jdbi.v3.sqlobject.SqlObject</h3>
+<code>getHandle, useHandle, withHandle</code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -206,7 +245,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>createTable</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.48">createTable</a>(java.lang.String&nbsp;tableName,
+<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.52">createTable</a>(java.lang.String&nbsp;tableName,
                  java.lang.String&nbsp;sql)</pre>
 <div class="block">Create a table in database if it does not exist</div>
 <dl>
@@ -216,13 +255,22 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
+<a name="createTable-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createTable</h4>
+<pre>default&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.53">createTable</a>(java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</pre>
+</li>
+</ul>
 <a name="insert-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>insert</h4>
-<pre>int&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.57">insert</a>(java.lang.String&nbsp;tableName,
+<pre>int&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.68">insert</a>(java.lang.String&nbsp;tableName,
            java.lang.String&nbsp;keysAndValues)</pre>
 <div class="block">Insert an entry into the database</div>
 <dl>
@@ -232,14 +280,36 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
+<a name="insert-edu.neu.csye6200.model.DBObject-java.lang.Class-">
+<!--   -->
+</a><a name="insert-T-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>insert</h4>
+<pre>default&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.70">insert</a>(<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&nbsp;object,
+                    java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</pre>
+</li>
+</ul>
 <a name="findById-java.lang.String-java.lang.Integer-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>findById</h4>
-<pre>java.util.Optional&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.60">findById</a>(java.lang.String&nbsp;tableName,
+<pre>java.util.Optional&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.88">findById</a>(java.lang.String&nbsp;tableName,
                                java.lang.Integer&nbsp;id)</pre>
+</li>
+</ul>
+<a name="find-java.lang.Class-java.lang.Integer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>find</h4>
+<pre>default&nbsp;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.89">find</a>(java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className,
+               java.lang.Integer&nbsp;id)</pre>
 </li>
 </ul>
 <a name="list-java.lang.String-">
@@ -248,7 +318,25 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>list</h4>
-<pre>java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.63">list</a>(java.lang.String&nbsp;tableName)</pre>
+<pre>java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.100">list</a>(java.lang.String&nbsp;tableName)</pre>
+</li>
+</ul>
+<a name="list-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>list</h4>
+<pre>default&nbsp;java.util.List&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.102">list</a>(java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</pre>
+</li>
+</ul>
+<a name="isTableEmpty-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isTableEmpty</h4>
+<pre>default&nbsp;boolean&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.111">isTableEmpty</a>(java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</pre>
 </li>
 </ul>
 <a name="update-java.lang.String-java.lang.String-java.lang.Integer-">
@@ -257,9 +345,21 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>update</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.66">update</a>(java.lang.String&nbsp;tableName,
+<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.117">update</a>(java.lang.String&nbsp;tableName,
             java.lang.String&nbsp;keyValuePairs,
             java.lang.Integer&nbsp;id)</pre>
+</li>
+</ul>
+<a name="update-edu.neu.csye6200.model.DBObject-java.lang.Class-">
+<!--   -->
+</a><a name="update-T-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>update</h4>
+<pre>default&nbsp;void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.119">update</a>(<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&nbsp;object,
+                    java.lang.Class&lt;<a href="../../../../edu/neu/csye6200/model/CrudDao.html" title="type parameter in CrudDao">T</a>&gt;&nbsp;className)</pre>
 </li>
 </ul>
 <a name="deleteById-java.lang.String-java.lang.Integer-">
@@ -268,7 +368,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>deleteById</h4>
-<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.69">deleteById</a>(java.lang.String&nbsp;tableName,
+<pre>void&nbsp;<a href="../../../../src-html/edu/neu/csye6200/model/CrudDao.html#line.133">deleteById</a>(java.lang.String&nbsp;tableName,
                 java.lang.Integer&nbsp;id)</pre>
 </li>
 </ul>
